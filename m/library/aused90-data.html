@@ -1,0 +1,59 @@
+<div id=D__ID>
+    <div>
+        VmInclude:__CURRENT_PATH__/grid.01.hp.html
+        <!--Vm  Include:__COMPONENT__/g/grid.01.html-->
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/g/grid.01.js       
+            //-------------------------------------
+            if(m.prefix==undefined) m.prefix="";
+           //-------------------------------------
+           $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+            //-------------------------------------
+            var first_table="";
+            var last_table="";
+            m.load=function(){
+                var fields="File_Name";
+                var dyn_fields="";    
+                var nopart=18;
+                var count=nopart;
+                dyn_fields+="STDVC_F";
+                for(var i=0;i<count;i++){
+                    dyn_fields+=",STDEV_P"+(i+1)
+                }
+                dyn_fields+=",STDVM_F";
+                for(var i=0;i<count;i++){
+                    dyn_fields+=",STDVM_P"+(i+1)
+                }
+                dyn_fields+=",SPDEV_F";
+                for(var i=0;i<count;i++){
+                    dyn_fields+=",SPDEV_P"+(i+1)
+                }
+                dyn_fields+=",Number_RT,Mean_RT,Median_RT,StDev_RT,Lapses,Number_Crashes,Crashes_Off_Road,Crashes_Standing_Still,Crashes_Into_Truck"
+                dyn_fields+=",RT1,RT2,RT3,RT4,RT5,RT6,RT7,Version_No"
+                $vm.dyn_fields=dyn_fields;
+                m.fields="_Form,_Participant_ID|Participant_uid,Participant,"+fields+','+dyn_fields+",Submit_date,Submitted_by,_Delete";
+                //m.fields="_Form,"+fields+','+dyn_fields+",Submit_date,Submitted_by,_Delete";
+                //$vm.astn_current_project_record=m.input.record;
+                //m.I2=m.input.record.UID;
+                //$('#title__ID').text('Project: '+m.input.record.Data.project_name+' '); 
+                //m.query={I2:m.I2}
+            }
+            var cell_render=m.cell_render;
+            m.cell_render=function(records,I,field,td){
+                cell_render(records,I,field,td);
+                switch(field){
+                    case 'File_Name':
+                        m.set_file_link(records,I,field,td)
+                        break;
+                }
+            }
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/g/grid.01.css
+    </style>
+</div>

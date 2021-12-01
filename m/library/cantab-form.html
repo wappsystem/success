@@ -1,0 +1,101 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id=title__ID></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <!-- form group -->
+                            <div class="form-group">
+                                <h4>Pair Associated Learning test</h4>
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-6"><label><span class="">PALTEA</span><input type=number step=0.1 class=form-control name=paltea></label></div>
+                                            <div class="col-sm-6"><label><span class="">PALFAMS</span><input type=number step=0.1 class=form-control name=palfams></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Multitasking Test</h4>
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-2"><label><span class="">MTTTC</span><input type=number step=0.1 class=form-control name=mtttc></label></div>
+                                            <div class="col-sm-2"><label><span class="">MTTTIC</span><input type=number step=0.1 class=form-control name=mtttic></label></div>
+                                            <div class="col-sm-2"><label><span class="">MTTTOE</span><input type=number step=0.1 class=form-control name=mtttoe></label></div>
+                                            <div class="col-sm-2"><label><span class="">MTTTCE</span><input type=number step=0.1 class=form-control name=mtttce></label></div>
+                                            <div class="col-sm-2"><label><span class="">MTTLMD</span><input type=number step=0.1 class=form-control name=mttlmd></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Rapid Visual Processing Test</h4>
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">RVPA</span><input type=number step=0.1 class=form-control name=rvpa></label></div>
+                                            <div class="col-sm-3"><label><span class="">RVPPFA</span><input type=number step=0.1 class=form-control name=rvppfa></label></div>
+                                            <div class="col-sm-3"><label><span class="">RVPTH</span><input type=number step=0.1 class=form-control name=rvpth></label></div>
+                                            <div class="col-sm-3"><label><span class="">RVPMDL</span><input type=number step=0.1 class=form-control name=rvpmdl></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row px-4">
+                                <div class='col'>
+                                    <span>WatchPat Report</span>
+                                    <div class="form-control">
+                                        <u style='cursor:pointer' id=link_File_Name__ID></u>
+                                        <br>
+                                        <input type="file" name=File_Name style="margin-top:6px" /> &nbsp;&nbsp;&nbsp;
+                                        <button type="button" id=x_File_Name__ID>Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    VmInclude:__COMPONENT__/m/model.01.html
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: __CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 800px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>

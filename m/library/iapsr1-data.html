@@ -1,0 +1,30 @@
+<section>
+    VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/shared-data.js
+        //-------------------------------------
+        m.load=function(){
+            $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+        }
+        //-------------------------------------
+        var fields="all_TP_know,all_TP_rem,all_FP_know,all_FP_rem,all_TN,all_FN,neg_TP_know,neg_TP_rem,neg_FP_know,neg_FP_rem,neg_TN,neg_FN,pos_TP_know,pos_TP_rem,pos_FP_know,pos_FP_rem,pos_TN,pos_FN,neut_TP_know,neut_TP_rem,neut_FP_know,neut_FP_rem,neut_TN,neut_FN"
+        fields+=",id_1440_a,id_1440_p,id_1440_time,id_1440_recog,id_1590_a,id_1590_p,id_1590_time,id_1590_recog,id_1720_a,id_1720_p,id_1720_time,id_1720_recog,id_1721_a,id_1721_p,id_1721_time,id_1721_recog,id_1750_a,id_1750_p,id_1750_time,id_1750_recog,id_1810_a,id_1810_p,id_1810_time,id_1810_recog,id_1920_a,id_1920_p,id_1920_time,id_1920_recog,id_2040_a,id_2040_p,id_2040_time,id_2040_recog,id_2050_a,id_2050_p,id_2050_time,id_2050_recog,id_2053_a,id_2053_p,id_2053_time,id_2053_recog,id_2057_a,id_2057_p,id_2057_time,id_2057_recog";
+        fields+=",id_2091_a,id_2091_p,id_2091_time,id_2091_recog,id_2170_a,id_2170_p,id_2170_time,id_2170_recog,id_2190_a,id_2190_p,id_2190_time,id_2190_recog,id_2205_a,id_2205_p,id_2205_time,id_2205_recog,id_2276_a,id_2276_p,id_2276_time,id_2276_recog,id_2360_a,id_2360_p,id_2360_time,id_2360_recog,id_2381_a,id_2381_p,id_2381_time,id_2381_recog,id_2495_a,id_2495_p,id_2495_time,id_2495_recog,id_2510_a,id_2510_p,id_2510_time,id_2510_recog,id_2516_a,id_2516_p,id_2516_time,id_2516_recog";
+        fields+=",id_2650_a,id_2650_p,id_2650_time,id_2650_recog,id_2750_a,id_2750_p,id_2750_time,id_2750_recog,id_2800_a,id_2800_p,id_2800_time,id_2800_recog,id_2840_a,id_2840_p,id_2840_time,id_2840_recog,id_2850_a,id_2850_p,id_2850_time,id_2850_recog,id_2880_a,id_2880_p,id_2880_time,id_2880_recog,id_2890_a,id_2890_p,id_2890_time,id_2890_recog,id_2900_a,id_2900_p,id_2900_time,id_2900_recog,id_3220_a,id_3220_p,id_3220_time,id_3220_recog,id_3230_a,id_3230_p,id_3230_time,id_3230_recog";
+        fields+=",id_3300_a,id_3300_p,id_3300_time,id_3300_recog,id_3350_a,id_3350_p,id_3350_time,id_3350_recog,id_4610_a,id_4610_p,id_4610_time,id_4610_recog,id_4626_a,id_4626_p,id_4626_time,id_4626_recog,id_5470_a,id_5470_p,id_5470_time,id_5470_recog,id_5510_a,id_5510_p,id_5510_time,id_5510_recog,id_5910_a,id_5910_p,id_5910_time,id_5910_recog,id_6212_a,id_6212_p,id_6212_time,id_6212_recog,id_6570_a,id_6570_p,id_6570_time,id_6570_recog,id_7004_a,id_7004_p,id_7004_time,id_7004_recog";
+        fields+=",id_7010_a,id_7010_p,id_7010_time,id_7010_recog,id_7020_a,id_7020_p,id_7020_time,id_7020_recog,id_7050_a,id_7050_p,id_7050_time,id_7050_recog,id_7100_a,id_7100_p,id_7100_time,id_7100_recog,id_7175_a,id_7175_p,id_7175_time,id_7175_recog,id_7185_a,id_7185_p,id_7185_time,id_7185_recog,id_7217_a,id_7217_p,id_7217_time,id_7217_recog,id_7233_a,id_7233_p,id_7233_time,id_7233_recog,id_7235_a,id_7235_p,id_7235_time,id_7235_recog,id_7491_a,id_7491_p,id_7491_time,id_7491_recog";
+        fields+=",id_8090_a,id_8090_p,id_8090_time,id_8090_recog,id_9000_a,id_9000_p,id_9000_time,id_9000_recog,id_9006_a,id_9006_p,id_9006_time,id_9006_recog,id_9050_a,id_9050_p,id_9050_time,id_9050_recog,id_9180_a,id_9180_p,id_9180_time,id_9180_recog,id_9421_a,id_9421_p,id_9421_time,id_9421_recog,id_9560_a,id_9560_p,id_9560_time,id_9560_recog,id_9561_a,id_9561_p,id_9561_time,id_9561_recog,id_9910_a,id_9910_p,id_9910_time,id_9910_recog,id_1600_a,id_1600_p,id_1600_time,id_1600_recog";
+        fields+=",id_2038_a,id_2038_p,id_2038_time,id_2038_recog,id_2141_a,id_2141_p,id_2141_time,id_2141_recog,id_2165_a,id_2165_p,id_2165_time,id_2165_recog,id_2224_a,id_2224_p,id_2224_time,id_2224_recog,id_2280_a,id_2280_p,id_2280_time,id_2280_recog,id_2396_a,id_2396_p,id_2396_time,id_2396_recog,id_2397_a,id_2397_p,id_2397_time,id_2397_recog,id_2485_a,id_2485_p,id_2485_time,id_2485_recog,id_2500_a,id_2500_p,id_2500_time,id_2500_recog,id_2513_a,id_2513_p,id_2513_time,id_2513_recog";
+        fields+=",id_2530_a,id_2530_p,id_2530_time,id_2530_recog,id_2590_a,id_2590_p,id_2590_time,id_2590_recog,id_2660_a,id_2660_p,id_2660_time,id_2660_recog,id_2661_a,id_2661_p,id_2661_time,id_2661_recog,id_2703_a,id_2703_p,id_2703_time,id_2703_recog,id_3301_a,id_3301_p,id_3301_time,id_3301_recog,id_5480_a,id_5480_p,id_5480_time,id_5480_recog,id_6243_a,id_6243_p,id_6243_time,id_6243_recog,id_7038_a,id_7038_p,id_7038_time,id_7038_recog,id_7041_a,id_7041_p,id_7041_time,id_7041_recog";
+        fields+=",id_7053_a,id_7053_p,id_7053_time,id_7053_recog,id_7080_a,id_7080_p,id_7080_time,id_7080_recog,id_7500_a,id_7500_p,id_7500_time,id_7500_recog,id_8470_a,id_8470_p,id_8470_time,id_8470_recog,id_9160_a,id_9160_p,id_9160_time,id_9160_recog,id_9220_a,id_9220_p,id_9220_time,id_9220_recog,id_9331_a,id_9331_p,id_9331_time,id_9331_recog,id_9500_a,id_9500_p,id_9500_time,id_9500_recog,id_9911_a,id_9911_p,id_9911_time,id_9911_recog";
+        m.fields="_Form,_Lock,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

@@ -1,0 +1,174 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id="title__ID"></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Had blood test? </span></label><br>
+                                        <label class="radiobuttons">
+                                          <input type="radio" name="bloodtest" value="0" >
+                                          <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                          <input type="radio" name="bloodtest" value="1">
+                                          <span class="checkmark"></span> Yes</label>
+                                      </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Has the patient fasted overnight?</span></label><br>
+                                        <label class="radiobuttons">
+                                          <input type="radio" name="blood_fasting" value="0" >
+                                          <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                          <input type="radio" name="blood_fasting" value="1">
+                                          <span class="checkmark"></span> Yes</label>
+                                      </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Date of blood test:</span>
+                                            <input class="form-control" type="date" name="bloodtest_date">
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <!-- form group -->
+<!--                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">Glucose</span><input type=number step=0.1 class=form-control name=glucose></label></div>
+                                            <div class="col-sm-3"><label><span class="">HDL (md/dl)</span><input type=number step=0.1 class=form-control name=lipids_hdl></label></div>
+                                            <div class="col-sm-3"><label><span class="">LDL (md/dl)</span><input type=number step=0.1 class=form-control name=lipids_ldl></label></div>
+                                            <div class="col-sm-3"><label><span class="">Triglycerides (md/dl)</span><input type=number step=0.1 class=form-control name=lipids_triglycerides></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-4"><label><span class="">High-sensitivity C - reactive protein values (mg/L)</span><input type=number step=0.1 class=form-control name=creactive_protein></label></div>
+                                            <div class="col-sm-4"><label><span class="">Mean platelet values (mcL)</span><input type=number step=0.1 class=form-control name=mean_platelet></label></div>
+                                            <div class="col-sm-4"><label><span class="">Nfl blood levels (pg/ml)</span><input type=number step=0.1 class=form-control name=nfl></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-4"><label><span class="">GFAP (ng/ml)</span><input type=number step=0.1 class=form-control name=gfap></label></div>
+                                            <div class="col-sm-4"><label><span class="">p-tau-181 blood levels (ng/μL)</span><input type=number step=0.1 class=form-control name=p_tau_181></label></div>
+                                            <div class="col-sm-4"><label><span class="">p-tau-217 blood levels (pg/ml)</span><input type=number step=0.1 class=form-control name=p_tau_217></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-12"><label><span class="">ApoeE4 genotype status</span><input type=text  class=form-control name=apoe4_status></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+-->                            
+                            <div class="row px-4">
+                                <div class='col'>
+                                    <span>Blood test report</span>
+                                    <div class="form-control">
+                                        <u style='cursor:pointer' id=link_File_Name__ID></u>
+                                        <br>
+                                        <input type="file" name=File_Name style="margin-top:6px" /> &nbsp;&nbsp;&nbsp;
+                                        <button type="button" id=x_File_Name__ID>Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            <div class="form-group">
+                                <div class="pb-3">
+                                    <label><span>Set Status</span></label>
+                                    <fieldset class="">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FF0000">
+                                            <span class="checkmark"
+                                                style="background-color:#FF0000"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FFCC00">
+                                            <span class="checkmark"
+                                                style="background-color:#FFCC00"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#00FF00">
+                                            <span class="checkmark"
+                                                style="background-color:#00FF00"></span>Manually&nbsp;&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="" checked>
+                                            <span class="checkmark"
+                                                style="background-color:#C9C9C9"></span>Automatically</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    VmInclude:__COMPONENT__/m/model.01.html
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: __CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+            var load2 = m.load;
+            m.load = function () {
+                load2();
+                if ( $('[type="date"]').prop('type') != 'date' ) {
+                    $('[type="date"]').datepicker();
+                }
+            }
+        //-------------------------------------
+
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 800px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>

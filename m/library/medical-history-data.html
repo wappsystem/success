@@ -1,0 +1,56 @@
+<section>
+  VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/g/grid.01.js
+      VmInclude:__CURRENT_PATH__/shared-data.js
+      //-------------------------------------
+      $('#title__ID').text('Medical History')
+      //-------------------------------------
+      var fields="mh_a1,mh_a2_1,mh_a2_2,mh_a2_3,mh_a2_4,mh_a2_5,mh_a2_6,mh_a2_7,mh_a2_8,mh_a2_9,mh_b,mh_c1,mh_c2,mh_c3,mh_c4,mh_c5,mh_d1,mh_d2,mh_d3,mh_d4,mh_d5,mh_e,mh_f,mh_g1,mh_g2_1,mh_g2_2,mh_g2_3,mh_g2_4,mh_g3,mh_g4,mh_g5,mh_g6,mh_h1,mh_h2_1,mh_h2_2,mh_h3,mh_h4,mh_h5,mh_i,mh_j1,mh_j2_1,mh_j2_2,mh_j2_3,mh_j2_4,mh_k1,mh_k2_1,mh_k2_2,mh_k2_3,mh_k2_4,mh_k3,mh_k4,mh_k5,mh_l,mh_n1,mh_n2,mh_o,mh_p,mh_q1,mh_q2_1,mh_q2_2,mh_q2_3,mh_q2_4,mh_q2_5,mh_q3,mh_q4,mh_q5,mh_q6,mh_r,mh_s1,mh_s2,mh_s3,mh_s4,mh_s5,mh_t1,mh_t2,mh_t3,mh_u1,mh_u2,mh_u3";
+      m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+      //-------------------------------------
+        var cell_render = m.cell_render;
+        m.cell_render=function(records,I,field,td){
+            switch(field){
+                case 'mh_a2_1':
+                case 'mh_a2_2':
+                case 'mh_a2_3':
+                case 'mh_a2_4':
+                case 'mh_a2_5':
+                case 'mh_a2_6':
+                case 'mh_a2_7':
+                case 'mh_a2_8':
+                case 'mh_a2_9':
+                case 'mh_g2_1':
+                case 'mh_g2_2':
+                case 'mh_g2_3':
+                case 'mh_g2_4':
+                case 'mh_h2_1':
+                case 'mh_h2_2':
+                case 'mh_j2_1':
+                case 'mh_j2_2':
+                case 'mh_j2_3':
+                case 'mh_j2_4':
+                case 'mh_k2_1':
+                case 'mh_k2_2':
+                case 'mh_k2_3':
+                case 'mh_k2_4':
+                case 'mh_q2_1':
+                case 'mh_q2_2':
+                case 'mh_q2_3':
+                case 'mh_q2_4':
+                case 'mh_q2_5':
+                    if(records[I].Data[field]=="on") td.html("1");
+                    else td.html("0")
+                break;
+            }
+            return cell_render(records,I,field,td);
+        }
+    }
+</script>
+<style>
+  VmInclude:__COMPONENT__/g/grid.01.css
+</style>

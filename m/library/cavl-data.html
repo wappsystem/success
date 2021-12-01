@@ -1,0 +1,20 @@
+
+<section>
+    VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/shared-data.js
+        //-------------------------------------
+        $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name); //$('#title__ID').text('Anthropometry')
+        //-------------------------------------
+        var fields="calvt_1_w,calvt_1_z,calvt_2_w,calvt_2_z,calvt_3_w,calvt_3_z,calvt_4_w,calvt_4_z,calvt_5_w,calvt_5_z,calvt_sum_w,calvt_sum_z,calvt_sdfr_w,calvt_sdfr_z,calvt_sdc_pos_w,calvt_sdc_pos_z,calvt_sdc_neg_w,calvt_sdc_neg_z,calvt_sdc_neutral_w,calvt_sdc_neutral_z,calvt_ldfr_w,calvt_ldfr_z,calvt_ldc_pos_w,calvt_ldc_pos_z,calvt_ldc_neg_w,calvt_ldc_neg_z,calvt_ldc_neutral_w,calvt_ldc_neutral_z,calvt_reca_w,calvt_reca_z,calvt_fps_pos_w,calvt_fps_pos_z,calvt_fps_neg_w,calvt_fps_neg_z,calvt_fps_neutral_w,calvt_fps_neutral_z";
+        m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

@@ -1,0 +1,19 @@
+<section>
+  VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/g/grid.01.js
+      VmInclude:__CURRENT_PATH__/shared-data.js
+      //-------------------------------------
+      $('#title__ID').text('EQ-5D-5L instrument');
+      //-------------------------------------
+      var fields="AQoL_1,AQoL_2,AQoL_3,AQoL_4,AQoL_5,AQoL_6,AQoL_7,AQoL_8,AQoL_9,AQoL_10,AQoL_11,AQoL_12,AQoL_Independent_Living,AQoL_Relationships,AQoL_Senses,AQoL_Mental_Health,AQoL_Instrument_Score";
+      m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+      //-------------------------------------
+  }
+</script>
+<style>
+  VmInclude:__COMPONENT__/g/grid.01.css
+</style>

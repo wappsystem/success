@@ -1,0 +1,298 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id=title__ID></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <!-- form group -->
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Visit Date</span>
+                                            <input class="form-control" type="date" name="visit_date">
+                                        </label>
+                                        <label><span class="">Session Number</span>
+                                            <input class="form-control" type="number" name="session_number">
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Appointment type</span>
+                                            <select name="appointment_type" class=form-control>
+                                                <option></option>
+                                                <option>Face to face</option>
+                                                <option>Telehealth</option>
+                                            </select>
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Treatment response:</h4>
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Have you been using your OSA treatment?</span></label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="osa_treatment" value="0">
+                                            <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="osa_treatment" value="1">
+                                            <span class="checkmark"></span> Yes</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">How many nights a week?</span>
+                                            <input class="form-control" type="number" name="week_nights">
+                                        </label>
+                                        <label><span class="">For how many hours per night?</span>
+                                            <input class="form-control" type="number" step=0.1 name="night_hours">
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Have you notice any barriers or problems when using your
+                                                OSA treatment?</span></label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="problem_using" value="0">
+                                            <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="problem_using" value="1">
+                                            <span class="checkmark"></span> Yes</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label style='width:100%'><span class="">Please explain:</span>
+                                            <textarea class="form-control" name="explain_problem"></textarea>
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Has anything made it easier to use your OSA
+                                                treatment?</span></label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="easing_treatment" value="0">
+                                            <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="easing_treatment" value="1">
+                                            <span class="checkmark"></span> Yes</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label style='width:100%'><span class="">Please explain:</span>
+                                            <textarea class="form-control" name="explain_easing"></textarea>
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Need to change treatment modality?</span></label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="treatment_modality" value="0">
+                                            <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="treatment_modality" value="1">
+                                            <span class="checkmark"></span> Yes</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div id=modality__ID style='display:none'>
+                                <div class="form-group">
+                                    <div class="questiongroup">
+                                        <fieldset class="subquestions">
+                                            <label><span class="">New Treatment</span>
+                                                <select name="new_treatment" class=form-control>
+                                                    <option></option>
+                                                    <option>MAS</option>
+                                                    <option>Oxygen</option>
+                                                    <option>Positional Therapy</option>
+                                                </select>
+                                            </label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label style='width:100%'><span class="">Please explain why participant had
+                                                    to change treatment:</span>
+                                                <textarea class="form-control"
+                                                    name="explain_change_treatment"></textarea>
+                                            </label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>GOAL ATTAINMENT<br><br>GOAL CHECK IN SUMMARY</h4>
+                                <div class="questiongroup">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Goal 1: OSA treatment adherence (%)</span>
+                                            <select name="goal_1" class=form-control>
+                                                <option></option>
+                                                <option>0</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>75</option>
+                                                <option>100</option>
+                                            </select>
+                                        </label><br>
+                                        <label><span class="">Goal 2: (%)</span>
+                                            <select name="goal_2" class=form-control>
+                                                <option></option>
+                                                <option>0</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>75</option>
+                                                <option>100</option>
+                                                <option>N/A</option>
+                                            </select>
+                                        </label><br>
+                                        <label><span class="">Goal 3: (%)</span>
+                                            <select name="goal_3" class=form-control>
+                                                <option></option>
+                                                <option>0</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>75</option>
+                                                <option>100</option>
+                                                <option>N/A</option>
+                                            </select>
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Any barriers identified:</span></label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="barriers" value="0">
+                                            <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="barriers" value="1">
+                                            <span class="checkmark"></span> Yes</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label style='width:100%'><span class="">Record any relevant barriers
+                                                here:</span>
+                                            <textarea class="form-control" name="relevant_barriers"></textarea>
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                            <div class="form-group">
+                                <div class="pb-3">
+                                    <label><span>Set Status</span></label>
+                                    <fieldset class="">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FF0000">
+                                            <span class="checkmark"
+                                                style="background-color:#FF0000"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FFCC00">
+                                            <span class="checkmark"
+                                                style="background-color:#FFCC00"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#00FF00">
+                                            <span class="checkmark"
+                                                style="background-color:#00FF00"></span>Manually&nbsp;&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="" checked>
+                                            <span class="checkmark"
+                                                style="background-color:#C9C9C9"></span>Automatically</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: '__CURRENT_PATH__/shared-form.js'
+            //-------------------------------------
+            var load2 = m.load;
+            m.load = function () {
+                load2();
+                if ($('[type="date"]').prop('type') != 'date') {
+                    $('[type="date"]').datepicker();
+                }
+                if($("input[name='treatment_modality']:checked").val()=='1'){
+                    $('#modality__ID').show();
+                }
+                else {
+                    $('#modality__ID').hide();
+                }
+
+            }
+            //-------------------------------------
+            $("input[name='treatment_modality']").change(function(){
+                if($("input[name='treatment_modality']:checked").val()=='1'){
+                    $('#modality__ID').show();
+                }
+                else {
+                    $('#modality__ID').hide();
+                }
+            });
+            //-------------------------------------
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 600px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>

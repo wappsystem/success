@@ -1,0 +1,748 @@
+<div id=DI__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID" class="AffectiveSlider" >
+                            <h3 id=title__ID></h3><br>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group" style='text-align: left;'>
+                                    <fieldset class="subquestions" >
+                                        <label  ><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" required />
+                                        </label>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+							<div id=introduction__ID>
+								<div id=introduction_1__ID><h6>
+									This time you will be viewing images some of which you have seen before
+									and some which you have not seen. You will view each picture for 5
+									seconds and will indicate, by clicking the remember, know or no buttons
+									on the screen, if you have seen this image before in the initial image list. <br><br> 
+									Following this, you will have to rate the picture viewed on two scales;
+									happy versus unhappy and calm versus excited.<br><br>
+									This should last a maximum of 20 minutes.</h6><br>
+								</div>
+								<div id=introduction_2__ID ><h6>You will be presented with three options for every image- know, remember and no</h6>
+									<div style='text-align:left' >
+										<button type="button" class="btn btn-recog">&nbsp;&nbsp;&nbsp;&nbsp;Know&nbsp;&nbsp;&nbsp;&nbsp;</button><label>I am certain I have seen this image before</label><br>
+										<button type="button" class="btn btn-recog">Remember</button><label>This image is familiar to me, but I am not certain</label><br>
+										<button type="button" class="btn btn-recog">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button><label>I do not remember this image</label>
+									</div>
+								</div>
+								<br>
+								<button type=button id=intro__ID class='btn btn-info'>continue..</button><br>
+							</div>
+							<div id=start_page__ID><h6>
+								When you are ready to begin press Start</h6><br>
+								<button type=button id=start__ID class='btn btn-info'>Start</button><br>
+							</div>
+							<div id=images__ID style='display:none' >
+								<div>
+									<img id=img__ID width=1024 height=768 style='float:right' >
+									<h6>Have you seen this image before?</h6>
+									<button type="button" id="know__ID" class="btn btn-recog">&nbsp;&nbsp;&nbsp;&nbsp;Know&nbsp;&nbsp;&nbsp;&nbsp;</button><br>
+									<button type="button" id="remember__ID" class="btn btn-recog">Remember</button><br>
+									<button type="button" id="no__ID" class="btn btn-recog">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+								</div>
+							</div>
+							<div id=AS__ID>
+								<div id='AffectiveSlider__ID'>
+								</div>
+							</div>
+                            <!-- form group -->
+                            <button type="button" id="next__ID" class="btn btn-primary btn-lg">Next</button>
+                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:'__COMPONENT__/f/form.01.js'
+            VmInclude:__CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+			var image_number=90;
+			var II=0;
+			var aff_slider,arousal_part,leasure_part,top_part;
+			var out_array_id=[];
+			var out_array_a=[];
+			var out_array_p=[];
+			var out_array_time=[];
+			var out_array_recog=[];
+			var out_array_result=[];
+			var load2=m.load;
+			var intro_page=1;
+			var img_array=[
+				{src:'__CURRENT_PATH__/lstim/1440.jpg',time:5000,id_num:'1440',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/1590.jpg',time:5000,id_num:'1590',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/1720.jpg',time:5000,id_num:'1720',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/1721.jpg',time:5000,id_num:'1721',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/1750.jpg',time:5000,id_num:'1750',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/1810.jpg',time:5000,id_num:'1810',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/1920.jpg',time:5000,id_num:'1920',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2040.jpg',time:5000,id_num:'2040',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2050.jpg',time:5000,id_num:'2050',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2053.jpg',time:5000,id_num:'2053',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2057.jpg',time:5000,id_num:'2057',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2091.jpg',time:5000,id_num:'2091',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2170.jpg',time:5000,id_num:'2170',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2190.jpg',time:5000,id_num:'2190',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2205.jpg',time:5000,id_num:'2205',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2276.jpg',time:5000,id_num:'2276',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2360.jpg',time:5000,id_num:'2360',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2381.jpg',time:5000,id_num:'2381',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2495.jpg',time:5000,id_num:'2495',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2510.jpg',time:5000,id_num:'2510',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2516.jpg',time:5000,id_num:'2516',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2650.jpg',time:5000,id_num:'2650',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2750.jpg',time:5000,id_num:'2750',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2800.jpg',time:5000,id_num:'2800',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2840.jpg',time:5000,id_num:'2840',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2850.jpg',time:5000,id_num:'2850',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2880.jpg',time:5000,id_num:'2880',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2890.jpg',time:5000,id_num:'2890',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/2900.jpg',time:5000,id_num:'2900',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/3220.jpg',time:5000,id_num:'3220',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/3230.jpg',time:5000,id_num:'3230',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/3300.jpg',time:5000,id_num:'3300',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/3350.jpg',time:5000,id_num:'3350',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/4610.jpg',time:5000,id_num:'4610',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/4626.jpg',time:5000,id_num:'4626',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/5470.jpg',time:5000,id_num:'5470',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/5510.jpg',time:5000,id_num:'5510',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/5910.jpg',time:5000,id_num:'5910',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/6212.jpg',time:5000,id_num:'6212',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/6570.jpg',time:5000,id_num:'6570',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7004.jpg',time:5000,id_num:'7004',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7010.jpg',time:5000,id_num:'7010',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7020.jpg',time:5000,id_num:'7020',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7050.jpg',time:5000,id_num:'7050',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7100.jpg',time:5000,id_num:'7100',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7175.jpg',time:5000,id_num:'7175',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7185.jpg',time:5000,id_num:'7185',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7217.jpg',time:5000,id_num:'7217',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7233.jpg',time:5000,id_num:'7233',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7235.jpg',time:5000,id_num:'7235',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/7491.jpg',time:5000,id_num:'7491',val:'Neut',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/8090.jpg',time:5000,id_num:'8090',val:'Pos',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/9000.jpg',time:5000,id_num:'9000',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/9006.jpg',time:5000,id_num:'9006',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/9050.jpg',time:5000,id_num:'9050',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/9180.jpg',time:5000,id_num:'9180',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/9421.jpg',time:5000,id_num:'9421',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/9560.jpg',time:5000,id_num:'9560',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/9561.jpg',time:5000,id_num:'9561',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/lstim/9910.jpg',time:5000,id_num:'9910',val:'Neg',og:'TRUE'},
+				{src:'__CURRENT_PATH__/rlist1/1600.jpg',time:5000,id_num:'1600',val:'Pos',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2038.jpg',time:5000,id_num:'2038',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2141.jpg',time:5000,id_num:'2141',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2165.jpg',time:5000,id_num:'2165',val:'Pos',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2224.jpg',time:5000,id_num:'2224',val:'Pos',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2280.jpg',time:5000,id_num:'2280',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2396.jpg',time:5000,id_num:'2396',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2397.jpg',time:5000,id_num:'2397',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2485.jpg',time:5000,id_num:'2485',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2500.jpg',time:5000,id_num:'2500',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2513.jpg',time:5000,id_num:'2513',val:'Pos',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2530.jpg',time:5000,id_num:'2530',val:'Pos',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2590.jpg',time:5000,id_num:'2590',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2660.jpg',time:5000,id_num:'2660',val:'Pos',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2661.jpg',time:5000,id_num:'2661',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/2703.jpg',time:5000,id_num:'2703',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/3301.jpg',time:5000,id_num:'3301',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/5480.jpg',time:5000,id_num:'5480',val:'Pos',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/6243.jpg',time:5000,id_num:'6243',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/7038.jpg',time:5000,id_num:'7038',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/7041.jpg',time:5000,id_num:'7041',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/7053.jpg',time:5000,id_num:'7053',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/7080.jpg',time:5000,id_num:'7080',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/7500.jpg',time:5000,id_num:'7500',val:'Neut',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/8470.jpg',time:5000,id_num:'8470',val:'Pos',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/9160.jpg',time:5000,id_num:'9160',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/9220.jpg',time:5000,id_num:'9220',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/9331.jpg',time:5000,id_num:'9331',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/9500.jpg',time:5000,id_num:'9500',val:'Neg',og:'FALSE'},
+				{src:'__CURRENT_PATH__/rlist1/9911.jpg',time:5000,id_num:'9911',val:'Neg',og:'FALSE'}
+			]
+			//----------------------------------
+			var group1=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89];
+	        var group1_random=[];
+			var all=[];
+			var N=img_array.length;
+			//----------------------------------
+			m.load=function(){
+				load2();
+				intro_page=1;
+				II=0;
+				all=[];
+				group1_random=random_array(group1);
+				for(i=0;i<image_number;i++){
+					all.push(0+group1[i])
+				}
+				//----------------------------------
+				$("body").removeClass();
+                $("body").addClass('body_background_white');
+				$("#header").css("display","none");
+				$("#footer").css("display","none");
+				$("#start_page__ID").hide();
+				$('#AS__ID').hide();
+				$('#next__ID').hide();
+				$('#submit__ID').hide();
+				$('#introduction_1__ID').show()
+				$('#introduction__ID').show()
+				$('#introduction_2__ID').hide()
+
+				//$("#start_page__ID").show();
+				//$('#introduction_1__ID').hide()
+				//$('#introduction__ID').hide()
+            }
+		//----------------------------------
+		$('#intro__ID').on('click',function(){
+			if($('#Participant__ID').val()==undefined || $('#Participant__ID').val()==''){
+				$vm.alert('Please select a Participant')
+			}
+			else{
+				$('#participant_div__ID').hide();
+				$('#title__ID').hide();
+				$('#introduction_'+intro_page+'__ID').hide();
+				intro_page++;
+				if(intro_page==3){
+					$('#introduction__ID').hide();
+					$('#start_page__ID').show();
+				}
+				else{
+					$('#introduction_'+intro_page+'__ID').show();
+				}
+			}
+        })
+
+		//----------------------------------
+        var random_array=function(array){
+            var currentIndex=array.length, temporaryValue, randomIndex;
+            while (0 !== currentIndex) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+            return array;
+        }
+        //----------------------------------
+        $('#start__ID').on('click',function(){
+			$('#participant_div__ID').hide();
+			$('#title__ID').hide();
+			$('#start_page__ID').hide();
+			$("#img__ID").attr("src",img_array[all[II]].src);
+            set_img();
+        })
+		//--------------------------------------
+		var timeout;
+        var set_img=function(){
+			var r_I=all[II];
+			console.log(II+'---'+r_I+' - '+img_array[r_I].id_num);
+			timeout=setTimeout(hide_image, img_array[r_I].time);
+			out_array_time.push(timeNow());
+			$('#images__ID').show();
+        }
+		//--------------------------------------
+		var hide_image=function(){
+			$("#img__ID").attr("src","__CURRENT_PATH__/lstim/white.jpg");
+		}
+        $('#know__ID').on('click',function(){
+			out_array_recog.push('know')
+			clearTimeout(timeout);
+			get_response();
+		})
+        $('#remember__ID').on('click',function(){
+			out_array_recog.push('remember')
+			clearTimeout(timeout);
+			get_response();
+        })
+        $('#no__ID').on('click',function(){
+			out_array_recog.push('no')
+			clearTimeout(timeout);
+			get_response();
+        })
+        //----------------------------------
+        $('#sub__ID').on('click',function(){
+			console.log("Submit")
+			$('#submit__ID').click();
+        })
+		//--------------------------------------
+		var get_response=function(){
+			$('#images__ID').hide();
+			var r_I=all[II];
+			aff_slider = document.getElementById('AffectiveSlider__ID');
+			top_part="Please rate the picture using <b>BOTH the sliders</b>. <b>Don't think too much</b> about it, just <b>rate how you feel</b> when watching it.<button style='border:0;background-color:white' id=sub__ID>&nbsp;&nbsp;&nbsp;&nbsp;</button>"; 
+            arousal_part = '<hr>Move the slider to rate your level of arousal \n<div class="arousal"> \n<object class="arousal_svg" type="image/svg+xml" data="images/AS_sleepy.svg"></object> \n<input type="range" name="a_'+img_array[r_I].id_num+'" id="arousal_id" value=".5" min="0" max="1" step=".01" /> \n<object class="arousal_svg" type="image/svg+xml" data="images/AS_wideawake.svg"></object> \n<object class="intensity_cue_svg" type="image/svg+xml" data="images/AS_intensity_cue.svg"></object></div>';
+            pleasure_part = '<hr>Move the slider to rate your level of pleasure \n<div class="pleasure"> \n<object class="arousal_svg" type="image/svg+xml" data="images/AS_unhappy.svg"></object> \n<input type="range" name="p_'+img_array[r_I].id_num+'" id="pleasure_id" value=".5" min="0" max="1" step=".01" /> \n<object class="arousal_svg" type="image/svg+xml" data="images/AS_happy.svg"></object> \n<object class="intensity_cue_svg" type="image/svg+xml" data="images/AS_intensity_cue.svg"></object> \n</div>';
+            aff_slider.innerHTML = top_part+arousal_part+pleasure_part;
+			II++;
+			if(II<image_number) {
+				r_I=all[II];
+				$("#img__ID").attr("src",img_array[r_I].src);
+			}
+			$('#next__ID').show();
+			$('#AS__ID').show();
+		}
+		//--------------------------------------
+		$('#next__ID').on('click',function(){
+			$('#next__ID').hide();
+			var r_I=all[II-1];
+			var arousal= $("#DI__ID input[name='a_"+img_array[r_I].id_num+"']").val()
+			var pleasure= $("#DI__ID input[name='p_"+img_array[r_I].id_num+"']").val()
+			console.log('name: '+$("#DI__ID input[name='a_"+img_array[r_I].id_num+"']").val())
+			out_array_id.push(img_array[r_I].id_num);
+			out_array_a.push(arousal);
+			out_array_p.push(pleasure);
+			//console.log(JSON.stringify(out_array_id))
+			//console.log(out_array_id.length)
+            if(II==image_number){
+				$('#submit__ID').click();
+			}
+            else{
+				$('#AS__ID').hide();
+                set_img();
+            }
+        })
+		//--------------------------------------
+		m.before_submit=function(data,index){
+
+			//console.log(JSON.stringify(out_array_id))
+			data.id_1440_a=out_array_a[out_array_id.indexOf('1440')];data.id_1440_p=out_array_p[out_array_id.indexOf('1440')];data.id_1440_time=out_array_time[out_array_id.indexOf('1440')];data.id_1440_recog=out_array_recog[out_array_id.indexOf('1440')];
+			data.id_1590_a=out_array_a[out_array_id.indexOf('1590')];data.id_1590_p=out_array_p[out_array_id.indexOf('1590')];data.id_1590_time=out_array_time[out_array_id.indexOf('1590')];data.id_1590_recog=out_array_recog[out_array_id.indexOf('1590')];
+			data.id_1720_a=out_array_a[out_array_id.indexOf('1720')];data.id_1720_p=out_array_p[out_array_id.indexOf('1720')];data.id_1720_time=out_array_time[out_array_id.indexOf('1720')];data.id_1720_recog=out_array_recog[out_array_id.indexOf('1720')];
+			data.id_1721_a=out_array_a[out_array_id.indexOf('1721')];data.id_1721_p=out_array_p[out_array_id.indexOf('1721')];data.id_1721_time=out_array_time[out_array_id.indexOf('1721')];data.id_1721_recog=out_array_recog[out_array_id.indexOf('1721')];
+			data.id_1750_a=out_array_a[out_array_id.indexOf('1750')];data.id_1750_p=out_array_p[out_array_id.indexOf('1750')];data.id_1750_time=out_array_time[out_array_id.indexOf('1750')];data.id_1750_recog=out_array_recog[out_array_id.indexOf('1750')];
+			data.id_1810_a=out_array_a[out_array_id.indexOf('1810')];data.id_1810_p=out_array_p[out_array_id.indexOf('1810')];data.id_1810_time=out_array_time[out_array_id.indexOf('1810')];data.id_1810_recog=out_array_recog[out_array_id.indexOf('1810')];
+			data.id_1920_a=out_array_a[out_array_id.indexOf('1920')];data.id_1920_p=out_array_p[out_array_id.indexOf('1920')];data.id_1920_time=out_array_time[out_array_id.indexOf('1920')];data.id_1920_recog=out_array_recog[out_array_id.indexOf('1920')];
+			data.id_2040_a=out_array_a[out_array_id.indexOf('2040')];data.id_2040_p=out_array_p[out_array_id.indexOf('2040')];data.id_2040_time=out_array_time[out_array_id.indexOf('2040')];data.id_2040_recog=out_array_recog[out_array_id.indexOf('2040')];
+			data.id_2050_a=out_array_a[out_array_id.indexOf('2050')];data.id_2050_p=out_array_p[out_array_id.indexOf('2050')];data.id_2050_time=out_array_time[out_array_id.indexOf('2050')];data.id_2050_recog=out_array_recog[out_array_id.indexOf('2050')];
+			data.id_2053_a=out_array_a[out_array_id.indexOf('2053')];data.id_2053_p=out_array_p[out_array_id.indexOf('2053')];data.id_2053_time=out_array_time[out_array_id.indexOf('2053')];data.id_2053_recog=out_array_recog[out_array_id.indexOf('2053')];
+			data.id_2057_a=out_array_a[out_array_id.indexOf('2057')];data.id_2057_p=out_array_p[out_array_id.indexOf('2057')];data.id_2057_time=out_array_time[out_array_id.indexOf('2057')];data.id_2057_recog=out_array_recog[out_array_id.indexOf('2057')];
+			data.id_2091_a=out_array_a[out_array_id.indexOf('2091')];data.id_2091_p=out_array_p[out_array_id.indexOf('2091')];data.id_2091_time=out_array_time[out_array_id.indexOf('2091')];data.id_2091_recog=out_array_recog[out_array_id.indexOf('2091')];
+			data.id_2170_a=out_array_a[out_array_id.indexOf('2170')];data.id_2170_p=out_array_p[out_array_id.indexOf('2170')];data.id_2170_time=out_array_time[out_array_id.indexOf('2170')];data.id_2170_recog=out_array_recog[out_array_id.indexOf('2170')];
+			data.id_2190_a=out_array_a[out_array_id.indexOf('2190')];data.id_2190_p=out_array_p[out_array_id.indexOf('2190')];data.id_2190_time=out_array_time[out_array_id.indexOf('2190')];data.id_2190_recog=out_array_recog[out_array_id.indexOf('2190')];
+			data.id_2205_a=out_array_a[out_array_id.indexOf('2205')];data.id_2205_p=out_array_p[out_array_id.indexOf('2205')];data.id_2205_time=out_array_time[out_array_id.indexOf('2205')];data.id_2205_recog=out_array_recog[out_array_id.indexOf('2205')];
+			data.id_2276_a=out_array_a[out_array_id.indexOf('2276')];data.id_2276_p=out_array_p[out_array_id.indexOf('2276')];data.id_2276_time=out_array_time[out_array_id.indexOf('2276')];data.id_2276_recog=out_array_recog[out_array_id.indexOf('2276')];
+			data.id_2360_a=out_array_a[out_array_id.indexOf('2360')];data.id_2360_p=out_array_p[out_array_id.indexOf('2360')];data.id_2360_time=out_array_time[out_array_id.indexOf('2360')];data.id_2360_recog=out_array_recog[out_array_id.indexOf('2360')];
+			data.id_2381_a=out_array_a[out_array_id.indexOf('2381')];data.id_2381_p=out_array_p[out_array_id.indexOf('2381')];data.id_2381_time=out_array_time[out_array_id.indexOf('2381')];data.id_2381_recog=out_array_recog[out_array_id.indexOf('2381')];
+			data.id_2495_a=out_array_a[out_array_id.indexOf('2495')];data.id_2495_p=out_array_p[out_array_id.indexOf('2495')];data.id_2495_time=out_array_time[out_array_id.indexOf('2495')];data.id_2495_recog=out_array_recog[out_array_id.indexOf('2495')];
+			data.id_2510_a=out_array_a[out_array_id.indexOf('2510')];data.id_2510_p=out_array_p[out_array_id.indexOf('2510')];data.id_2510_time=out_array_time[out_array_id.indexOf('2510')];data.id_2510_recog=out_array_recog[out_array_id.indexOf('2510')];
+			data.id_2516_a=out_array_a[out_array_id.indexOf('2516')];data.id_2516_p=out_array_p[out_array_id.indexOf('2516')];data.id_2516_time=out_array_time[out_array_id.indexOf('2516')];data.id_2516_recog=out_array_recog[out_array_id.indexOf('2516')];
+			data.id_2650_a=out_array_a[out_array_id.indexOf('2650')];data.id_2650_p=out_array_p[out_array_id.indexOf('2650')];data.id_2650_time=out_array_time[out_array_id.indexOf('2650')];data.id_2650_recog=out_array_recog[out_array_id.indexOf('2650')];
+			data.id_2750_a=out_array_a[out_array_id.indexOf('2750')];data.id_2750_p=out_array_p[out_array_id.indexOf('2750')];data.id_2750_time=out_array_time[out_array_id.indexOf('2750')];data.id_2750_recog=out_array_recog[out_array_id.indexOf('2750')];
+			data.id_2800_a=out_array_a[out_array_id.indexOf('2800')];data.id_2800_p=out_array_p[out_array_id.indexOf('2800')];data.id_2800_time=out_array_time[out_array_id.indexOf('2800')];data.id_2800_recog=out_array_recog[out_array_id.indexOf('2800')];
+			data.id_2840_a=out_array_a[out_array_id.indexOf('2840')];data.id_2840_p=out_array_p[out_array_id.indexOf('2840')];data.id_2840_time=out_array_time[out_array_id.indexOf('2840')];data.id_2840_recog=out_array_recog[out_array_id.indexOf('2840')];
+			data.id_2850_a=out_array_a[out_array_id.indexOf('2850')];data.id_2850_p=out_array_p[out_array_id.indexOf('2850')];data.id_2850_time=out_array_time[out_array_id.indexOf('2850')];data.id_2850_recog=out_array_recog[out_array_id.indexOf('2850')];
+			data.id_2880_a=out_array_a[out_array_id.indexOf('2880')];data.id_2880_p=out_array_p[out_array_id.indexOf('2880')];data.id_2880_time=out_array_time[out_array_id.indexOf('2880')];data.id_2880_recog=out_array_recog[out_array_id.indexOf('2880')];
+			data.id_2890_a=out_array_a[out_array_id.indexOf('2890')];data.id_2890_p=out_array_p[out_array_id.indexOf('2890')];data.id_2890_time=out_array_time[out_array_id.indexOf('2890')];data.id_2890_recog=out_array_recog[out_array_id.indexOf('2890')];
+			data.id_2900_a=out_array_a[out_array_id.indexOf('2900')];data.id_2900_p=out_array_p[out_array_id.indexOf('2900')];data.id_2900_time=out_array_time[out_array_id.indexOf('2900')];data.id_2900_recog=out_array_recog[out_array_id.indexOf('2900')];
+			data.id_3220_a=out_array_a[out_array_id.indexOf('3220')];data.id_3220_p=out_array_p[out_array_id.indexOf('3220')];data.id_3220_time=out_array_time[out_array_id.indexOf('3220')];data.id_3220_recog=out_array_recog[out_array_id.indexOf('3220')];
+			data.id_3230_a=out_array_a[out_array_id.indexOf('3230')];data.id_3230_p=out_array_p[out_array_id.indexOf('3230')];data.id_3230_time=out_array_time[out_array_id.indexOf('3230')];data.id_3230_recog=out_array_recog[out_array_id.indexOf('3230')];
+			data.id_3300_a=out_array_a[out_array_id.indexOf('3300')];data.id_3300_p=out_array_p[out_array_id.indexOf('3300')];data.id_3300_time=out_array_time[out_array_id.indexOf('3300')];data.id_3300_recog=out_array_recog[out_array_id.indexOf('3300')];
+			data.id_3350_a=out_array_a[out_array_id.indexOf('3350')];data.id_3350_p=out_array_p[out_array_id.indexOf('3350')];data.id_3350_time=out_array_time[out_array_id.indexOf('3350')];data.id_3350_recog=out_array_recog[out_array_id.indexOf('3350')];
+			data.id_4610_a=out_array_a[out_array_id.indexOf('4610')];data.id_4610_p=out_array_p[out_array_id.indexOf('4610')];data.id_4610_time=out_array_time[out_array_id.indexOf('4610')];data.id_4610_recog=out_array_recog[out_array_id.indexOf('4610')];
+			data.id_4626_a=out_array_a[out_array_id.indexOf('4626')];data.id_4626_p=out_array_p[out_array_id.indexOf('4626')];data.id_4626_time=out_array_time[out_array_id.indexOf('4626')];data.id_4626_recog=out_array_recog[out_array_id.indexOf('4626')];
+			data.id_5470_a=out_array_a[out_array_id.indexOf('5470')];data.id_5470_p=out_array_p[out_array_id.indexOf('5470')];data.id_5470_time=out_array_time[out_array_id.indexOf('5470')];data.id_5470_recog=out_array_recog[out_array_id.indexOf('5470')];
+			data.id_5510_a=out_array_a[out_array_id.indexOf('5510')];data.id_5510_p=out_array_p[out_array_id.indexOf('5510')];data.id_5510_time=out_array_time[out_array_id.indexOf('5510')];data.id_5510_recog=out_array_recog[out_array_id.indexOf('5510')];
+			data.id_5910_a=out_array_a[out_array_id.indexOf('5910')];data.id_5910_p=out_array_p[out_array_id.indexOf('5910')];data.id_5910_time=out_array_time[out_array_id.indexOf('5910')];data.id_5910_recog=out_array_recog[out_array_id.indexOf('5910')];
+			data.id_6212_a=out_array_a[out_array_id.indexOf('6212')];data.id_6212_p=out_array_p[out_array_id.indexOf('6212')];data.id_6212_time=out_array_time[out_array_id.indexOf('6212')];data.id_6212_recog=out_array_recog[out_array_id.indexOf('6212')];
+			data.id_6570_a=out_array_a[out_array_id.indexOf('6570')];data.id_6570_p=out_array_p[out_array_id.indexOf('6570')];data.id_6570_time=out_array_time[out_array_id.indexOf('6570')];data.id_6570_recog=out_array_recog[out_array_id.indexOf('6570')];
+			data.id_7004_a=out_array_a[out_array_id.indexOf('7004')];data.id_7004_p=out_array_p[out_array_id.indexOf('7004')];data.id_7004_time=out_array_time[out_array_id.indexOf('7004')];data.id_7004_recog=out_array_recog[out_array_id.indexOf('7004')];
+			data.id_7010_a=out_array_a[out_array_id.indexOf('7010')];data.id_7010_p=out_array_p[out_array_id.indexOf('7010')];data.id_7010_time=out_array_time[out_array_id.indexOf('7010')];data.id_7010_recog=out_array_recog[out_array_id.indexOf('7010')];
+			data.id_7020_a=out_array_a[out_array_id.indexOf('7020')];data.id_7020_p=out_array_p[out_array_id.indexOf('7020')];data.id_7020_time=out_array_time[out_array_id.indexOf('7020')];data.id_7020_recog=out_array_recog[out_array_id.indexOf('7020')];
+			data.id_7050_a=out_array_a[out_array_id.indexOf('7050')];data.id_7050_p=out_array_p[out_array_id.indexOf('7050')];data.id_7050_time=out_array_time[out_array_id.indexOf('7050')];data.id_7050_recog=out_array_recog[out_array_id.indexOf('7050')];
+			data.id_7100_a=out_array_a[out_array_id.indexOf('7100')];data.id_7100_p=out_array_p[out_array_id.indexOf('7100')];data.id_7100_time=out_array_time[out_array_id.indexOf('7100')];data.id_7100_recog=out_array_recog[out_array_id.indexOf('7100')];
+			data.id_7175_a=out_array_a[out_array_id.indexOf('7175')];data.id_7175_p=out_array_p[out_array_id.indexOf('7175')];data.id_7175_time=out_array_time[out_array_id.indexOf('7175')];data.id_7175_recog=out_array_recog[out_array_id.indexOf('7175')];
+			data.id_7185_a=out_array_a[out_array_id.indexOf('7185')];data.id_7185_p=out_array_p[out_array_id.indexOf('7185')];data.id_7185_time=out_array_time[out_array_id.indexOf('7185')];data.id_7185_recog=out_array_recog[out_array_id.indexOf('7185')];
+			data.id_7217_a=out_array_a[out_array_id.indexOf('7217')];data.id_7217_p=out_array_p[out_array_id.indexOf('7217')];data.id_7217_time=out_array_time[out_array_id.indexOf('7217')];data.id_7217_recog=out_array_recog[out_array_id.indexOf('7217')];
+			data.id_7233_a=out_array_a[out_array_id.indexOf('7233')];data.id_7233_p=out_array_p[out_array_id.indexOf('7233')];data.id_7233_time=out_array_time[out_array_id.indexOf('7233')];data.id_7233_recog=out_array_recog[out_array_id.indexOf('7233')];
+			data.id_7235_a=out_array_a[out_array_id.indexOf('7235')];data.id_7235_p=out_array_p[out_array_id.indexOf('7235')];data.id_7235_time=out_array_time[out_array_id.indexOf('7235')];data.id_7235_recog=out_array_recog[out_array_id.indexOf('7235')];
+			data.id_7491_a=out_array_a[out_array_id.indexOf('7491')];data.id_7491_p=out_array_p[out_array_id.indexOf('7491')];data.id_7491_time=out_array_time[out_array_id.indexOf('7491')];data.id_7491_recog=out_array_recog[out_array_id.indexOf('7491')];
+			data.id_8090_a=out_array_a[out_array_id.indexOf('8090')];data.id_8090_p=out_array_p[out_array_id.indexOf('8090')];data.id_8090_time=out_array_time[out_array_id.indexOf('8090')];data.id_8090_recog=out_array_recog[out_array_id.indexOf('8090')];
+			data.id_9000_a=out_array_a[out_array_id.indexOf('9000')];data.id_9000_p=out_array_p[out_array_id.indexOf('9000')];data.id_9000_time=out_array_time[out_array_id.indexOf('9000')];data.id_9000_recog=out_array_recog[out_array_id.indexOf('9000')];
+			data.id_9006_a=out_array_a[out_array_id.indexOf('9006')];data.id_9006_p=out_array_p[out_array_id.indexOf('9006')];data.id_9006_time=out_array_time[out_array_id.indexOf('9006')];data.id_9006_recog=out_array_recog[out_array_id.indexOf('9006')];
+			data.id_9050_a=out_array_a[out_array_id.indexOf('9050')];data.id_9050_p=out_array_p[out_array_id.indexOf('9050')];data.id_9050_time=out_array_time[out_array_id.indexOf('9050')];data.id_9050_recog=out_array_recog[out_array_id.indexOf('9050')];
+			data.id_9180_a=out_array_a[out_array_id.indexOf('9180')];data.id_9180_p=out_array_p[out_array_id.indexOf('9180')];data.id_9180_time=out_array_time[out_array_id.indexOf('9180')];data.id_9180_recog=out_array_recog[out_array_id.indexOf('9180')];
+			data.id_9421_a=out_array_a[out_array_id.indexOf('9421')];data.id_9421_p=out_array_p[out_array_id.indexOf('9421')];data.id_9421_time=out_array_time[out_array_id.indexOf('9421')];data.id_9421_recog=out_array_recog[out_array_id.indexOf('9421')];
+			data.id_9560_a=out_array_a[out_array_id.indexOf('9560')];data.id_9560_p=out_array_p[out_array_id.indexOf('9560')];data.id_9560_time=out_array_time[out_array_id.indexOf('9560')];data.id_9560_recog=out_array_recog[out_array_id.indexOf('9560')];
+			data.id_9561_a=out_array_a[out_array_id.indexOf('9561')];data.id_9561_p=out_array_p[out_array_id.indexOf('9561')];data.id_9561_time=out_array_time[out_array_id.indexOf('9561')];data.id_9561_recog=out_array_recog[out_array_id.indexOf('9561')];
+			data.id_9910_a=out_array_a[out_array_id.indexOf('9910')];data.id_9910_p=out_array_p[out_array_id.indexOf('9910')];data.id_9910_time=out_array_time[out_array_id.indexOf('9910')];data.id_9910_recog=out_array_recog[out_array_id.indexOf('9910')];
+			data.id_1600_a=out_array_a[out_array_id.indexOf('1600')];data.id_1600_p=out_array_p[out_array_id.indexOf('1600')];data.id_1600_time=out_array_time[out_array_id.indexOf('1600')];data.id_1600_recog=out_array_recog[out_array_id.indexOf('1600')];
+			data.id_2038_a=out_array_a[out_array_id.indexOf('2038')];data.id_2038_p=out_array_p[out_array_id.indexOf('2038')];data.id_2038_time=out_array_time[out_array_id.indexOf('2038')];data.id_2038_recog=out_array_recog[out_array_id.indexOf('2038')];
+			data.id_2141_a=out_array_a[out_array_id.indexOf('2141')];data.id_2141_p=out_array_p[out_array_id.indexOf('2141')];data.id_2141_time=out_array_time[out_array_id.indexOf('2141')];data.id_2141_recog=out_array_recog[out_array_id.indexOf('2141')];
+			data.id_2165_a=out_array_a[out_array_id.indexOf('2165')];data.id_2165_p=out_array_p[out_array_id.indexOf('2165')];data.id_2165_time=out_array_time[out_array_id.indexOf('2165')];data.id_2165_recog=out_array_recog[out_array_id.indexOf('2165')];
+			data.id_2224_a=out_array_a[out_array_id.indexOf('2224')];data.id_2224_p=out_array_p[out_array_id.indexOf('2224')];data.id_2224_time=out_array_time[out_array_id.indexOf('2224')];data.id_2224_recog=out_array_recog[out_array_id.indexOf('2224')];
+			data.id_2280_a=out_array_a[out_array_id.indexOf('2280')];data.id_2280_p=out_array_p[out_array_id.indexOf('2280')];data.id_2280_time=out_array_time[out_array_id.indexOf('2280')];data.id_2280_recog=out_array_recog[out_array_id.indexOf('2280')];
+			data.id_2396_a=out_array_a[out_array_id.indexOf('2396')];data.id_2396_p=out_array_p[out_array_id.indexOf('2396')];data.id_2396_time=out_array_time[out_array_id.indexOf('2396')];data.id_2396_recog=out_array_recog[out_array_id.indexOf('2396')];
+			data.id_2397_a=out_array_a[out_array_id.indexOf('2397')];data.id_2397_p=out_array_p[out_array_id.indexOf('2397')];data.id_2397_time=out_array_time[out_array_id.indexOf('2397')];data.id_2397_recog=out_array_recog[out_array_id.indexOf('2397')];
+			data.id_2485_a=out_array_a[out_array_id.indexOf('2485')];data.id_2485_p=out_array_p[out_array_id.indexOf('2485')];data.id_2485_time=out_array_time[out_array_id.indexOf('2485')];data.id_2485_recog=out_array_recog[out_array_id.indexOf('2485')];
+			data.id_2500_a=out_array_a[out_array_id.indexOf('2500')];data.id_2500_p=out_array_p[out_array_id.indexOf('2500')];data.id_2500_time=out_array_time[out_array_id.indexOf('2500')];data.id_2500_recog=out_array_recog[out_array_id.indexOf('2500')];
+			data.id_2513_a=out_array_a[out_array_id.indexOf('2513')];data.id_2513_p=out_array_p[out_array_id.indexOf('2513')];data.id_2513_time=out_array_time[out_array_id.indexOf('2513')];data.id_2513_recog=out_array_recog[out_array_id.indexOf('2513')];
+			data.id_2530_a=out_array_a[out_array_id.indexOf('2530')];data.id_2530_p=out_array_p[out_array_id.indexOf('2530')];data.id_2530_time=out_array_time[out_array_id.indexOf('2530')];data.id_2530_recog=out_array_recog[out_array_id.indexOf('2530')];
+			data.id_2590_a=out_array_a[out_array_id.indexOf('2590')];data.id_2590_p=out_array_p[out_array_id.indexOf('2590')];data.id_2590_time=out_array_time[out_array_id.indexOf('2590')];data.id_2590_recog=out_array_recog[out_array_id.indexOf('2590')];
+			data.id_2660_a=out_array_a[out_array_id.indexOf('2660')];data.id_2660_p=out_array_p[out_array_id.indexOf('2660')];data.id_2660_time=out_array_time[out_array_id.indexOf('2660')];data.id_2660_recog=out_array_recog[out_array_id.indexOf('2660')];
+			data.id_2661_a=out_array_a[out_array_id.indexOf('2661')];data.id_2661_p=out_array_p[out_array_id.indexOf('2661')];data.id_2661_time=out_array_time[out_array_id.indexOf('2661')];data.id_2661_recog=out_array_recog[out_array_id.indexOf('2661')];
+			data.id_2703_a=out_array_a[out_array_id.indexOf('2703')];data.id_2703_p=out_array_p[out_array_id.indexOf('2703')];data.id_2703_time=out_array_time[out_array_id.indexOf('2703')];data.id_2703_recog=out_array_recog[out_array_id.indexOf('2703')];
+			data.id_3301_a=out_array_a[out_array_id.indexOf('3301')];data.id_3301_p=out_array_p[out_array_id.indexOf('3301')];data.id_3301_time=out_array_time[out_array_id.indexOf('3301')];data.id_3301_recog=out_array_recog[out_array_id.indexOf('3301')];
+			data.id_5480_a=out_array_a[out_array_id.indexOf('5480')];data.id_5480_p=out_array_p[out_array_id.indexOf('5480')];data.id_5480_time=out_array_time[out_array_id.indexOf('5480')];data.id_5480_recog=out_array_recog[out_array_id.indexOf('5480')];
+			data.id_6243_a=out_array_a[out_array_id.indexOf('6243')];data.id_6243_p=out_array_p[out_array_id.indexOf('6243')];data.id_6243_time=out_array_time[out_array_id.indexOf('6243')];data.id_6243_recog=out_array_recog[out_array_id.indexOf('6243')];
+			data.id_7038_a=out_array_a[out_array_id.indexOf('7038')];data.id_7038_p=out_array_p[out_array_id.indexOf('7038')];data.id_7038_time=out_array_time[out_array_id.indexOf('7038')];data.id_7038_recog=out_array_recog[out_array_id.indexOf('7038')];
+			data.id_7041_a=out_array_a[out_array_id.indexOf('7041')];data.id_7041_p=out_array_p[out_array_id.indexOf('7041')];data.id_7041_time=out_array_time[out_array_id.indexOf('7041')];data.id_7041_recog=out_array_recog[out_array_id.indexOf('7041')];
+			data.id_7053_a=out_array_a[out_array_id.indexOf('7053')];data.id_7053_p=out_array_p[out_array_id.indexOf('7053')];data.id_7053_time=out_array_time[out_array_id.indexOf('7053')];data.id_7053_recog=out_array_recog[out_array_id.indexOf('7053')];
+			data.id_7080_a=out_array_a[out_array_id.indexOf('7080')];data.id_7080_p=out_array_p[out_array_id.indexOf('7080')];data.id_7080_time=out_array_time[out_array_id.indexOf('7080')];data.id_7080_recog=out_array_recog[out_array_id.indexOf('7080')];
+			data.id_7500_a=out_array_a[out_array_id.indexOf('7500')];data.id_7500_p=out_array_p[out_array_id.indexOf('7500')];data.id_7500_time=out_array_time[out_array_id.indexOf('7500')];data.id_7500_recog=out_array_recog[out_array_id.indexOf('7500')];
+			data.id_8470_a=out_array_a[out_array_id.indexOf('8470')];data.id_8470_p=out_array_p[out_array_id.indexOf('8470')];data.id_8470_time=out_array_time[out_array_id.indexOf('8470')];data.id_8470_recog=out_array_recog[out_array_id.indexOf('8470')];
+			data.id_9160_a=out_array_a[out_array_id.indexOf('9160')];data.id_9160_p=out_array_p[out_array_id.indexOf('9160')];data.id_9160_time=out_array_time[out_array_id.indexOf('9160')];data.id_9160_recog=out_array_recog[out_array_id.indexOf('9160')];
+			data.id_9220_a=out_array_a[out_array_id.indexOf('9220')];data.id_9220_p=out_array_p[out_array_id.indexOf('9220')];data.id_9220_time=out_array_time[out_array_id.indexOf('9220')];data.id_9220_recog=out_array_recog[out_array_id.indexOf('9220')];
+			data.id_9331_a=out_array_a[out_array_id.indexOf('9331')];data.id_9331_p=out_array_p[out_array_id.indexOf('9331')];data.id_9331_time=out_array_time[out_array_id.indexOf('9331')];data.id_9331_recog=out_array_recog[out_array_id.indexOf('9331')];
+			data.id_9500_a=out_array_a[out_array_id.indexOf('9500')];data.id_9500_p=out_array_p[out_array_id.indexOf('9500')];data.id_9500_time=out_array_time[out_array_id.indexOf('9500')];data.id_9500_recog=out_array_recog[out_array_id.indexOf('9500')];
+			data.id_9911_a=out_array_a[out_array_id.indexOf('9911')];data.id_9911_p=out_array_p[out_array_id.indexOf('9911')];data.id_9911_time=out_array_time[out_array_id.indexOf('9911')];data.id_9911_recog=out_array_recog[out_array_id.indexOf('9911')];
+			var all_tp_know=0,pos_tp_know=0,neg_tp_know=0,neut_tp_know=0;
+			var all_tp_rem=0,pos_tp_rem=0,neg_tp_rem=0,neut_tp_rem=0;
+			var all_fn=0,pos_fn=0,neg_fn=0,neut_fn=0;
+			var all_fp_know=0,pos_fp_know=0,neg_fp_know=0,neut_fp_know=0;
+			var all_fp_rem=0,pos_fp_rem=0,neg_fp_rem=0,neut_fp_rem=0;
+			var all_tn=0,pos_tn=0,neg_tn=0,neut_tn=0;
+			for (var i=0;i<90;i++){
+/*					
+				console.log(JSON.stringify(img_array[i].id_num));
+				console.log(JSON.stringify(img_array[i].og));
+				console.log(JSON.stringify(img_array[i].val));
+				console.log(out_array_recog[out_array_id.indexOf(img_array[i].id_num)])
+				console.log(out_array_id[out_array_id.indexOf(img_array[i].id_num)])
+*/
+				if(out_array_recog[out_array_id.indexOf(img_array[i].id_num)]!=undefined){
+					//console.log(img_array[i].val)
+					if(img_array[i].og=='TRUE' && out_array_recog[out_array_id.indexOf(img_array[i].id_num)]=="know"){ all_tp_know++;
+						switch (img_array[i].val){ 
+							case 'Pos':
+								pos_tp_know++
+								break;
+								case 'Neg':
+								neg_tp_know++
+								break;
+								case 'Neut':
+								neut_tp_know++
+								break;
+						}
+					}
+					if(img_array[i].og=='TRUE' && out_array_recog[out_array_id.indexOf(img_array[i].id_num)]=="remember"){ all_tp_rem++;
+						switch (img_array[i].val){ 
+							case 'Pos':
+								pos_tp_rem++
+								break;
+								case 'Neg':
+								neg_tp_rem++
+								break;
+								case 'Neut':
+								neut_tp_rem++
+								break;
+						}
+					}
+					if(img_array[i].og=='TRUE' && out_array_recog[out_array_id.indexOf(img_array[i].id_num)]=="no"){ all_fn++;
+						switch (img_array[i].val){ 
+							case 'Pos':
+								pos_fn++
+								break;
+								case 'Neg':
+								neg_fn++
+								break;
+								case 'Neut':
+								neut_fn++
+								break;
+						}
+					}
+					if(img_array[i].og=='FALSE' && out_array_recog[out_array_id.indexOf(img_array[i].id_num)]=="know"){ all_fp_know++;
+						switch (img_array[i].val){ 
+							case 'Pos':
+								pos_fp_know++
+								break;
+								case 'Neg':
+								neg_fp_know++
+								break;
+								case 'Neut':
+								neut_fp_know++
+								break;
+						}
+					}
+					if(img_array[i].og=='FALSE' && out_array_recog[out_array_id.indexOf(img_array[i].id_num)]=="remember"){ all_fp_rem++;
+						switch (img_array[i].val){ 
+							case 'Pos':
+								pos_fp_rem++
+								break;
+								case 'Neg':
+								neg_fp_rem++
+								break;
+								case 'Neut':
+								neut_fp_rem++
+								break;
+						}
+					}
+					if(img_array[i].og=='FALSE' && out_array_recog[out_array_id.indexOf(img_array[i].id_num)]=="no"){ all_tn++;
+						switch (img_array[i].val){ 
+							case 'Pos':
+								pos_tn++
+								break;
+								case 'Neg':
+								neg_tn++
+								break;
+								case 'Neut':
+								neut_tn++
+								break;
+						}
+					}
+				}
+			}
+			data.all_TP_know=all_tp_know;
+			data.all_TP_rem=all_tp_rem;
+			data.all_FP_know=all_fp_know;
+			data.all_FP_rem=all_fp_rem;
+			data.all_TN=all_tn;
+			data.all_FN=all_fn;
+			data.neg_TP_know=neg_tp_know;
+			data.neg_TP_rem=neg_tp_rem;
+			data.neg_FP_know=neg_fp_know;
+			data.neg_FP_rem=neg_fp_rem;
+			data.neg_TN=neg_tn;
+			data.neg_FN=neg_fn;
+			data.pos_TP_know=pos_tp_know;
+			data.pos_TP_rem=pos_tp_rem;
+			data.pos_FP_know=pos_fp_know;
+			data.pos_FP_rem=pos_fp_rem;
+			data.pos_TN=pos_tn;
+			data.pos_FN=pos_fn;
+			data.neut_TP_know=neut_tp_know;
+			data.neut_TP_rem=neut_tp_rem;
+			data.neut_FP_know=neut_fp_know;
+			data.neut_FP_rem=neut_fp_rem;
+			data.neut_TN=neut_tn;
+			data.neut_FN=neut_fn;
+			$("#header").css("display","block");
+			$("#footer").css("display","block");
+			return true; 
+		}
+		function timeNow() {
+		var d = new Date(),
+			h = (d.getHours()<10?'0':'') + d.getHours(),
+			m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+			s = (d.getSeconds()<10?'0':'') + d.getSeconds();
+			return  h + ':' + m + ':' + s;
+		}
+
+    }
+    </script>
+    <style>
+#DI__ID .responsive{
+	width:100%;
+	height:auto;
+}		
+#DI__ID .responsive2{
+	width:100%;
+	height:auto;
+}		
+#DI__ID .mt-95 {
+    }
+
+#DI__ID #img__ID{
+	height:70%;
+	width:70%;
+}
+#DI__ID .AffectiveSlider {
+	width: 100%;
+	text-align: center;
+}
+
+#DI__ID .arousal_svg {
+	width: 7%;
+	margin: 0px;
+	margin-bottom: -30px;
+}
+
+#DI__ID .AffectiveSlider {
+	/*margin-top: 2em;*/
+}
+
+#DI__ID .AffectiveSlider .intensity_cue_svg {
+	width: 78%;
+	position: relative;
+	top: -14px;
+}
+
+@media (max-width: 1100px) {
+	#DI__ID .AffectiveSlider .intensity_cue_svg {
+		width: 76%;
+		position: relative;
+		top: 5px;
+	}
+}
+
+#DI__ID input[type=range]:focus {
+	outline: none;
+}
+
+#DI__ID .AffectiveSlider input[type=range]{
+	/* fix for FF unable to apply focus style bug  */
+	border: 10px solid white;
+
+	/*required for proper track sizing in FF*/
+	width: 80%;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: top;
+	margin-top: 6px;
+}
+
+
+#DI__ID .AffectiveSlider input[type=range]::-moz-range-track {
+	width: 100%;
+	height: 20px;
+	background: #ddd;
+	border-radius: 10px;
+	border: none;
+}
+#DI__ID input[type=range]:focus::-moz-range-track {
+	background: #ccc;
+}
+
+#DI__ID .AffectiveSlider input[type=range]::-moz-range-thumb {
+	height: 35px;
+	width: 35px;
+	border-radius: 60%;
+	background: white;
+	border: 2px solid #505050;
+}
+
+#DI__ID .AffectiveSlider input[type=range]::-moz-range-thumb:hover {
+	background: #505050;
+	border: 2px solid white;
+	cursor: pointer;
+	box-shadow: 0px 0px 12px #212121;
+}
+
+
+#DI__ID .AffectiveSlider input[type=range]{
+	-webkit-appearance: none;
+}
+
+
+#DI__ID input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 20px;
+	border: none;
+	background: #ddd;
+	border-radius: 10px;
+}
+
+#DI__ID input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 35px;
+	width: 35px;
+	border-radius: 60%;
+	background: white;
+	border: 2px solid #505050;
+	margin-top: -8px;
+}
+
+#DI__ID input[type=range]::-webkit-slider-thumb:hover {
+	background: #505050;
+	border: 2px solid white;
+	cursor: pointer;
+	box-shadow: 0px 0px 12px #212121;
+}
+
+
+#DI__ID input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #ccc;
+}
+
+#DI__ID input[type=range]::-ms-track {
+	width: 100%;
+	height: 20px;
+	/*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+	background: transparent;
+	/*leave room for the larger thumb to overflow with a transparent border */
+	border-color: transparent;
+	border-width: 16px 0;
+	/*remove default tick marks*/
+	color: transparent;
+}
+#DI__ID input[type=range]::-ms-fill-lower {
+	background: #ddd;
+	border-radius: 10px;
+}
+#DI__ID input[type=range]::-ms-fill-upper {
+	background: #ddd;
+	border-radius: 10px;
+}
+#DI__ID input[type=range]::-ms-thumb {
+	height: 35px;
+	width: 35px;
+	border-radius: 60%;
+	background: white;
+	border: 2px solid #505050;
+}
+#DI__ID .AffectiveSlider input[type=range]::-ms-thumb:hover {
+	background: #505050;
+	border: 2px solid white;
+	cursor: pointer;
+	box-shadow: 0px 0px 12px #212121;
+}
+#DI__ID input[type=range]:focus::-ms-fill-lower {
+	background: #ccc;
+}
+#DI__ID input[type=range]:focus::-ms-fill-upper {
+	background: #ccc;
+}
+#D__ID .btn-recog, #D__ID .btn-recog:active, #D__ID .btn-recog:visited, #D__ID .btn-recog:focus {
+    background-color: #ffffff;
+    border-color: #00263A;
+    font-family: 'Nunito Sans';
+    font-weight: lighter;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #000000;
+    text-align: center;
+    line-height: 18px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 5px;
+}
+#D__ID .btn-recog:hover {
+    background-color: #506A88;
+    border-color: #000000;
+    font-family: 'Nunito Sans';
+    font-weight: lighter;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 18px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 5px;
+}
+
+
+        VmInclude:__CURRENT_PATH__/../../library/wappsystem-form.css
+
+</style>
+</div>

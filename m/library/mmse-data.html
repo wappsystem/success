@@ -1,0 +1,39 @@
+
+<section>
+    VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/shared-data.js
+        //-------------------------------------
+        $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name); //$('#title__ID').text('Anthropometry')
+        //-------------------------------------
+        var fields="mmse_date,mmse_1_day,mmse_1_date,mmse_1_month,mmse_1_season,mmse_1_year,mmse_1_floor,mmse_1_suburb,mmse_1_town,mmse_1_state,mmse_1_country,mmse_2,mmse_3,mmse_4,mmse_5_1_a,mmse_5_1_b,mmse_5_2,mmse_5_3,mmse_5_4,mmse_5_5,mmse_6,mmese_total";
+        m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+        var cell_render = m.cell_render;
+        m.cell_render=function(records,I,field,td){
+            switch(field){
+                case 'mmse_1_day':
+                case 'mmse_1_date':
+                case 'mmse_1_month':
+                case 'mmse_1_season':
+                case 'mmse_1_year':
+                case 'mmse_1_floor':
+                case 'mmse_1_suburb':
+                case 'mmse_1_town':
+                case 'mmse_1_state':
+                case 'mmse_1_country':
+                    if(records[I].Data[field]=="on") td.html("1");
+                    else td.html("0")
+                break;
+            }
+            return cell_render(records,I,field,td);
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

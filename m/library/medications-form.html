@@ -1,0 +1,125 @@
+<div id=D__ID>
+  <!--third html start -->
+  <div class="container mt-95 mb-3">
+    <div class="row">
+      <!-- form container start -->
+      <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+        <div class="row">
+          <div class="col-12">
+            <!-- form start -->
+            <form id="F__ID">
+              <h3 id=title__ID></h3>
+              <!-- participant part for all tsak forms -------------------->
+              <div id="participant_div__ID">
+                <div class="form-group">
+                  <fieldset class="subquestions">
+                    <label><span class="">Participant</span>
+                      <input type=text name="Participant" class=form-control id=Participant__ID data-id="Participant" />
+                    </label><br>
+                    <label><span class="">Participant ID</span>
+                      <input type=text name="Participant_uid" class=form-control readonly />
+                    </label>
+                  </fieldset>
+                </div>
+              </div>
+              <!-- form group -->
+              <div class="form-group">
+                <div class="questiongroup ">
+                  <h4>1. Do you take prescribed medications to help you sleep?</h4>
+                  <fieldset class="">
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_med" value="0" required>
+                      <span class="checkmark"></span> not at all
+                    </label><br>
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_med" value="1">
+                      <span class="checkmark"></span> occasionally (1-2 times per month)
+                    </label><br>
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_med" value="2">
+                      <span class="checkmark"></span> sometimes (3-4 times per month)
+                    </label><br>
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_med" value="3">
+                      <span class="checkmark"></span> often (1-2 times per week)
+                    </label><br>
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_med" value="4">
+                      <span class="checkmark"></span> frequently (3 or more times per week)
+                    </label><br>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="questiongroup ">
+                  <h4>2. Do you take other medications (including herbal or other supplements) to help you sleep?</h4>
+                  <fieldset class="">
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_suppl" value="0" required>
+                      <span class="checkmark"></span> not at all
+                    </label><br>
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_suppl" value="1">
+                      <span class="checkmark"></span> occasionally (1-2 times per month)
+                    </label><br>
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_suppl" value="2">
+                      <span class="checkmark"></span> sometimes (3-4 times per month)
+                    </label><br>
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_suppl" value="3">
+                      <span class="checkmark"></span> often (1-2 times per week)
+                    </label><br>
+                    <label class="radiobuttons">
+                      <input type="radio" name="sleep_suppl" value="4">
+                      <span class="checkmark"></span> frequently (3 or more times per week)
+                    </label><br>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="questiongroup">
+                  <h4>3. Please list all current medications, dosage and how long you have been taking these for</h4>
+                </div>
+              </div>
+              <div class='form-group'>
+                <div class='questiongroup'>
+                  <fieldset class=''>
+                    <label class=''>
+                      Medication, dosage and duration
+                    </label><br>
+                    <label class='' style="width:100%!important">
+                      <textarea class="form-control" name='medication'></textarea>
+                      <span></span>
+                    </label>
+                  </fieldset>
+                </div>
+              </div>
+              <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    //---------------------------------------------
+    function F__ID() {
+      //-------------------------------------
+      VmInclude:__COMPONENT__/f/form.01.js
+      VmInclude:__CURRENT_PATH__/shared-form.js
+      //-------------------------------------
+      var load2=m.load;
+        m.load=function(){
+        load2();
+      }
+
+    }
+  </script>
+  <style>
+    #D__ID .mt-95 {
+      max-width:600px;
+    }
+    VmInclude:__CURRENT_PATH__/wappsystem-form.css
+  </style>
+</div>

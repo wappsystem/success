@@ -1,0 +1,20 @@
+
+<section>
+    VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/shared-data.js
+        //-------------------------------------
+        $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+        //-------------------------------------
+        var fields="ravlt_1_w,ravlt_1_z,ravlt_2_w,ravlt_2_z,ravlt_3_w,ravlt_3_z,ravlt_4_w,ravlt_4_z,ravlt_5_w,ravlt_5_z,ravlt_sum_w,ravlt_sum_z,ravlt_b1_w,ravlt_b1_z,ravlt_6_w,ravlt_6_z,ravlt_7_w,ravlt_7_z,ravlt_7_5_w,ravlt_7_5_z,ravlt_7_6_w,ravlt_7_6_z,ravlt_reca_w,ravlt_reca_z,ravlt_fps_w,ravlt_fps_z";
+        m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

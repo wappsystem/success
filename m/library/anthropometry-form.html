@@ -1,0 +1,108 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3>Anthropometry</h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <!-- form group -->
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">Height</span><input type=number class=form-control name=height></label></div>
+                                            <div class="col-sm-3"><label><span class="">Weight</span><input type=number class=form-control name=weight></label></div>
+                                            <div class="col-sm-3"><label><span class="">Systolic Blood Pressure</span><input type=number class=form-control name=systolic_bp></label></div>
+                                            <div class="col-sm-3"><label><span class="">Diastolic Blood Pressure</span><input type=number class=form-control name=diastolic_bp></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">Head Circumference</span><input type=number class=form-control name=head></label></div>
+                                            <div class="col-sm-3"><label><span class="">Neck Circumference</span><input type=number class=form-control name=neck></label></div>
+                                            <div class="col-sm-3"><label><span class="">Hip Circumference</span><input type=number class=form-control name=hip_circumference></label></div>
+                                            <div class="col-sm-3"><label><span class="">Waist Circumference</span><input type=number class=form-control name=waist_circumference></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">Nasion to Inion</span><input type=number class=form-control name=nasion_to_inion></label></div>
+                                            <div class="col-sm-3"><label><span class="">Left to Right Periauricular</span><input type=number class=form-control name=left_to_right_periauricular></label></div>
+                                            <div class="col-sm-3"><label><span class="">Heart Rate</span><input type=number class=form-control name=heart_rate></label></div>
+                                            <div class="col-sm-9"><label><span class="">Handedness<br></span>
+                                                <label class="radiobuttons">
+                                                <input type="radio" name="handedness" value="Left" required >
+                                                <span class="checkmark"></span> Left
+                                                </label>
+                                                <label class="radiobuttons">
+                                                    <input type="radio" name="handedness" value="Right">
+                                                    <span class="checkmark"></span> Right
+                                                </label>
+                                                <label class="radiobuttons">
+                                                    <input type="radio" name="handedness" value="Both">
+                                                    <span class="checkmark"></span> Both
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: __CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+            $('#F__ID input[name=Height]').on('change', function () { cal(); })
+            $('#F__ID input[name=Weight]').on('change', function () { cal(); })
+            var cal = function () {
+                var h = $('#F__ID input[name=Height]').val() / 100;
+                var w = $('#F__ID input[name=Weight]').val();
+                var b = (w / (h * h)).toFixed(2);
+                $('#F__ID input[name=BMI]').val(b);
+            }
+            //-------------------------------------
+
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 800px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>

@@ -1,0 +1,174 @@
+<div id=D__ID>
+
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id=title__ID></h3>
+                            <!-- participant name and study id -->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>1. How often have you had a drink containing alcohol</h4>
+                                <div class="questiongroup">
+                                    <fieldset>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="audit_1" value="0" required>
+                                            <span class="checkmark"></span> Never
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="audit_1" value="1">
+                                            <span class="checkmark"></span> Monthly or less
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="audit_1" value="2">
+                                            <span class="checkmark"></span> 2-4 times a month
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="audit_1" value="3">
+                                            <span class="checkmark"></span> 2-3 times a week
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="audit_1" value="4">
+                                            <span class="checkmark"></span> 4 or more times a week
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div id=q2_q10__ID >
+                                <div class="form-group">
+                                    <h4>2. How many drinks containing alcohol do you have on a typical day when you are
+                                        drinking?</h4>
+                                    <div class="questiongroup">
+                                        <fieldset>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_2" value="0" required>
+                                                <span class="checkmark"></span> 1 or 2
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_2" value="1">
+                                                <span class="checkmark"></span> 3 or 4
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_2" value="2">
+                                                <span class="checkmark"></span> 5 or 6
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_2" value="3">
+                                                <span class="checkmark"></span> 7 to 9
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_2" value="4">
+                                                <span class="checkmark"></span> 10 or more
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4>3. How often do you have six or more standard drinks on one occasion?</h4>
+                                    <div class="questiongroup">
+                                        <fieldset>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_3" value="0" required>
+                                                <span class="checkmark"></span> a. Never
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_3" value="1">
+                                                <span class="checkmark"></span> b. Less the monthly
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_3" value="2">
+                                                <span class="checkmark"></span> c. Monthly
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_3" value="3">
+                                                <span class="checkmark"></span> d. Weekly
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="audit_3" value="4">
+                                                <span class="checkmark"></span> e. Daily or almost daily
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: __COMPONENT__/f/form.01.js
+            VmInclude: __CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+            var load2 = m.load;
+            m.load = function () {
+                load2();
+                if($("input[name='audit_1']:checked").val()!='0'){
+                    $('#q2_q10__ID').show();
+                    $("input[name='audit_2']").prop('required', true);
+                    $("input[name='audit_3']").prop('required', true);
+                }
+                else{
+                    $("input[name='audit_2']").prop('required', false);
+                    $("input[name='audit_3']").prop('required', false);
+                    $('#q2_q10__ID').hide();
+                }
+            }
+            //-------------------------------------
+            $("input[name='audit_1']").change(function(){
+                if($("input[name='audit_1']:checked").val()!='0'){
+                    $('#q2_q10__ID').show();
+                    $("input[name='audit_2']").prop('required', true);
+                    $("input[name='audit_3']").prop('required', true);
+                }
+                else{
+                    $("input[name='audit_2']").prop('required', false);
+                    $("input[name='audit_3']").prop('required', false);
+                    $('#q2_q10__ID').hide();
+                }
+            });
+            //-------------------------------------
+            var before_submit = m.before_submit;
+            m.before_submit = function (data, index) {
+                if(data.audit_1!='0'){
+                    data.audit_consumption = (parseInt(data.audit_1) + parseInt(data.audit_2)).toString();
+                    data.audit = (parseInt(data.audit_1) + parseInt(data.audit_2) + parseInt(data.audit_3)).toString();
+                }
+                else{
+                    data.audit='0';
+                }
+                return before_submit(data, index);
+            }
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 600px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>

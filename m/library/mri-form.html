@@ -1,0 +1,165 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id="title__ID"></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <!-- form group -->
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <h4>MRI data</h4>
+                                    <fieldset class="">
+                                        <label><span class="">Had an MRI scan? </span></label><br>
+                                        <label class="radiobuttons">
+                                          <input type="radio" name="mri_data" value="0" >
+                                          <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                          <input type="radio" name="mri_data" value="1">
+                                          <span class="checkmark"></span> Yes</label>
+                                    </fieldset>
+                                    <fieldset class="">
+                                        <label><span class="">Is the data on Xnat? </span></label><br>
+                                        <label class="radiobuttons">
+                                          <input type="radio" name="mri_xnat" value="0" >
+                                          <span class="checkmark"></span> No</label>
+                                        <label class="radiobuttons">
+                                          <input type="radio" name="mri_xnat" value="1">
+                                          <span class="checkmark"></span> Yes</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+<!--                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Sleep study date:</span>
+                                            <input class="form-control" type="date" name="mri_date">
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">Hippocampal volume (mm<sup>3</sup>) </span><input type=number step=0.1 class=form-control name=mri_hippo></label></div>
+                                            <div class="col-sm-3"><label><span class="">Right hippocampal volume (mm<sup>3</sup>)</span><input type=number step=0.1 class=form-control name=mri_rh_hippo></label></div>
+                                            <div class="col-sm-3"><label><span class="">Left hippocampal volume (mm<sup>3</sup>)</span><input type=number step=0.1 class=form-control name=mri_lh_hippo></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">Temporal lobe cortical thickness (mm) </span><input type=number step=0.1 class=form-control name=mri_temporal_lobe></label></div>
+                                            <div class="col-sm-3"><label><span class="">Right Temporal lobe cortical thickness (mm)</span><input type=number step=0.1 class=form-control name=mri_rh_temporal_lobe></label></div>
+                                            <div class="col-sm-3"><label><span class="">Left Temporal lobe cortical thickness (mm)</span><input type=number step=0.1 class=form-control name=mri_lh_temporal_lobe></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">Entorhinal cortex volume (mm<sup>3</sup>) </span><input type=number step=0.1 class=form-control name=mri_entorhinal_cortex></label></div>
+                                            <div class="col-sm-3"><label><span class="">Right Entorhinal cortex volume (mm<sup>3</sup>)</span><input type=number step=0.1 class=form-control name=mri_rh_entorhinal_cortex></label></div>
+                                            <div class="col-sm-3"><label><span class="">Left Entorhinal cortex volume (mm<sup>3</sup>)</span><input type=number step=0.1 class=form-control name=mri_lh_entorhinal_cortex></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <div class=row>
+                                            <div class="col-sm-3"><label><span class="">White matter lesions volume (mm<sup>3</sup>) </span><input type=number step=0.1 class=form-control name=mri_wm_lesions_volume></label></div>
+                                            <div class="col-sm-3"><label><span class="">Total white matter lesion numbers</span><input type=number step=0.1 class=form-control name=mri_wm_lesion_numbers></label></div>
+                                            <div class="col-sm-3"><label><span class="">Hippocampal glutathione (parts per million)</span><input type=number step=0.1 class=form-control name=mri_hippo_glutathione></label></div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+-->                            
+                            <div class="row px-4">
+                                <div class='col'>
+                                    <span>MRI Report</span>
+                                    <div class="form-control">
+                                        <u style='cursor:pointer' id=link_File_Name__ID></u>
+                                        <br>
+                                        <input type="file" name=File_Name style="margin-top:6px" /> &nbsp;&nbsp;&nbsp;
+                                        <button type="button" id=x_File_Name__ID>Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            <div class="form-group">
+                                <div class="pb-3">
+                                    <label><span>Set Status</span></label>
+                                    <fieldset class="">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FF0000">
+                                            <span class="checkmark"
+                                                style="background-color:#FF0000"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FFCC00">
+                                            <span class="checkmark"
+                                                style="background-color:#FFCC00"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#00FF00">
+                                            <span class="checkmark"
+                                                style="background-color:#00FF00"></span>Manually&nbsp;&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="" checked>
+                                            <span class="checkmark"
+                                                style="background-color:#C9C9C9"></span>Automatically</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    VmInclude:__COMPONENT__/m/model.01.html
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: __CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+            //-------------------------------------
+
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 800px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>

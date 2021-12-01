@@ -1,0 +1,148 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id="title__ID"></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" id=Participant_uid__ID class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <!-- form group -->
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Age</span>
+                                            <input type=number class="form-control" name="age" id=age__ID placeholder="">
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup">
+                                    <label><span>MMSE score available?</span></label>
+                                    <fieldset class="">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mmse_available" value="1">
+                                            <span class="checkmark"></span>Yes</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mmse_available" value="0">
+                                            <span class="checkmark"></span>No&nbsp;</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div style='display:none' id=mmse_score__ID>
+                                <div class="form-group" >
+                                    <div class="questiongroup ">
+                                        <fieldset class="">
+                                            <label><span class="">MMSE Score:</span>
+                                                <input type=number class="form-control" name="mmse_score" placeholder="">
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            <div class="form-group">
+                                <div class="pb-3">
+                                    <label><span>Set Status</span></label>
+                                    <fieldset class="">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FF0000">
+                                            <span class="checkmark"
+                                                style="background-color:#FF0000"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FFCC00">
+                                            <span class="checkmark"
+                                                style="background-color:#FFCC00"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#00FF00">
+                                            <span class="checkmark"
+                                                style="background-color:#00FF00"></span>Manually&nbsp;&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="" checked>
+                                            <span class="checkmark"
+                                                style="background-color:#C9C9C9"></span>Automatically</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: __CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+            var load2 = m.load;
+            m.load = function () {
+                load2();
+                if($("input[name='mmse_available']:checked").val()=='1'){
+                    $('#mmse_score__ID').show();
+                }
+                else {
+                    $('#mmse_score__ID').hide();
+                }
+            }
+            //-------------------------------------
+            $("input[name='mmse_available']").change(function(){
+                if($("input[name='mmse_available']:checked").val()=='1'){
+                    $('#mmse_score__ID').show();
+                }
+                else {
+                    $('#mmse_score__ID').hide();
+                }
+            });
+            //-------------------------------------
+            $("#age__ID").click(function(){
+                if($("#Participant_uid__ID").val()!='' || $("#Participant_uid__ID").val()!=undefined){
+                    var query_uid={"UID":parseInt($("#Participant_uid__ID").val())}
+                    jQuery.ajaxSetup({async:false});
+                    $vm.request({cmd:"find",table:$vm.module_list["participant-data"].Table,query:query_uid,limit:1},function(res){
+                        if(res.status=='np' || res.result==undefined){
+                            res.result=[];
+                        }
+                        if(res.status=='np'){
+                            if(res.sys.tb=='on') $vm.alert("No permission. Private database table, ask the table's owner for permissions.");
+                            else $vm.alert("No permission.");
+                        }
+                        if(res.result[0].Data.DOB!='' || res.result[0].Data.DOB!=undefined){
+                            dob=new Date(res.result[0].Data.DOB);
+                            var diff = Date.now() - dob.getTime()
+                            var age = new Date(diff);
+                            console.log( Math.abs(age.getUTCFullYear() - 1970));
+                            $('#age__ID').val(Math.abs(age.getUTCFullYear() - 1970).toString());
+                        }
+                    })
+                    jQuery.ajaxSetup({async:true});
+                }
+            })
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 800px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>

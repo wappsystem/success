@@ -1,0 +1,26 @@
+<section>
+    VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/shared-data.js
+        //-------------------------------------
+        m.load=function(){
+            $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+        }
+        //-------------------------------------
+        var fields="id_1440_a,id_1440_p,id_1440_time,id_1590_a,id_1590_p,id_1590_time,id_1720_a,id_1720_p,id_1720_time,id_1721_a,id_1721_p,id_1721_time,id_1750_a,id_1750_p,id_1750_time,id_1810_a,id_1810_p,id_1810_time,id_1920_a,id_1920_p,id_1920_time,id_2040_a,id_2040_p,id_2040_time,id_2050_a,id_2050_p,id_2050_time,id_2053_a,id_2053_p,id_2053_time"
+        fields+=",id_2057_a,id_2057_p,id_2057_time,id_2091_a,id_2091_p,id_2091_time,id_2170_a,id_2170_p,id_2170_time,id_2190_a,id_2190_p,id_2190_time,id_2205_a,id_2205_p,id_2205_time,id_2276_a,id_2276_p,id_2276_time,id_2360_a,id_2360_p,id_2360_time,id_2381_a,id_2381_p,id_2381_time,id_2495_a,id_2495_p,id_2495_time,id_2510_a,id_2510_p,id_2510_time"
+        fields+=",id_2516_a,id_2516_p,id_2516_time,id_2650_a,id_2650_p,id_2650_time,id_2750_a,id_2750_p,id_2750_time,id_2800_a,id_2800_p,id_2800_time,id_2840_a,id_2840_p,id_2840_time,id_2850_a,id_2850_p,id_2850_time,id_2880_a,id_2880_p,id_2880_time,id_2890_a,id_2890_p,id_2890_time,id_2900_a,id_2900_p,id_2900_time,id_3220_a,id_3220_p,id_3220_time"
+        fields+=",id_3230_a,id_3230_p,id_3230_time,id_3300_a,id_3300_p,id_3300_time,id_3350_a,id_3350_p,id_3350_time,id_4610_a,id_4610_p,id_4610_time,id_4626_a,id_4626_p,id_4626_time,id_5470_a,id_5470_p,id_5470_time,id_5510_a,id_5510_p,id_5510_time,id_5910_a,id_5910_p,id_5910_time,id_6212_a,id_6212_p,id_6212_time,id_6570_a,id_6570_p,id_6570_time"
+        fields+=",id_7004_a,id_7004_p,id_7004_time,id_7010_a,id_7010_p,id_7010_time,id_7020_a,id_7020_p,id_7020_time,id_7050_a,id_7050_p,id_7050_time,id_7100_a,id_7100_p,id_7100_time,id_7175_a,id_7175_p,id_7175_time,id_7185_a,id_7185_p,id_7185_time,id_7217_a,id_7217_p,id_7217_time,id_7233_a,id_7233_p,id_7233_time,id_7235_a,id_7235_p,id_7235_time"
+        fields+=",id_7491_a,id_7491_p,id_7491_time,id_8090_a,id_8090_p,id_8090_time,id_9000_a,id_9000_p,id_9000_time,id_9006_a,id_9006_p,id_9006_time,id_9050_a,id_9050_p,id_9050_time,id_9180_a,id_9180_p,id_9180_time,id_9421_a,id_9421_p,id_9421_time,id_9560_a,id_9560_p,id_9560_time,id_9561_a,id_9561_p,id_9561_time,id_9910_a,id_9910_p,id_9910_time"
+        m.fields="_Form,_Lock,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

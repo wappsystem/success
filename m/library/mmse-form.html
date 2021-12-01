@@ -1,0 +1,273 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id="title__ID"></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <!-- form group -->
+                            <div class="form-group">
+                                <label><span class="">Prescreening MMSE date</span></label>
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <input type=date class="form-control" style="width:auto" name=mmse_date>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Orientation</h4>
+                                <div class="questiongroup">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">1 &nbsp;&nbsp;</span></label>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_day">
+                                            <span class="check_checkmark"></span> Day 
+                                        </label>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_date">
+                                            <span class="check_checkmark"></span> Date  
+                                        </label><br>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_month">
+                                            <span class="check_checkmark"></span> Month  
+                                        </label><br>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_season">
+                                            <span class="check_checkmark"></span> Season  
+                                        </label><br>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_year">
+                                            <span class="check_checkmark"></span> Year  
+                                        </label><br>
+                                    </fieldset>
+                                    <fieldset class="subquestions">
+                                        <label><span class="">2 &nbsp;&nbsp;</span></label>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_floor">
+                                            <span class="check_checkmark"></span>  Floor of building  
+                                        </label><br>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_suburb">
+                                            <span class="check_checkmark"></span> Suburb   
+                                        </label><br>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_town">
+                                            <span class="check_checkmark"></span> Town   
+                                        </label><br>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_state">
+                                            <span class="check_checkmark"></span> State   
+                                        </label><br>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="mmse_1_country">
+                                            <span class="check_checkmark"></span> Country  
+                                        </label><br>
+                                    </fieldset>
+                               </div>
+                             </div>
+                             <div class="form-group">
+                                <h4>Registration</h4>
+                                <div class="questiongroup">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Apple, Table, Penny</span>
+                                            <select name="mmse_2" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Attention & Calculation</h4>
+                                <div class="questiongroup">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Either: Serial 7's (93, 86, 79, 72, 65).  Or: Spell "World" backwards.</span>
+                                            <select name="mmse_3" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Recall</h4>
+                                <div class="questiongroup">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Recall the three previous words</span>
+                                            <select name="mmse_4" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Language</h4>
+                                <div class="questiongroup">
+                                    <fieldset class="">
+                                        <label><span class="">(a) Show the patient a watch and ask what it is.</span>
+                                            <select name="mmse_5_1_a" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                            </select>
+                                        </label><br>
+                                        <label><span class="">(b) Repeat with a pencil.</span>
+                                            <select name="mmse_5_1_b" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                            </select>
+                                        </label><br>
+                                        <label><span class="">Repeat: " No its, ands or buts"</span>
+                                            <select name="mmse_5_2" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                            </select>
+                                        </label><br>
+                                        <label><span class="">Follow a three-stage command, as per instructions. </span>
+                                            <select name="mmse_5_3" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </label><br>
+                                        <label><span class="">Read and obey the command printed below: "Close your eyes". </span>
+                                            <select name="mmse_5_4" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                            </select>
+                                        </label><br>
+                                        <label><span class="">Write a sentence, it must  make sense, ignore spelling. </span>
+                                            <select name="mmse_5_5" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                            </select>
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Praxis</h4>
+                                <div class="questiongroup">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Copy the design below. All ten angles must be present and two must intersect to form a four sided figure to score one point. Tremor and rotation are ignored. </span>
+                                            <select name="mmse_6" class=form-control>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                            </select>
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h4>Calculation</h4>
+                                <div class="questiongroup">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">MMSE Total</span>
+                                            <input type=number class="form-control"  style="width:auto" name="mmese_total">
+                                        </label><button type="button" id="calc__ID" class="ml-3 btn btn-info btn-sm">Calc</button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            <div class="form-group">
+                                <div class="pb-3">
+                                    <label><span>Set Status</span></label>
+                                    <fieldset class="">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FF0000">
+                                            <span class="checkmark"
+                                                style="background-color:#FF0000"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#FFCC00">
+                                            <span class="checkmark"
+                                                style="background-color:#FFCC00"></span>&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="#00FF00">
+                                            <span class="checkmark"
+                                                style="background-color:#00FF00"></span>Manually&nbsp;&nbsp;</label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="_status" value="" checked>
+                                            <span class="checkmark"
+                                                style="background-color:#C9C9C9"></span>Automatically</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: __CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+            var mmse_total;
+            $("#calc__ID").on('click', function(){
+                mmse_total=0
+                if($("input[name='mmse_1_day']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_date']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_month']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_season']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_year']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_floor']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_suburb']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_town']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_state']:checked").val()=='on') mmse_total++;
+                if($("input[name='mmse_1_country']:checked").val()=='on') mmse_total++;
+                mmse_total+=parseInt($("select[name='mmse_2']").val())
+                mmse_total+=parseInt($("select[name='mmse_3']").val())
+                mmse_total+=parseInt($("select[name='mmse_4']").val())
+                mmse_total+=parseInt($("select[name='mmse_5_1_a']").val())
+                mmse_total+=parseInt($("select[name='mmse_5_1_b']").val())
+                mmse_total+=parseInt($("select[name='mmse_5_2']").val())
+                mmse_total+=parseInt($("select[name='mmse_5_3']").val())
+                mmse_total+=parseInt($("select[name='mmse_5_4']").val())
+                mmse_total+=parseInt($("select[name='mmse_5_5']").val())
+                mmse_total+=parseInt($("select[name='mmse_6']").val())
+                $("input[name='mmese_total']").val(parseInt(mmse_total))
+            });
+            //-------------------------------------
+
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 800px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>
