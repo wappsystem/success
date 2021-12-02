@@ -158,7 +158,7 @@ Click-and-drag to arrange the coloured balls on the left to match the Goal on th
 			var mouseOver = false;
 			var waitForButton = false;
 			var rects = [];
-			var success = false;
+			var succeed = false;
 			var fail = false;
 			var next = false;
 			ctx.clearRect(0, 0, width, height);
@@ -182,7 +182,7 @@ Click-and-drag to arrange the coloured balls on the left to match the Goal on th
 				startTime = Date.now();
 				if(currentPattern==1) results.StartTime=get_now();
 				planningTime = null;
-				success = false;
+				succeed = false;
 				fail = false;
 				next = false;
 				Update();
@@ -384,7 +384,7 @@ Click-and-drag to arrange the coloured balls on the left to match the Goal on th
 					if (PatternsMatch(towers, towersGoal))
 					{
 						score += maxRepeats - repeat;
-						success = true;
+						succeed = true;
 						next = true;
 						if (!example)
 							SaveAttempt(true);
@@ -461,7 +461,7 @@ Click-and-drag to arrange the coloured balls on the left to match the Goal on th
 						}
 						ctx.fillText(buttonText , x + w * 0.5, y + h * 0.5);
 					}
-					if (success)
+					if (succeed)
 					{
 						ctx.font = '36px arial';
 						ctx.fillStyle = 'green';
@@ -476,11 +476,11 @@ Click-and-drag to arrange the coloured balls on the left to match the Goal on th
 				}
 			}
 
-			function SaveAttempt(success)
+			function SaveAttempt(succeed)
 			{
 				var endTime = Date.now();
 				results.Test.push(currentPattern);
-				results.Correct.push(success ? 'C' : 'W');
+				results.Correct.push(succeed ? 'C' : 'W');
 				results.Planning_Time.push(planningTime - startTime);
 				results.Finish_Time.push(endTime - startTime);
 			}
