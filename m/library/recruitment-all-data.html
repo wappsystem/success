@@ -1,0 +1,29 @@
+<section>
+  VmInclude:__COMPONENT__/g/grid.01.html
+</section>
+<script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/g/grid.01.js
+      //-------------------------------------
+      $('#title__ID').text('Success Study screening')
+      //-------------------------------------
+      var fields="Consent";
+      fields+=",age,englishfluency";
+      fields+=",ISI_1a,ISI_1b,ISI_1c,ISI_2,ISI_3,ISI_4,ISI_5,ISI_1,ISI";
+      fields+=",PHQ_1,PHQ_2,PHQ_3,PHQ_4,PHQ_5,PHQ_6,PHQ_7,PHQ_8,PHQ_9,PHQ";
+      fields+=",SB_1,SB_2,SB_3,SB_4,SB_5,SB_6,SB_7,SB_8,SB";
+      m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
+      //-------------------------------------
+      m.cell_render = function (records, I, field, td, set_value, source) {
+        switch (field) {
+          case 'Screening_Number':
+            td.html("S" + (records[I].UID).toString().padStart(3, "0"));
+            break;
+        }
+      }
+  }
+</script>
+<style>
+  VmInclude:__COMPONENT__/g/grid.01.css
+</style>

@@ -64,8 +64,8 @@
         "success-bl-cantab-data":		            {url:"$H/m/library/cantab-data.html",Table:"success-bl-cantab",form_module:"success-bl-cantab-form",task_name:"Baseline - CANTAB"},
         "success-bl-cantab-form":		            {url:"$H/m/library/cantab-form.html",Table:"success-bl-cantab",task_name:"Baseline - CANTAB"},
 
-        "success-w12-isi-data":		            {url:"$H/m/library/isi-data.html",Table:"success-w12-isi",form_module:"success-w12-isi-form",task_name:"Week 12 - ISI"},
-        "success-w12-isi-form":		            {url:"$H/m/library/isi-form.html",Table:"success-w12-isi",task_name:"Week 12 - ISI"},
+        "success-w12-isi-data":		            {url:"$H/m/library/isi-data.html",Table:"success-w12-isi",form_module:"success-w12-isi-form",task_name:"Week 12 - Insomnia Severity Index (ISI)"},
+        "success-w12-isi-form":		            {url:"$H/m/library/isi-form.html",Table:"success-w12-isi",task_name:"Week 12 - Insomnia Severity Index (ISI)"},
         "success-w12-gds-data":		            {url:"$H/m/library/gds-data.html",Table:"success-w12-gds",form_module:"success-w12-gds-form",task_name:"Week 12 - 15-items Geriatric Depression Scale (GDS)"},
         "success-w12-gds-form":		            {url:"$H/m/library/gds-form.html",Table:"success-w12-gds",task_name:"Week 12 - 15-items Geriatric Depression Scale (GDS)"},
         "success-w12-bc-cci-data":		            {url:"$H/m/library/bc-cci-data.html",Table:"success-w12-bc-cci",form_module:"success-w12-bc-cci-form",task_name:"Week 12 - British Columbia Cognitive Complaints Inventory (BC-CCI)"},
