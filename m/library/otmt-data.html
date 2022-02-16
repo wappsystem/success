@@ -8,7 +8,9 @@
         VmInclude:__COMPONENT__/g/grid.01.js
         VmInclude:__CURRENT_PATH__/shared-data.js
         //-------------------------------------
-        var fields="age,wristox_inclusion,pre_scre_mmse_inclusion,pre_screening_eligibility";
+        $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+        //-------------------------------------
+        var fields="otmt_a,otmt_a_errors,otmt_a_z,otmt_b,otmt_b_errors,otmt_b_z";
         m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
     }

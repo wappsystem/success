@@ -281,6 +281,11 @@
 #D__ID .labelright {
     margin-left:-15px;
 }
+#D__ID ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
 @media (min-width: 699px) {
     #D__ID  fieldset.subquestions br { display: none; }
     #D__ID label {

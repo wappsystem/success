@@ -1,0 +1,656 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id="title__ID"></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <fieldset class="">
+                                    <h4>Please score the following list of symptoms<br>
+                                    0 = absent, 1 = mild, 2 = moderate, 3 = severe<br><br>
+                                Please indicate if the symptom is likely to be a side-effect of <b>digital CBT-I</b> (Y = YES, N = NO. Write the comments to provide relevant information if the item is not a side-effect</h4>
+                                </fieldset>
+                            </div>
+                            <div class="form-group">
+                                <h4><b>Low Mood</b></h4>
+                                <h4>Symptom</h4>
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mood_score" value="0" required>
+                                            <span class="checkmark no-dot">0</span> absent
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mood_score" value="1">
+                                            <span class="checkmark no-dot">1</span> mild
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mood_score" value="2">
+                                            <span class="checkmark no-dot">2</span> moderate
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mood_score" value="3">
+                                            <span class="checkmark no-dot">3</span> severe
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                                <h4>Linked to digital CBT-I</h4>
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mood_linked" value="Y" required>
+                                            <span class="checkmark no-dot">Y</span> Yes
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mood_linked" value="N">
+                                            <span class="checkmark no-dot">N</span> No
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                                <h4>Comment</h4>
+                                <div class="questiongroup ">
+                                            <input type="text" class="form-control" name="mood_comment" />
+                                    </fieldset>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Fatigue and/or exhausttion</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="fatigue_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="fatigue_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="fatigue_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="fatigue_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="fatigue_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="fatigue_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="fatigue_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Extreme sleepeness</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="sleepeness_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="sleepeness_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="sleepeness_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="sleepeness_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="sleepeness_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="sleepeness_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="sleepeness_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Feeling agitated</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="agitated_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="agitated_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="agitated_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="agitated_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="agitated_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="agitated_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="agitated_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Difficulty remembering things</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="remembering_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="remembering_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="remembering_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="remembering_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="remembering_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="remembering_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="remembering_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Body pain</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="pain_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="pain_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="pain_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="pain_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="pain_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="pain_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="pain_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Headache and/or migraine</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="headache_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="headache_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="headache_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="headache_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="headache_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="headache_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="headache_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Euphoria and/or intense increase in mood</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="euphoria_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="euphoria_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="euphoria_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="euphoria_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="euphoria_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="euphoria_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="euphoria_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Difficulty concentrating or focusing on things</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="concentrating_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="concentrating_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="concentrating_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="concentrating_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="concentrating_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="concentrating_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="concentrating_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Reduce motivation and/or enegry</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="motivation_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="motivation_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="motivation_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="motivation_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="motivation_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="motivation_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="motivation_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Change in hunger and/or appetite</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="appetite_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="appetite_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="appetite_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="appetite_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="appetite_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="appetite_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="appetite_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Blurred vision</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="vision_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="vision_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="vision_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="vision_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="vision_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="vision_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="vision_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Dissiness</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="dissiness_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="dissiness_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="dissiness_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="dissiness_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="dissiness_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="dissiness_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="dissiness_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>Feeling irritable</b></h4>
+                                    <h4>Symptom</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="irritable_score" value="0" required>
+                                                <span class="checkmark no-dot">0</span> absent
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="irritable_score" value="1">
+                                                <span class="checkmark no-dot">1</span> mild
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="irritable_score" value="2">
+                                                <span class="checkmark no-dot">2</span> moderate
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="irritable_score" value="3">
+                                                <span class="checkmark no-dot">3</span> severe
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Linked to digital CBT-I</h4>
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="irritable_linked" value="Y" required>
+                                                <span class="checkmark no-dot">Y</span> Yes
+                                            </label><br>
+                                            <label class="radiobuttons">
+                                                <input type="radio" name="irritable_linked" value="N">
+                                                <span class="checkmark no-dot">N</span> No
+                                            </label><br>
+                                        </fieldset>
+                                    </div>
+                                    <h4>Comment</h4>
+                                    <div class="questiongroup ">
+                                                <input type="text" class="form-control" name="irritable_comment" />
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h4><b>What other symptoms have you had since commencing with digital CBT-I that you think may be a side-effects of the treatment</b></h4>
+                                    <div class="questiongroup ">
+                                        <div class="questiongroup ">
+                                            <textarea class="form-control" name="other" ></textarea>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: '__CURRENT_PATH__/shared-form.js'
+            //-------------------------------------
+            //-------------------------------------
+/*            var before_submit = m.before_submit;
+            m.before_submit = function (data, index) {
+                before_submit(data, index);
+            }
+         */   //-------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 600px;
+        }
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>

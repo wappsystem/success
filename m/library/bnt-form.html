@@ -16,7 +16,7 @@
                                         <label><span class="">Participant</span>
                                             <input type=text name="Participant" class=form-control id=Participant__ID
                                                 data-id="Participant" />
-                                        </label>
+                                        </label><br>
                                         <label><span class="">Participant ID</span>
                                             <input type=text name="Participant_uid" class=form-control readonly />
                                         </label>
@@ -26,57 +26,12 @@
                             <!-- form group -->
                             <div class="form-group">
                                 <div class="questiongroup ">
-                                    <fieldset class="">
-                                        <label><span class="">Is the participant 50 to 75 years of age</span></label><br>
-                                        <label class="radiobuttons">
-                                          <input type="radio" name="age" value="0" >
-                                          <span class="checkmark"></span> No</label><br>
-                                        <label class="radiobuttons">
-                                          <input type="radio" name="age" value="1">
-                                          <span class="checkmark"></span> Yes</label><br>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="questiongroup ">
-                                    <fieldset class="">
-                                        <label><span class="">Did the participant screen positive to sleep apnoea (ODI ≥10)?</span></label><br>
-                                        <label class="radiobuttons">
-                                          <input type="radio" name="wristox_inclusion" value="0" >
-                                          <span class="checkmark"></span> No</label><br>
-                                        <label class="radiobuttons">
-                                          <input type="radio" name="wristox_inclusion" value="1">
-                                          <span class="checkmark"></span> Yes</label><br>
-                                      </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="questiongroup ">
-                                    <fieldset class="">
-                                        <label><span class="">MMSE ≥ 24?</span></label><br>
-                                        <label class="radiobuttons">
-                                          <input type="radio" name="pre_scre_mmse_inclusion" value="0" >
-                                          <span class="checkmark"></span> No</label><br>
-                                        <label class="radiobuttons">
-                                          <input type="radio" name="pre_scre_mmse_inclusion" value="1">
-                                          <span class="checkmark"></span> Yes</label><br>
-                                          <label class="radiobuttons">
-                                            <input type="radio" name="pre_scre_mmse_inclusion" value="NA">
-                                            <span class="checkmark"></span> N/A</label><br>
-                                      </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <h4>if ODI ≥10 and MMSE  ≥24 participant is eligible </h4>
-                                <div class="questiongroup ">
-                                    <fieldset class="">
-                                        <label><span class="">Is the participant eligible? </span></label><br>
-                                        <label class="radiobuttons">
-                                          <input type="radio" name="pre_screening_eligibility" value="0" >
-                                          <span class="checkmark"></span> No</label><br>
-                                        <label class="radiobuttons">
-                                          <input type="radio" name="pre_screening_eligibility" value="1">
-                                          <span class="checkmark"></span> Yes</label><br>
+                                    <fieldset class=""><label>Correct,</label>
+                                        <div class=row>
+                                            <div class="col-sm-4"><label><span class="">with stimulus cues:</span><input type=number step=0.1 class=form-control name=btn_stim_cues></label></div>
+                                            <div class="col-sm-4"><label><span class="">with stimulus cues ASS:</span><input type=number step=0.1 class=form-control name=btn_stim_sues_ass></label></div>
+                                            <div class="col-sm-4"><label><span class=""> with phonemic cues:</span><input type=number step=0.1 class=form-control name=bnt_phon_cues></label></div>
+                                        </div>
                                     </fieldset>
                                 </div>
                             </div>
@@ -116,6 +71,8 @@
             VmInclude: '__COMPONENT__/f/form.01.js'
             VmInclude: __CURRENT_PATH__/shared-form.js
             //-------------------------------------
+            //-------------------------------------
+
         }
     </script>
     <style>
