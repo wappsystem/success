@@ -1,14 +1,13 @@
 <div id=page__ID>
 	<div id=panel__ID class="container-fluid" style='max-width:800px'>
-		<div class="text-center panel__ID">
-				<!--<img style="width:50%" src="images/logo_small.png">-->
-				<h5 class= "text-left ml-5" id=congratulation__ID style='color:lawngreen;font-size:1.2rem'></h5>
-				<hr style='border-top:1px solid #000;'></hr>
-			  <h5 class= "text-left ml-5">Please complete each of the following questionnaires.<br><br></h5>
-			  <div id=items__ID  class= "text-left ml-5"></div>
-            <h5 class= "">
+		<div class="text-center panel__ID form-group" style="background-color: rgb(75,75,75,0.9);">
+			<h2><br>Questionnaire Portal</h2>
+    	  	<hr style='border-top:1px solid #000;'></hr>
+    		<h4 class= "text-left">Please complete each of the following questionnaires.<br><br></h4>
+            <div id=items__ID  class= "text-left"></div>
+            <h4 class= "">
                 Once they are completed please click on ‘sign-out’ below, to exit the system. <br>Thank you!<br><br>
-            </h5>
+            </h4>
             <a name=signinout onclick="$vm.signout();" class="btn btn-primary" style='cursor:pointer'>Sign out</a>
     	</div>
 	</div>
@@ -42,10 +41,7 @@
 		var setup_panel=function(){
 			//----------------------------------
 		    var ids=id_list.split(',');
-			var txt="<ul>";
-			var count=0;
-			var tot_count=0;
-			var quest=false;
+		    var txt="<ul>";
 		    //----------------------------------
 		    for(var i=0;i<ids.length;i++){
 				var m=ids[i];
@@ -64,7 +60,6 @@
 		    $('#items__ID').html(txt);
 		    //----------------------------------
 			$('#items__ID li').each(function(){
-				tot_count++;
 		        var $li=$(this);
 				$li.removeClass('li_allowed__ID')
 				$li.addClass('li_not_allowed__ID')
@@ -105,11 +100,6 @@
 					}
 		        }
 		        if(status[m].rid==0){
-					count++;
-					quest=true
-					console.log(tot_count+" - "+count)
-					var completed=(((count-1)/tot_count)*100).toFixed(0);
-					if(count>1) $('#congratulation__ID').html("Congratulations! You have already completed "+completed+"% of the questionnaires<br><br>" )
 					$li.removeClass('li_not_allowed__ID')
 					$li.addClass('li_allowed__ID')
 		            var task_name=$li.html();
@@ -122,14 +112,6 @@
 		            });
 		            return false; // break out the loop
 		        }
-				else{
-					count++;
-					if(count==ids.length && quest==false){
-						var visit=m.split('-')
-						$vm.load_module('succeed-'+visit[1]+'-thank-you-form','',{goback:1});
-					}
-
-				}
 		    })
 		    //----------------------------------
 		}
