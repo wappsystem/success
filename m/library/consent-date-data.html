@@ -4,12 +4,12 @@
 <script>
     function F__ID(){
         //-------------------------------------
-        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/grid.01.js
         VmInclude:__CURRENT_PATH__/shared-data.js
         //-------------------------------------
         $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name); //$('#title__ID').text('Visit date')
         //-------------------------------------
-        var fields="Consent";
+        var fields="consent_date";
         m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
     }

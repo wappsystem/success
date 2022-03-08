@@ -40,8 +40,10 @@
         "succeed-adverse-event-data":                {url:"$H/m/library/adverse-event-data.html",Table:"succeed-adverse-event",form_module:"succeed-adverse-event-form",task_name:"Adverse Event"},
         "succeed-adverse-event-form":                {url:"$H/m/library/adverse-event-form.html",Table:"succeed-adverse-event"},
 
-        "succeed-s-consent-data":		            {url:"$H/m/library/consent-succeed-data.html",Table:"succeed-s-consent",form_module:"succeed-s-consent-form",task_name:"Screening - Consent Form"},
-        "succeed-s-consent-form":		            {url:"$H/m/library/consent-succeed-form.html",Table:"succeed-s-consent",task_name:"Consent Form"},
+        "succeed-s-consent-data":		            {url:"$H/m/library/consent-data.html",Table:"succeed-s-consent",form_module:"succeed-s-consent-form",task_name:"Screening - Consent Form"},
+        "succeed-s-consent-form":		            {url:"$H/m/library/consent-form.html",Table:"succeed-s-consent",task_name:"Screening - Consent Form"},
+        "succeed-s-consent-coo-data":		            {url:"$H/m/library/consent-date-data.html",Table:"succeed-s-consent-coo",form_module:"succeed-s-consent-coo-form",task_name:"Screening - Consent Form"},
+        "succeed-s-consent-coo-form":		            {url:"$H/m/library/consent-date-form.html",Table:"succeed-s-consent-coo",task_name:"Screening - Consent Form"},
         "succeed-s-moca-data":		            {url:"$H/m/library/moca-data.html",Table:"succeed-s-moca",form_module:"succeed-s-moca-form",task_name:"Screening - MoCA"},
         "succeed-s-moca-form":		            {url:"$H/m/library/moca-form.html",Table:"succeed-s-moca",task_name:"Screening - MoCA"},
         "succeed-s-ravlt-data":		            {url:"$H/m/library/ravlt-data.html",Table:"succeed-s-ravlt",form_module:"succeed-s-ravlt-form",task_name:"Screening - Rey Auditory Verbal Learning Test (RAVLT)"},

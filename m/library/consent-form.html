@@ -9,7 +9,6 @@
                         <!-- form start -->
                         <form id="F__ID">
                             <h3 id=title__ID></h3>
-                            <!-- participant part for all tsak forms -------------------->
                             <div id="participant_div__ID">
                                 <div class="form-group">
                                     <fieldset class="subquestions">
@@ -23,29 +22,92 @@
                                     </fieldset>
                                 </div>
                             </div>
-                            <!-- form group -->
-                            <div class="form-group">
-                                <div class="questiongroup ">
-                                    <fieldset class="">
-                                        <label><span class="">Date</span>
-                                            <input class="form-control" type="date" name="date">
-                                        </label><br>
-                                    </fieldset>
+                            <div id=quest5__ID style='max-width:800px;margin-left:auto;margin-right:auto;'>
+                                <div class="form-group box">
+                                    <div class="row">
+                                        <div class="col-sm control-group">
+                                            <h5>Please proceed by reading the <a href="#" data-toggle="modal" data-target="#terms-txt">Participant Information Sheet(click here)</a> carefully and at your
+                                                own pace and tick the box for consent
+                                            </h5>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="form-group box">
+                                    <h5>I consent to participate in the study</h5>
+                                    <div class="questiongroup">
+                                        <fieldset>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Consent" value="Yes">
+                                            <span class="check_checkmark"></span> Yes
+                                        </label><br>
+                                    </div>                              
+                                </div>
+                                <div class="form-group box" id="link__ID" style="display:none!important">
+                                    <div class="text-center">
+                                        Continue ..<br><br>
+                                        <i>Click on the link below to continue. Save the link to your favorits so you can easlily find it, if you need to return to the quesstionnaires.</i><br><br>
+                                        <a id=asteroind_registration__ID target="_blank" style="color:#000;" ><span style='font-size:1.2rem;font-weight:bold;' id=refnum__ID></span></a>
+                                        <br><br>
+                                    </div>
+                                </div>
+                                <div class="box" style="text-align:right">
+                                    <div class="box-item">
+                                        <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                                    </div>
+                                </div>
+                                <!----------------------------------------->
                             </div>
-                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!----------------------------------------->
+    <div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="termsLabel">Patient Information sheet</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div align="right">
+                        <a href="images/PICF _Succeed_V2_15102021clean.docx" download="">Download a copy of
+                            the Information Sheet
+                            <img src="https://img.icons8.com/office/40/000000/pdf.png"></a>
+                    </div>
+                    <object data="images/PICF _Succeed_V2_15102021clean.docx" type="application/pdf"
+                        frameborder="0" width="100%" height="2000px">
+                        <embed src="images//PICF _Succeed_V2_15102021clean.docx" width="100%"
+                            height="2000px" />
+                    </object>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn_1" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
     <script>
         function F__ID(){
             //-------------------------------------
             VmInclude:'__COMPONENT__/f/form.01.js'
             VmInclude:__CURRENT_PATH__/shared-form.js
             //-------------------------------------
+            var before_submit=m.before_submit;
+            m.before_submit=function(data,index){
+              
+                if(data.Consent!='Yes') {
+                    $vm.alert('You must consent to be able to continue this study')
+                    return false
+                }
+                return before_submit(data,index);
+          }
+          //-------------------------------------
         }
     </script>
     <style>
