@@ -92,6 +92,8 @@
         "succeed-w12-aec-form":		            {url:"$H/m/library/aec-form.html",Table:"succeed-w12-aec",task_name:"Week 12 - Digital CBT-I Side-Effects Checklist"},
         "succeed-w12-cantab-data":		            {url:"$H/m/library/cantab-data.html",Table:"succeed-w12-cantab",form_module:"succeed-w12-cantab-form",task_name:"Week 12 - CANTAB"},
         "succeed-w12-cantab-form":		            {url:"$H/m/library/cantab-form.html",Table:"succeed-w12-cantab",task_name:"Week 12 - CANTAB"},
+        "succeed-w12-uessf-data":		            {url:"$H/m/library/uessf-data.html",Table:"succeed-w12-uessf",form_module:"succeed-w12-uessf-form",task_name:"Week 12 - User Engagement Scale Short Form"},
+        "succeed-w12-uessf-form":		            {url:"$H/m/library/uessf-form.html",Table:"succeed-w12-uessf",task_name:"Week 12 - User Engagement Scale Short Form"},
     }
     for(p in modules){
         $vm.module_list[p]=modules[p];
