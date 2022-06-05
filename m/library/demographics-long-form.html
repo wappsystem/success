@@ -236,58 +236,7 @@
                                     </fieldset>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <h4>MMSE</h4>
-                                <div class="questiongroup">
-                                    <fieldset class="">
-                                        <label><span>Has the MMSE previously done (within 6 months)?<br></span></label>
-
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="mmse_done" value="0">
-                                            <span class="checkmark"></span>No
-                                        </label>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="mmse_done" value="1">
-                                            <span class="checkmark"></span>Yes
-                                        </label>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div style='display:none' id=mmse_total_score__ID>
-                                <div class="form-group">
-                                    <div class="questiongroup ">
-                                        <fieldset class="">
-                                            <label><span class="">MMSE total score:</span>
-                                                <input type=number class="form-control" name="mmse_total_score" placeholder="">
-                                            </label><br>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                            </div>                            
                             <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
-                            <div class="form-group">
-                                <div class="pb-3">
-                                    <label><span>Set Status</span></label>
-                                    <fieldset class="">
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="_status" value="#FF0000">
-                                            <span class="checkmark"
-                                                style="background-color:#FF0000"></span>&nbsp;</label>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="_status" value="#FFCC00">
-                                            <span class="checkmark"
-                                                style="background-color:#FFCC00"></span>&nbsp;</label>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="_status" value="#00FF00">
-                                            <span class="checkmark"
-                                                style="background-color:#00FF00"></span>Manually&nbsp;&nbsp;</label>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="_status" value="" checked>
-                                            <span class="checkmark"
-                                                style="background-color:#C9C9C9"></span>Automatically</label>
-                                    </fieldset>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -314,15 +263,6 @@
                 }
 
             }
-            //-------------------------------------
-            $("input[name='mmse_done']").change(function(){
-                if($("input[name='mmse_done']:checked").val()=='0'){
-                    $('#mmse_total_score__ID').show();
-                }
-                else {
-                    $('#mmse_total_score__ID').hide();
-                }
-            });
             //-------------------------------------
 
         }

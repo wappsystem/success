@@ -42,6 +42,8 @@
 
         "succeed-s-consent-data":		            {url:"$H/m/library/consent-data.html",Table:"succeed-s-consent",form_module:"succeed-s-consent-form",task_name:"Screening - Consent Form"},
         "succeed-s-consent-form":		            {url:"$H/m/library/consent-form.html",Table:"succeed-s-consent",task_name:"Screening - Consent Form"},
+        "succeed-s-demographics-data":		            {url:"$H/m/library/demographics-long-data.html",Table:"succeed-s-demographics",form_module:"succeed-s-demographics-form",task_name:"Screening - Demographics"},
+        "succeed-s-demographics-form":		            {url:"$H/m/library/demographics-long-form.html",Table:"succeed-s-demographics",task_name:"Screening - Demographics"},
         "succeed-s-consent-coo-data":		            {url:"$H/m/library/consent-date-data.html",Table:"succeed-s-consent-coo",form_module:"succeed-s-consent-coo-form",task_name:"Screening - Consent Form"},
         "succeed-s-consent-coo-form":		            {url:"$H/m/library/consent-date-form.html",Table:"succeed-s-consent-coo",task_name:"Screening - Consent Form"},
         "succeed-s-moca-data":		            {url:"$H/m/library/moca-data.html",Table:"succeed-s-moca",form_module:"succeed-s-moca-form",task_name:"Screening - MoCA"},
