@@ -30,7 +30,6 @@
         "panel-main-recruitment-eligible":     {url:"$H/m/library/recruitment-eligible-data.html",Table:"succeed-survey-record"},
         "panel-main-recruitment-non-eligible": {url:"$H/m/library/recruitment-non-eligible-data.html",Table:"succeed-survey-record"},
 
-
         "succeed-randomisation-table-data":		    {url:"$H/m/library/randomisation-table-data.html",Table:"succeed-randomisation-table",form_module:"succeed-randomisation-table-form"},
         "succeed-randomisation-table-form":		    {url:"$H/m/library/randomisation-table-form.html",Table:"succeed-randomisation-table"},
         "succeed-randomisation-upload-data":		    {url:"$H/m/library/randomisation-upload-data.html",Table:"succeed-randomisation-upload",form_module:"succeed-randomisation-upload-form",task_name:"Randomisation Document"},
@@ -60,6 +59,8 @@
         "succeed-s-bnt-form":		            {url:"$H/m/library/bnt-form.html",Table:"succeed-s-bnt",task_name:"Screening - Boston Naming Test (BNT)"},
         "succeed-s-otmt-data":		            {url:"$H/m/library/otmt-data.html",Table:"succeed-s-otmt",form_module:"succeed-s-otmt-form",task_name:"Screening - Oral Trail Making Test (OTMT)"},
         "succeed-s-otmt-form":		            {url:"$H/m/library/otmt-form.html",Table:"succeed-s-otmt",task_name:"Screening - Oral Trail Making Test (OTMT)"},
+        "succeed-s-sdmt-data":		            {url:"$H/m/library/sdmt-data.html",Table:"succeed-s-sdmt",form_module:"succeed-s-sdmt-form",task_name:"Screening - Symbol Digit modalities Test"},
+        "succeed-s-sdmt-form":		            {url:"$H/m/library/sdmt-form.html",Table:"succeed-s-sdmt",task_name:"Screening - Symbol Digit modalities Test"},
         "succeed-s-eligible-data":		            {url:"$H/m/library/eligible-data.html",Table:"succeed-s-eligible",form_module:"succeed-s-eligible-form",task_name:"Screening - Eligible"},
         "succeed-s-eligible-form":		            {url:"$H/m/library/eligible-form.html",Table:"succeed-s-eligible",task_name:"Screening - Eligible"},
         

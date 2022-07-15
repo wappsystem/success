@@ -213,7 +213,7 @@
                             <div class="form-group">
                                 <div class="questiongroup ">
                                     <fieldset class="">
-                                        <label><span class="">Major sleep disorders (e.g. obstructive sleep apnoea or narcolepsy, severe restless legs syndrome, and REM sleep behaviour disorder)</span></label><br>
+                                        <label><span class="">Major sleep disorders (e.g. narcolepsy, severe restless legs syndrome, and REM sleep behaviour disorder)</span></label><br>
                                         <label class="radiobuttons">
                                             <input type="radio" name="sleep_disorders" value="0">
                                             <span class="checkmark"></span> No
@@ -258,13 +258,29 @@
                             <div class="form-group">
                                 <div class="questiongroup ">
                                     <fieldset class="">
-                                        <label><span class="">Any other medical condition with known effects on cognition/sleep (e.g. cancer with chemotherapy, chronic pain)</span></label><br>
+                                        <label><span class="">Older adults with a risk of an increase in daytime sleepiness and decreased
+                                            alertness (e.g. professional drivers or those who operate heavy machinery).</span></label><br>
                                         <label class="radiobuttons">
-                                            <input type="radio" name="medical_condition" value="0">
+                                            <input type="radio" name="professional_drivers" value="0">
                                             <span class="checkmark"></span> No
                                         </label>
                                         <label class="radiobuttons">
-                                            <input type="radio" name="medical_condition" value="1">
+                                            <input type="radio" name="professional_drivers" value="1">
+                                            <span class="checkmark"></span> Yes
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Any contraindication to sleep deprivation therapy.</span></label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="contra_sdt" value="0">
+                                            <span class="checkmark"></span> No
+                                        </label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="contra_sdt" value="1">
                                             <span class="checkmark"></span> Yes
                                         </label>
                                     </fieldset>
@@ -280,6 +296,23 @@
                                         </label>
                                         <label class="radiobuttons">
                                             <input type="radio" name="participating" value="1">
+                                            <span class="checkmark"></span> Yes
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Any medication that has been used to assist sleep for three or more nights per week
+                                            (e.g. benzodiazepines, sedative hypnotics, opioids) or at the discretion of the
+                                            clinician.</span></label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="sleep_medication" value="0">
+                                            <span class="checkmark"></span> No
+                                        </label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="sleep_medication" value="1">
                                             <span class="checkmark"></span> Yes
                                         </label>
                                     </fieldset>

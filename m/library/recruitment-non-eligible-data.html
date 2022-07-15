@@ -6,15 +6,20 @@
       //-------------------------------------
       VmInclude:__COMPONENT__/g/grid.01.js
       //-------------------------------------
-      $('#title__ID').text('Hush Study recruitment - non eligible')
+      $('#title__ID').text('Succeed Pre-screening - Non eligible')
       //-------------------------------------
-      var fields="Screening_Number,Eligible";
-      fields+=",age,english,internet,email,insomnia,other_health,cannabis,time";
+      var fields="first_name,last_name,mobile,email,contact";
+      fields+=",progress,Agree,DOB,age,englishfluency,smartphone,shiftworker,heavy_machinery,travelled";
+      fields+=",head_injury,stroke,consciousness,epilepsy,ms,bipolar,autism,schizophrenia,dementia";
+      fields+=",sbd,crd,rls,narcolepsy";
+      fields+=",medication,cpap,mas,study,antidepressants,cbt";
+      fields+=",PHQ_1,PHQ_2,PHQ_3,PHQ_4,PHQ_5,PHQ_6,PHQ_7,PHQ_8,PHQ_9,PHQ";
+      fields+=",audit_1,audit_2,audit_3,audit,audit_consumption";
       fields+=",ISI_1a,ISI_1b,ISI_1c,ISI_2,ISI_3,ISI_4,ISI_5,ISI_1,ISI";
       m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
       //-------------------------------------
       m.load=function(){
-        m.query={"Data.Eligible":"No"}
+        m.query={"Data.mobile": {"$eq" : ""}}
       }
       m.cell_render = function (records, I, field, td, set_value, source) {
         switch (field) {
