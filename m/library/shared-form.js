@@ -72,11 +72,56 @@ m.before_submit=function(data){
     else data.sysStatus=$("#F__ID input[name=_status]:checked").val()
 }
 //-------------------------------------
+m.after_insert= function(data,index){
+    //console.log("After Insert: ");
+    if($vm.online_questionnaire==1){
+        var uid=data.Participant_uid;
+        uid_string=uid;
+        uid=parseInt(uid)
+        var pt_tab=$vm.module_list['progress-mod-form'].Table;
+        find="find-p1";
+        update="update-data-p1";
+        var query={I1:uid_string}
+        jQuery.ajaxSetup({ async: false });
+        $vm.request({ cmd:find,table:pt_tab,query:query,limit:1}, function (res) {
+            if (res.sys.permission == false) {
+                $vm.alert("No permission. Private database table, ask the table's owner for permissions.");
+                return;
+            }        
+            if (res.result.length > 0) {
+                var pt_data=res.result[0].Data;
+                var prog=$vm.module_list[$vm.vm['__ID'].name].progress
+                //console.log($vm.module_list[$vm.vm['__ID'].name])
+                var tp=(prog).split('-');
+                if(tp[0]=='bl') pt_data.bl=tp[1];
+                if(tp[0]=='w12') pt_data.w12=tp[1];                
+                //console.log("pt_data: "+JSON.stringify(pt_data));
+                $vm.request({cmd:update,id:res.result[0]._id,table:pt_tab,data:pt_data},function(res){
+                    //-----------------------------
+                    if(res.status=="lk"){
+                        $vm.alert("This record is locked.");
+                        return;
+                    }
+                    //-----------------------------
+                    if(res.status=="np"){
+                        alert("No permission to update this record.");
+                        return;
+                    }
+                    //-----------------------------
+                    $vm.refresh=1;
+                    window.history.go(-1);    
+                })
+            }
+        })
+        jQuery.ajaxSetup({ async: true });
+    }
+}
+//-------------------------------------
 var status_of_data=function(data){
     var N1=0,N2=0;
     for(key in data){
         if(key!="" && key!="Participant" && key!="Participant_uid" && key!="sysStatus" && key!="_status"){
-            console.log(key+' - '+ data[key]);
+            //console.log(key+' - '+ data[key]);
             N2++;
             if(data[key]=='') N1++;
         }

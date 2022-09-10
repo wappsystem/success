@@ -1,0 +1,333 @@
+<div id=D__ID>
+	<!--third html start -->
+	<div class="container mt-95 mb-3">
+		<div class="row">
+			<!-- form container start -->
+			<div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+				<div class="row">
+					<div class="col-12">
+						<!-- form start -->
+						<form id="F__ID">
+							<h3 id=title__ID></h3>
+							<!-- participant name and study id -->
+							<div id="participant_div__ID">
+								<div class="form-group">
+                                    <div class="questiongroup ">
+                                        <fieldset class="subquestions">
+                                            <label><span class="">Participant ID</span>
+                                                <input type=text name="Participant_uid" class=form-control readonly />
+                                            </label>
+                                        </fieldset>
+                                    </div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="questiongroup ">
+									<fieldset class="subquestions">
+										<label><span class="">Date email sent</span>
+											<input class="form-control" type="date" id=emaildate__ID> 
+										</label><br>
+									</fieldset>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="questiongroup ">
+									<fieldset class="subquestions">
+										<label><span class="">Name</span>
+											<input class="form-control" type="text" id=name__ID required> 
+										</label><br>
+										<label><span class="">Email Address</span>
+											<input class="form-control" type="text" id=email__ID required> 
+										</label><br>
+										<label><span class="">Mobile Number (not required)</span>
+											<input class="form-control" type="text" id=mobile__ID> 
+										</label><br>
+									</fieldset>
+								</div>
+							</div>
+							<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Send Email</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function F__ID() {
+          //-------------------------------------
+          VmInclude:__COMPONENT__/f/form.01.js
+          VmInclude:__CURRENT_PATH__/shared-form.js
+          //-------------------------------------
+          var group=""
+          var access_code=""
+          var name=""
+          var email=""
+          var mobile=""
+          m.default_load = m.load;
+            m.load = function () {
+                //console.log("send email: "+JSON.stringify(m.input.record))
+				$('#emaildate__ID').attr('name',m.input.email);
+				m.default_load();
+				m.input.goback = 1;
+                $('#name__ID').val('')
+                $('#email__ID').val('')
+                $('#mobile__ID').val('')
+                if($('#emaildate__ID').val()==undefined || $('#emaildate__ID').val()=="") $('#emaildate__ID').val(get_now_date());
+				$('#title__ID').text(m.input.title)
+                $('#F__ID input[name=Participant_uid]').val(m.input.record.Data.Participant)
+                group=m.input.record.Data.group;
+                access_code=m.input.record.Data.access_code;
+            }
+            //-------------------------------------
+			var before_submit = m.before_submit;
+			m.before_submit = function (data, index) {
+				return before_submit(data, index);
+			}
+            //-------------------------------------
+            m.after_update = function (data, res) {
+                console.log('After update')
+				var tb = $vm.module_list['participant-data'].Table;
+				var p_uid=parseInt(data.Participant_uid);
+				var qry = { UID: p_uid };
+				var pw="";
+                jQuery.ajaxSetup({ async: false });
+                $vm.request({ cmd: "find", table: tb, query: qry, options: {} }, function (res) {
+                    if (res.result.length != 0) {
+						pw=res.result[0].Data._Password;
+                    }
+                    else $vm.alert("Sorry, something went wrong!")
+                })
+                jQuery.ajaxSetup({ async: true });
+
+				var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+				var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+				var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+				var u="?username="+data.Participant_uid+"&password="+pw;
+				var q_url="";
+				var param = [];
+				var url='';
+				var sms_url='';
+				switch(m.input.email){
+                    case 'w1_email':
+                        if(group=='Control'){
+                            console.log('Send Sleep Health Education Module 1 Email')
+                            q_url=$vm.module_list['shm1-w1'].url;
+                            url='https://prod-20.australiasoutheast.logic.azure.com:443/workflows/2cc8533843d24c3690daccea9983c69b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EmSw75act_5RD229jyGxv-cbbA6CXuY24Bfy_cdT_p4';
+    					 	//sms_url='https://prod-23.australiasoutheast.logic.azure.com:443/workflows/d8ef997811084931a0e7000b6475cb5e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=CQtU5SIPDLQxELJJewDrDIiyCMjjDMfsLu4KMvAOPpk';
+                        }
+                        else{
+                        }
+                    break;
+                    case 'w3_email':
+                        if(group=='Control'){
+                            console.log('Send Sleep Health Education Module 2 Email')
+                            q_url=$vm.module_list['shm2-w3'].url;
+                            url='https://prod-27.australiasoutheast.logic.azure.com:443/workflows/b3ce02930e5c4e649d51725b24fbe04f/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=u-7obVbOheDkk0ZbLBSCD56sHy16Nx1uyOVQrTvQvYg'
+                            //sms_url='https://prod-31.australiasoutheast.logic.azure.com:443/workflows/0ac176f9a6074d2780b8945722755952/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0kNfJJt8xwmSLjeTc9WuTiMDttnAFF4HT7sKjJGMPYc'
+                        }
+                    break;
+                    case 'w5_email':
+                        if(group=='Control'){
+                            console.log('Send Sleep Health Education Module 3 Email')
+                            q_url=$vm.module_list['shm3-w5'].url;
+                            url='https://prod-00.australiasoutheast.logic.azure.com:443/workflows/fad5ec55cd5d4aa6b49d839aba848a83/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=yUeU_eVuz1qZv7Bt01w13DrWz1xN7XCjVMDj9gr_7X8'
+                            //sms_url='https://prod-11.australiasoutheast.logic.azure.com:443/workflows/785282ae03894484a54d90fef64bf485/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=jCFwWw_0s4j3gzHHpyEAFSILuAzw5dhdJP7AxpzQp5g'
+                        }
+                        else{
+                        }
+                    break;
+                    case 'bl_email':
+                        q_url=$vm.module_list['oq-bl'].url+u+db+d+p;
+                        if(group=='Control'){
+                            console.log('Send Control baseline: '+q_url)
+                            url='https://prod-13.australiasoutheast.logic.azure.com:443/workflows/f3fc23b60ff84fcebfcc8f4a7942b838/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fcURZw2jGo6skPttMviEXtAm-2GuBzDQzSRRg3GUZBE'
+                            sms_url='https://prod-17.australiasoutheast.logic.azure.com:443/workflows/ea336655098c43478f76aafcb1d26a4d/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1q95cN4UPlN79yq2dtRcbFE75_qq1oZ9J0XVNcs2X8E'
+                        }
+                        else{
+                            console.log('Send Treatment baseline: '+q_url)
+                            url='https://prod-13.australiasoutheast.logic.azure.com:443/workflows/f3fc23b60ff84fcebfcc8f4a7942b838/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fcURZw2jGo6skPttMviEXtAm-2GuBzDQzSRRg3GUZBE'
+                            sms_url='https://prod-17.australiasoutheast.logic.azure.com:443/workflows/ea336655098c43478f76aafcb1d26a4d/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1q95cN4UPlN79yq2dtRcbFE75_qq1oZ9J0XVNcs2X8E'
+                        }
+                    break;
+                    case 'bl_rem_1':
+                        q_url=$vm.module_list['oq-bl'].url+u+db+d+p;
+                        if(group=='Control'){
+                            console.log('Send Control baseline reminder 1: '+q_url)
+                            url='https://prod-08.australiasoutheast.logic.azure.com:443/workflows/4721d6d664a544ec93090b377e67e33e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FX_16AU2djxd8wdoxoNW3w7H9tsrITdjE3d79-Tlk8E'
+                            sms_url='https://prod-26.australiasoutheast.logic.azure.com:443/workflows/48c472c9c4a04868a8683e993c6d3e67/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=4kPSrm0gunuTJSCJqoByUhKQEPgHXGdgU1WzuzFnPXE'
+                        }
+                        else{
+                            console.log('Send Treatment baseline reminder 1: '+q_url)
+                            url='https://prod-08.australiasoutheast.logic.azure.com:443/workflows/4721d6d664a544ec93090b377e67e33e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FX_16AU2djxd8wdoxoNW3w7H9tsrITdjE3d79-Tlk8E'
+                            sms_url='https://prod-26.australiasoutheast.logic.azure.com:443/workflows/48c472c9c4a04868a8683e993c6d3e67/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=4kPSrm0gunuTJSCJqoByUhKQEPgHXGdgU1WzuzFnPXE'
+                        }
+                    break;
+                    case 'bl_rem_2':
+                        if(group=='Control'){
+                            console.log('Send Control baseline reminder 2: '+q_url)
+                            //url='https://prod-29.australiasoutheast.logic.azure.com:443/workflows/0debf489282e4b4ab5c17f85fcebe3fc/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=KgGBP_VTMnb4sM1lt2QnYMdiazSqIwfimmtitTKd4-I'
+                            //sms_url='https://prod-17.australiasoutheast.logic.azure.com:443/workflows/faf0a6493820420ba045f66a229348df/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=t8FBK6J8oGBac1jvgT7AD5kDNDL5D_QUSl1R5EVq978'
+                        }
+                        else{
+                            console.log('Send Treatment baseline reminder 2: '+q_url)
+                            //url='https://prod-29.australiasoutheast.logic.azure.com:443/workflows/0debf489282e4b4ab5c17f85fcebe3fc/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=KgGBP_VTMnb4sM1lt2QnYMdiazSqIwfimmtitTKd4-I'
+                            //sms_url='https://prod-17.australiasoutheast.logic.azure.com:443/workflows/faf0a6493820420ba045f66a229348df/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=t8FBK6J8oGBac1jvgT7AD5kDNDL5D_QUSl1R5EVq978'
+                        }
+                    break;
+                    case 'w12_email':
+                        q_url=$vm.module_list['oq-w12'].url+u+db+d+p;
+                        console.log('Send Week 12 questionnaires link: '+q_url)
+                        if(group=='Control'){
+                            url='https://prod-29.australiasoutheast.logic.azure.com:443/workflows/0cb2bf8667ae42dfba82d6641d4f2e3c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mulAZOtml58TsTjZcd9nTqu2EeF4EDQn01RPPFbp3AA';
+                            sms_url='https://prod-08.australiasoutheast.logic.azure.com:443/workflows/8680991fcc124d809494841eade3df9c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fe_OvqF4xgAA_Rd0w8sIIAG2Os_rxkVq2fVdwGenQ9A';
+                        }
+                        else{
+                            url='https://prod-29.australiasoutheast.logic.azure.com:443/workflows/0cb2bf8667ae42dfba82d6641d4f2e3c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mulAZOtml58TsTjZcd9nTqu2EeF4EDQn01RPPFbp3AA';
+                            sms_url='https://prod-08.australiasoutheast.logic.azure.com:443/workflows/8680991fcc124d809494841eade3df9c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fe_OvqF4xgAA_Rd0w8sIIAG2Os_rxkVq2fVdwGenQ9A';
+                        }
+                    break;
+                    case 'w12_rem_1':
+                        q_url=$vm.module_list['oq-w12'].url+u+db+d+p;
+                        console.log('Send Week 12 Reminder 1: '+q_url)
+                        if(group=='Control'){
+                            url='https://prod-09.australiasoutheast.logic.azure.com:443/workflows/be460cfa436f48c0a463206a72bb9f58/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=30lzVESNNn4w2E9hXr-8kFQ0SRBDtSz3EI8Krl5BoCU';
+                            sms_url='https://prod-16.australiasoutheast.logic.azure.com:443/workflows/3c0230f5e3f9401ebd86bae6efcd269c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Uy4fJS14--7a1gW1BngxsoSptavdyxE_TVwlDggdCgA';
+                        }
+                        else{
+                            url='https://prod-09.australiasoutheast.logic.azure.com:443/workflows/be460cfa436f48c0a463206a72bb9f58/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=30lzVESNNn4w2E9hXr-8kFQ0SRBDtSz3EI8Krl5BoCU';
+                            sms_url='https://prod-16.australiasoutheast.logic.azure.com:443/workflows/3c0230f5e3f9401ebd86bae6efcd269c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Uy4fJS14--7a1gW1BngxsoSptavdyxE_TVwlDggdCgA';
+                        }
+                    break;
+                    case 'w12_rem_2':
+                        q_url=$vm.module_list['oq-w12'].url+u+db+d+p;
+                        console.log('Send Week 12 Reminder 2: '+q_url)
+                        if(group=='Control'){
+                            //url='https://prod-00.australiasoutheast.logic.azure.com:443/workflows/abeead73577d4888b31b01bff22d9ab8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=6dDA99gq9udg7EBhU_g8fMBJ6Geciu2UOJfOWBEmu3Y';
+                            //sms_url='https://prod-21.australiasoutheast.logic.azure.com:443/workflows/d9678e0091224cb1976fb8ee9c168cce/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=O33kfii4JkcxPWg702uWFsyCBm3ZmNiZtyyL2W2yh20';
+                        }
+                        else{
+                            //url='https://prod-00.australiasoutheast.logic.azure.com:443/workflows/abeead73577d4888b31b01bff22d9ab8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=6dDA99gq9udg7EBhU_g8fMBJ6Geciu2UOJfOWBEmu3Y';
+                            //sms_url='https://prod-21.australiasoutheast.logic.azure.com:443/workflows/d9678e0091224cb1976fb8ee9c168cce/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=O33kfii4JkcxPWg702uWFsyCBm3ZmNiZtyyL2W2yh20';
+                        }
+                    break;
+                    case 'ac_email':
+                        q_url=$vm.module_list['ac-link'].url;
+                        console.log('Send Access code and link to Sleepfix: '+ data.access_code)
+                        if(group=='Control'){
+                            //console.log('Send Access code and link to Sleepfix: '+ data.access_code)
+                            url='https://prod-30.australiasoutheast.logic.azure.com:443/workflows/4a69aa60de394d5dadbb2ac522a59719/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=e9l3Y1jfOGJ8oTKaIfjGtFu2u-Aojkt3_riJP9ePM3s'
+                            sms_url=''; //'https://prod-21.australiasoutheast.logic.azure.com:443/workflows/06d77eb489714acfb9c7ea477902f4e8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Lx-FiE6fdvEpWZ99NRe5UBMEDPp9Y3yCLRbUPxPg6bc'
+                        }
+                        else{
+                            //q_url=$vm.module_list['sleepio-code'].url+u+db+d+p;
+                            url='https://prod-22.australiasoutheast.logic.azure.com:443/workflows/422243f0ce03483094f94869a29c7c90/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3Y7NWgy9oidC2RCV5GyoKLaDFPSMMMb75dHo5KaHCEk';
+					 	    sms_url=''; //https://prod-14.australiasoutheast.logic.azure.com:443/workflows/8653726d208e4f408716bbf6fc4ae34b/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JGjmWlh_tFlMWSlqbIrf1B6aOp2gEZS9UUPktfZoBl4';
+                        }
+                    break;  
+				}
+                console.log("DATA: "+JSON.stringify(data))
+				param.push(email); //0
+				param.push(name); //1
+				param.push(q_url); //2
+				param.push(data.access_code); //3
+				param.push(mobile) //4
+				param.push("") //5
+				param.push(url) //6
+				param.push(sms_url) //7
+				//console.log('Send Email Disabled Email:'+param[0]+' First Name:'+param[1]+' Access Code:'+param[3]+' Phone:'+param[4]+' SMS:'+param[5]); 
+				console.log(JSON.stringify(param))
+				send_email(param);              
+				$vm.refresh=1;
+                //if(m.change_status==undefined) m.change_status=0;
+                m.change_status++;
+                window.history.go(-1);                       //modify
+            }
+            $('#name__ID').on('change',function(){
+                name= $('#name__ID').val();
+            })
+            //-------------------------------------
+            $('#email__ID').on('change',function(){
+                email= $('#email__ID').val();
+            })
+            //-------------------------------------
+            $('#mobile__ID').on('change',function(){
+                mobile= $('#mobile__ID').val();
+            })
+            //-------------------------------------
+            var send_email = function (param) {
+                var url = param[6]
+                var sms_url = param[7]
+                if(param[0]!=''){
+                    var data = {
+                        "emailaddress": "" + param[0] + "",
+                        "first_name": "" + param[1] + "",
+                        "link": "" + param[2] + "",
+                        "code": "" + param[3] + ""
+                    }
+                    console.log("EMAIL: "+JSON.stringify(data))
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                        }
+                        else if (this.readyState == 4 && this.status == 403) {
+                        }
+                        if (this.status == 404) {
+                            $vm.alert(url + ", 404 (Not found)");
+                        }
+                    }
+                    xmlHttp.open("POST", url, true); // true for asynchronous
+                    xmlHttp.setRequestHeader("Content-Type", "application/json");
+                    xmlHttp.send(JSON.stringify(data));
+                }
+                //------------------------------------
+                //SMS alert
+				//------------------------------------
+                if(param[4]!='' && param[7]!=''){
+                    var sms_data = {
+                        "emailaddress": "" + param[4].replace(/-/g,'') + "@e2s.directsms.com.au",
+                        "first_name": "" + param[1] + "",
+                        "link": "" + param[2] + "",
+                        "code": "" + param[3] + ""
+                    }
+                    console.log("SMS: "+JSON.stringify(sms_data))
+                    var sms_xmlHttp = new XMLHttpRequest();
+                    sms_xmlHttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                        }
+                        else if (this.readyState == 4 && this.status == 403) {
+                        }
+                        if (this.status == 404) {
+                            $vm.alert(url + ", 404 (Not found)");
+                        }
+                    }
+                    sms_xmlHttp.open("POST", sms_url, true); // true for asynchronous
+                    sms_xmlHttp.setRequestHeader("Content-Type", "application/json");
+                    sms_xmlHttp.send(JSON.stringify(sms_data)); 
+				}              
+			}
+			//-------------------------------------
+            var get_now_date = function () {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1; //January is 0!
+                var yyyy = today.getFullYear();
+                var hh = today.getHours()
+                var mn = today.getMinutes()
+                var ss = today.getSeconds()
+                if (dd < 10) { dd = '0' + dd; }
+                if (mm < 10) { mm = '0' + mm; }
+                if (mn < 10) { mn = '0' + mn; }
+                if (hh < 10) { hh = '0' + hh; }
+                if (ss < 10) { ss = '0' + ss; }
+                return yyyy + '-' + mm + '-' + dd;
+            }
+		}
+	</script>
+	<style>
+		#D__ID .mt-95 {
+			max-width: 600px;
+		}
+
+    VmInclude:__CURRENT_PATH__/wappsystem-form.css
+</style>
+</div>

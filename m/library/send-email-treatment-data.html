@@ -1,0 +1,279 @@
+<div id=D__ID>
+    <div>
+        VmInclude:__CURRENT_PATH__/grid.v1h.html
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/g/grid.01.js     
+            //-------------------------------------
+            $('#title__ID').text('Send email for Treatment group');            
+            //-------------------------------------
+            var fields="_Participant_ID|Participant,Group|group,ac_email,Start_Date,bl_email,bl,bl_rem_1,w12_email,w12,w12_rem_1";
+            m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
+            //-------------------------------------
+            var today;
+            m.load=function(){
+                m.query={"Data.group": {"$eq" : "Treatment"}}
+                today = new Date();
+            }
+            //-------------------------------------
+            m.cell_render=function(records,I,field,td){
+                //console.log(JSON.stringify(records[I].Data))
+                switch(field){
+                    case '_Participant_ID':
+                        td.html(records[I].UID);
+                    break;
+                    case 'Start_Date':
+                    var s=records[I].Data.Start_Date
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            html="<u style='cursor:pointer'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt1))+"</u>";
+                        }
+                        else {
+                            html="<u style='cursor:pointer'>Start Date</u>"
+                        }
+                        td.html(html);
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('start-date','',{record:records[I],group:'control'})
+                            })
+                    break;
+                    case 'bl':
+                        var v=parseInt(records[I].Data.bl);
+                        if(v==6){
+                            td.html("<i class='fa fa-smile'></i>");
+                            td.css('color','green')
+                        }
+                        else if(v>0) {
+                            td.html("<i class='fa fa-meh'></i>");
+                            td.css('color','orange')
+                        }
+                        else {
+                            td.html("")
+                        }
+                    break;
+                    case 'w12':
+                        var v=parseInt(records[I].Data.w12);
+                        if(v==18){
+                            td.html("<i class='fa fa-smile'></i>");
+                            td.css('color','green')
+                        }
+                        else if(v>0) {
+                            td.html("<i class='fa fa-meh'></i>");
+                            td.css('color','orange')
+                        }
+                        else {
+                            td.html("")
+                        }
+                    break;
+                    case 'bl_email':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,0);
+                            var color='';
+                            s=records[I].Data['bl_email'];
+                            if(s!='' && s!=null && s!=undefined){
+                                dt1=$vm.date_yyyymmdd_parse(s);
+                                html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt1))+"</u>";
+                                html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                            }
+                            else{
+                                if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                            }
+                            td.html(html);
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('send-email','',{record:records[I],email:'bl_email',title:'Baseline'})
+                            })
+                        }
+                    break;
+                    case 'bl_rem_1':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,7);
+                            var color='';
+                            if(records[I].Data['bl']!='6'){
+                                s=records[I].Data['bl_rem_1'];
+                                if(s!='' && s!=null && s!=undefined){
+                                    html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                                }
+                                else{
+                                    if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                }
+                                td.html(html);
+                                td.find('u').on('click',function(){
+                                    $vm.load_module_v2('send-email','',{record:records[I],email:'bl_rem_1',title:'Baseline Reminder 1'})
+                                })
+                            }
+                        }
+                    break;
+                    /*case 'bl_rem_2':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,6);
+                            var color='';
+                            if(records[I].Data['bl']!='6'){
+                                s=records[I].Data['bl_rem_2'];
+                                if(s!='' && s!=null && s!=undefined){
+                                    html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                                }
+                                else{
+                                    if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                }
+                                td.html(html);
+                                td.find('u').on('click',function(){
+                                    $vm.load_module_v2('send-email','',{record:records[I],email:'bl_rem_2',title:'Baseline Reminder 2'})
+                                })
+                            }
+                        }
+                    break;*/
+                    case 'w12_email':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,84);
+                            var color='';
+                            s=records[I].Data['w12_email'];
+                            if(s!='' && s!=null && s!=undefined){
+                                html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                            }
+                            else{
+                                if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                            }
+                            td.html(html);
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('send-email','',{record:records[I],email:'w12_email',title:'Week 12'})
+                            })
+                        }
+                    break;
+                    case 'w12_rem_1':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,91);
+                            var color='';
+                            if(records[I].Data['w12']!='18'){
+                                s=records[I].Data['w12_rem_1'];
+                                if(s!='' && s!=null && s!=undefined){
+                                    html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                                }
+                                else{
+                                    if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                }
+                                td.html(html);
+                                td.find('u').on('click',function(){
+                                    $vm.load_module_v2('send-email','',{record:records[I],email:'w12_rem_1',title:'Week 12 Reminder 1'})
+                                })
+                            }
+                        }
+                    break;
+                    /*case 'w12_rem_2':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,90);
+                            var color='';
+                            if(records[I].Data['w12']!='18'){
+                                s=records[I].Data['w12_rem_2'];
+                                if(s!='' && s!=null && s!=undefined){
+                                    html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                                }
+                                else{
+                                    if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                }
+                                td.html(html);
+                                td.find('u').on('click',function(){
+                                    $vm.load_module_v2('send-email','',{record:records[I],email:'w12_rem_2',title:'Week 12 Reminder 2'})
+                                })
+                            }
+                        }
+                    break;*/
+                    case 'ac_email':
+                    var s=records[I].Data["ac_email"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            html="<u style='cursor:pointer'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt1))+"</u>";
+                        }
+                        else {
+                            html="<u style='cursor:pointer'>Send Access Code</u>"
+                        }
+                        td.html(html);
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('send-email','',{record:records[I],email:'ac_email',title:'Send Access Code'})
+                            })
+                    break;
+                }
+            }
+            //-----------------------------------------------
+            m.export_records=function(){
+                var req={cmd:"export",table:m.Table,I1:m.I1,search:$('#keyword__ID').val()}
+                open_model__ID();
+                $vm.request(req,function(N,i,txt){
+                    console.log(i+"/"+N);
+                    $('#msg__ID').text((100*i/N).toFixed(0)+"%");
+                    if(i==-1){
+                        var len=txt.length;
+                        var data_rec="["+txt.substring(5,len-9)+"]";
+                        var o=JSON.parse(data_rec);
+                        var fields_ex=m.fields.replace("I2","Participant");
+                        var export_fields=fields_ex.split(',');
+                        for (var j=0;j<export_fields.length;j++){
+                            var tmp=export_fields[j].split('|')
+                            if (tmp.length>1) export_fields[j]=tmp[1];
+                        }
+                        //Add undefined values to first record (lowest Participant_uid) to get complete records for all entries. 
+                        o.sort(function(a, b) {
+                            return parseFloat(a.Participant) - parseFloat(b.Participant);
+                        });
+                       //Order by m.fields
+                        export_fields=export_fields.slice(0,export_fields.length-1);
+                        //console.log(JSON.stringify(export_fields))
+                        var output_data=[];
+                        for (var k=0;k<o.length;k++){
+                            var empty_item2={};
+                            for( var l=0;l<export_fields.length;l++){
+                                if(o[k].hasOwnProperty(export_fields[l])){
+                                    empty_item2[export_fields[l]]=o[k][export_fields[l]];
+                                }
+                                else {
+                                    empty_item2[export_fields[l]]="";  
+                                }
+                            }
+                            output_data.push(empty_item2);
+                        }
+
+                        var oo=JSON.parse(JSON.stringify(output_data,export_fields));
+                        //console.log(JSON.stringify(oo))
+                        $vm.download_csv(m.Table+".csv",oo);
+                        close_model__ID();
+                    }
+                });
+            }
+            //-----------------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/g/grid.01.css
+    </style>
+</div>

@@ -9,35 +9,43 @@
 						<form id=F__ID>
 							<h3>Participant's Details</h3>
 							<div class='row px-4'>
-								<div class="col-sm-12 col-lg-12 row_participant__ID">
+								<div class="col-sm-12 col-lg-4 row_participant__ID">
 									<label class=''><span class=''>Participant ID</span>
 										<input type=text class=form-control id=record__ID readonly>
 									</label>
 								</div>
-								<div class="col-sm-12 col-lg-12 ">
+								<div class="col-sm-12 col-lg-4 ">
 									<label class=''><span class=''>Screening Number</span>
 										<input type=text class=form-control name=Screening_Number>
 									</label>
 								</div>
-							</div>
-							<div class='row px-4'>
-								<div class="col-sm-12 col-lg-6 ">
+								<div class="col-sm-12 col-lg-4 ">
 									<label class=''><span class=''>Password</span>
 										<input type=text class=form-control name=_Password>
 									</label>
 								</div>
-								<div class="col-sm-12 col-lg-6">
-								</div>
 							</div>
 							<div class='row px-4'>
-								<div class="col-sm-12 col-lg-6 row_participant__ID">
+								<div class="col-sm-12 col-lg-4 row_participant__ID">
 									<label class=''><span class=''>Randomisation Number</span>
 										<input type=text class=form-control name=Randomisation_Number readonly placeholder='click here to randomise'>
 									</label>
 								</div>
-								<div class="col-sm-12 col-lg-6 row_participant__ID">
+								<div class="col-sm-12 col-lg-4 row_participant__ID">
 									<label class=''><span class=''>Randomised by</span>
 										<input type=text class=form-control name=Randomised_by readonly>
+									</label>
+								</div>
+							</div>
+							<div class='row px-4'>
+								<div class="col-sm-12 col-lg-4 row_participant__ID">
+									<label class=''><span class=''>Group</span>
+										<input type=text class=form-control name=Group readonly>
+									</label>
+								</div>
+								<div class="col-sm-12 col-lg-4 row_participant__ID">
+									<label class=''><span class=''>Access Code</span>
+										<input type=text class=form-control name=access_code readonly>
 									</label>
 								</div>
 							</div>
@@ -84,13 +92,86 @@
 					})
 				}
 			})
-			//-------------------------------------
 			m.before_submit = function (data, index) {
 				var I1 = $('#F__ID input[name=Randomisation_Number').val(); if (I1 != '' && I1 != '-') index.I1 = parseInt(I1);
 				var nd=new Date()
 				index.I2=nd.getFullYear()+"-"+$vm.pad(nd.getMonth()+1,2)+"-"+$vm.pad(nd.getDate(),2);
+                jQuery.ajaxSetup({ async: false });
+                    var tb = $vm.module_list["randomisation-table-data"].Table;
+                    var query={UID:index.I1}
+                    $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
+                        if (res.result.length != 0) {
+                            //console.log(JSON.stringify(res.result[0].Data.Group))
+                            data.Group=res.result[0].Data.Group;
+                            index.I3=res.result[0].Data.Group;
+                            //if(index.I3=="Control") data.Start_Date=index.I2;
+                        }
+                    });
+                    var tb = $vm.module_list["access-code-data"].Table;
+                    var query={UID:index.I1}
+                    $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
+                        if (res.result.length != 0) {
+                            //console.log(JSON.stringify(res.result[0].Data.Group))
+                            data.access_code=res.result[0].Data.Access_Code;
+                        }
+                    });
+                jQuery.ajaxSetup({ async: true });
 			}
 			//-------------------------------------
+            m.after_update = function (data,index) {
+                //console.log('Data: '+JSON.stringify(data));
+                //console.log(index.result.UID)
+                var pid=(index.result.UID).toString();
+                var record={};
+				var record_index={};
+                var tb = $vm.module_list["progress-mod-form"].Table;
+                query={'Data.Participant':pid}
+                //console.log(query);
+                jQuery.ajaxSetup({async:false});
+                $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
+                    if(res.permission==false){
+                        alert("No permission");
+                        return;
+                    }
+                    if(res.result.length==0){
+						console.log("length=0")
+						record.Data={};
+						record_index.I1=pid;
+						var tbp = $vm.module_list["participant-data"].Table;
+						record_index.P1=','+tbp+'-'+pid+',';
+						record.Data.Participant=pid;
+						record.Data.group=data.Group;
+                        //record.Data.Start_date=index.result.I2;
+                        record.Data.access_code=data.access_code;
+                        console.log(JSON.stringify(record))
+						$vm.request({cmd:'insert',table:tb,data:record.Data,index:record_index},function(res){
+						});
+                    }
+                    else{
+                        record=res.result[0]
+                        record.Data.group=data.Group;
+                        //record.Data.Start_date=index.result.I2;
+                        record.Data.access_code=data.access_code;
+                        console.log(JSON.stringify(record))
+                        $vm.request({cmd:'update',id:record._id,table:tb,data:record.Data},function(res){
+                            //-----------------------------
+                            if(res.status=="lk"){
+                                $vm.alert("This record is locked.");
+                                return;
+                            }
+                            //-----------------------------
+                            if(res.status=="np"){
+                                alert("No permission to update this record.");
+                                return;
+                            }
+                        })
+                    }
+                })
+                jQuery.ajaxSetup({async:true});
+                $vm.refresh=1;
+                m.change_status++;
+                window.history.go(-1);   
+            }
 		}
 	</script>
 	<style>
