@@ -31,6 +31,11 @@
 										<input type=text class=form-control name=Randomisation_Number readonly placeholder='click here to randomise'>
 									</label>
 								</div>
+								<!--<div class="col-sm-12 col-lg-4 row_participant__ID">
+									<label class=''><span class=''>clean Number</span>
+										<input type=text class=form-control name=Clean_Randomisation_Number readonly placeholder='click here to randomise'>
+									</label>
+								</div>-->
 								<div class="col-sm-12 col-lg-4 row_participant__ID">
 									<label class=''><span class=''>Randomised by</span>
 										<input type=text class=form-control name=Randomised_by readonly>
@@ -88,12 +93,13 @@
 						}
 						max_I1++;
 						$('#F__ID input[name=Randomisation_Number').val('R'+max_I1.toString().padStart(3, "0"));
+						$('#F__ID input[name=Clean_Randomisation_Number').val(max_I1.toString());
 						$('#F__ID input[name=Randomised_by').val($vm.user_name);
 					})
 				}
 			})
 			m.before_submit = function (data, index) {
-				var I1 = $('#F__ID input[name=Randomisation_Number').val(); if (I1 != '' && I1 != '-') index.I1 = parseInt(I1);
+				var I1 = $('#F__ID input[name=Clean_Randomisation_Number').val(); if (I1 != '' && I1 != '-') index.I1 = parseInt(I1);
 				var nd=new Date()
 				index.I2=nd.getFullYear()+"-"+$vm.pad(nd.getMonth()+1,2)+"-"+$vm.pad(nd.getDate(),2);
                 jQuery.ajaxSetup({ async: false });
