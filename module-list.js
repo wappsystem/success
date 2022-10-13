@@ -16,12 +16,16 @@
         "participant-data":   		{url:"$H/m/participant/participant-data.html",Table:"succeed-participant",form_module:"participant-form",router:1,
                                             child_panel:"panel-child",
                                             questionnaire_setup:"online-questionnaire-setup-succeed",
-                                            online_questionnaire:"online-questionnaire-app-succeed"
+                                            oq_s_questionnaire:"online-questionnaire-screening",
+                                            oq_bl_questionnaire:"online-questionnaire-baseline",
+                                            oq_w12_questionnaire:"online-questionnaire-week12"
                                         },                                    
         "participant-form":   		{url:"$H/m/participant/participant-form.html",Table:"succeed-participant"},
 
         "online-questionnaire-setup-succeed": 	{url:"$H/m/oq-setup.html",Table:"succeed-participant"},
-        "online-questionnaire-app-succeed":    {url:"$H/oq.html"},
+        "online-questionnaire-screening":    {url:"$H/oq-s.html"},
+        "online-questionnaire-baseline":    {url:"$H/oq-bl.html"},
+        "online-questionnaire-week12":    {url:"$H/oq-w12.html"},
 
         "notes-data":  	                    {url:"$H/m/library/notes-data.html",Table:"succeed-notes",form_module:"notes-form",router:1},
         "notes-form":  	                    {url:"$H/m/library/notes-form.html",Table:"succeed-notes"},

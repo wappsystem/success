@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                             <!-- form group -->
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <h4>Demographics</h4>
                                 <div class="questiongroup ">
                                     <fieldset class="">
@@ -42,13 +42,13 @@
                                         </label><br>
                                     </fieldset>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="form-group">
                                 <div class="questiongroup">
-                                    <label><span>Sex</span></label>
-                                    <fieldset class="">
+                                    <label><span>1. Sex</span></label>
+                                    <fieldset class="pl-4">
                                         <label class="radiobuttons">
-                                            <input type="radio" name="sex" value="0">
+                                            <input type="radio" name="sex" value="0" required>
                                             <span class="checkmark"></span>Female</label>
                                         <label class="radiobuttons">
                                             <input type="radio" name="sex" value="1">
@@ -61,73 +61,128 @@
                             </div>
                             <div class="form-group">
                                 <div class="questiongroup">
-                                    <fieldset class="subquestions">
-                                        <label><span class="">First language</span>
-                                            <select name="language" class=form-control>
-                                                <option value="0">English</option>
-                                                <option value="1">other</option>
-                                            </select>
+                                    <label>2. Do you use a language other than English at home (tick the boxes)</label>
+                                    <fieldset class="pl-4">
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="English">
+                                            <span class="check_checkmark"></span> a. No, English only
                                         </label><br>
-                                        <label><span class="">Specify</span>
-                                            <input type=text class="form-control" name="language_other" placeholder="">
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Mandarin">
+                                            <span class="check_checkmark"></span> b. Yes, Mandarin
                                         </label><br>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="questiongroup ">
-                                    <fieldset class="">
-                                        <label><span class="">Total years of full-time education</span>
-                                            <input type=number class="form-control" name="years_education" placeholder="">
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Arabic">
+                                            <span class="check_checkmark"></span> c. Yes, Arabic
                                         </label><br>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="questiongroup ">
-                                    <label><span>Mariatal status</span></label>
-                                    <fieldset class="">
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="mariatal_status" value="1">
-                                            <span class="checkmark"></span>Never married
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Cantonese">
+                                            <span class="check_checkmark"></span> d. Yes, Cantonese
                                         </label><br>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="mariatal_status" value="2">
-                                            <span class="checkmark"></span>Married, remained or in a de facto relationship
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Vietnamese">
+                                            <span class="check_checkmark"></span> e. Yes, Vietnamese
                                         </label><br>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="mariatal_status" value="3">
-                                            <span class="checkmark"></span>Separate
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Italian">
+                                            <span class="check_checkmark"></span> f. Yes, Italian
                                         </label><br>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="mariatal_status" value="4">
-                                            <span class="checkmark"></span>Widowed
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Greek">
+                                            <span class="check_checkmark"></span> g. Yes, Greek
                                         </label><br>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="mariatal_status" value="5">
-                                            <span class="checkmark"></span>Divorced
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Spanish">
+                                            <span class="check_checkmark"></span> h. Yes, Spanish
+                                        </label><br>
+                                        <label class="checkboxes">
+                                            <input type="checkbox" name="Other">
+                                            <span class="check_checkmark"></span> i. Yes, other language
+                                        </label><br>
+                                        <label><span>i. If other language, please specify</span>
+                                            <input class="form-control" type="text" name="Language_other">
                                         </label>
                                     </fieldset>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="questiongroup ">
-                                    <label><span>Current living circumstances </span></label>
                                     <fieldset class="">
+                                        <label><span class="">3. Total years of full-time education</span>
+                                            <input type=number class="form-control" name="years_education" placeholder="" required>
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup">
+                                    <label><span class="">4. What is your highest level of education?</span></label>
+                                    <fieldset class="pl-4">
+                                        <label class="radiobuttons">a. Primary
+                                            <input type="radio" name="education" value="0" required>
+                                            <span class="checkmark"></span>
+                                        </label><br>
+                                        <label class="radiobuttons">b. Year 9 or 10 (Intermediate or school certificate)
+                                            <input type="radio" name="education" value="1">
+                                            <span class="checkmark"></span>
+                                        </label><br>
+                                        <label class="radiobuttons">c. Year 12, Leaving certificate, HSC
+                                            <input type="radio" name="education" value="2">
+                                            <span class="checkmark"></span>
+                                        </label><br>
+                                        <label class="radiobuttons">d. Tertiary Education (actually completed)
+                                            <input type="radio" name="education" value="3">
+                                            <span class="checkmark"></span>
+                                        </label><br>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <label><span>5. Mariatal status</span></label>
+                                    <fieldset class="pl-4">
                                         <label class="radiobuttons">
-                                            <input type="radio" name="living_circumstances" value="1">
+                                            <input type="radio" name="mariatal_status" value="0" required >
+                                            <span class="checkmark"></span>a. Never married
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mariatal_status" value="1">
+                                            <span class="checkmark"></span>b. Married, remained or in a de facto relationship
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mariatal_status" value="2">
+                                            <span class="checkmark"></span>c. Separate
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mariatal_status" value="3">
+                                            <span class="checkmark"></span>d. Widowed
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="mariatal_status" value="4">
+                                            <span class="checkmark"></span>e. Divorced
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <label><span>6. Current living circumstances </span></label>
+                                    <fieldset class="pl-4">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="living_circumstances" value="0" required >
                                             <span class="checkmark"></span>Independent (lives alone)
                                         </label><br>
                                         <label class="radiobuttons">
-                                            <input type="radio" name="living_circumstances" value="2">
+                                            <input type="radio" name="living_circumstances" value="1">
                                             <span class="checkmark"></span>Living with partner, friends
                                         </label><br>
                                         <label class="radiobuttons">
-                                            <input type="radio" name="living_circumstances" value="3">
+                                            <input type="radio" name="living_circumstances" value="2">
                                             <span class="checkmark"></span>Living with family/relatives
                                         </label><br>
                                         <label class="radiobuttons">
-                                            <input type="radio" name="living_circumstances" value="4">
+                                            <input type="radio" name="living_circumstances" value="3">
                                             <span class="checkmark"></span>Depends completely on person living with them in their own home, or with relatives
                                         </label><br>
                                     </fieldset>
@@ -135,42 +190,94 @@
                             </div>
                             <div class="form-group">
                                 <div class="questiongroup ">
-                                    <label><span>Where were you born? </span></label>
-                                    <fieldset class="">
+                                    <label><span>7. Where were you born? </span></label>
+                                    <fieldset  class="pl-4">
                                         <label class="radiobuttons">
-                                            <input type="radio" name="born" value="1">
-                                            <span class="checkmark"></span>Australia
+                                            <input type="radio" name="born" value="1" required >
+                                            <span class="checkmark"></span>a. Australia
                                         </label><br>
                                         <label class="radiobuttons">
                                             <input type="radio" name="born" value="2">
-                                            <span class="checkmark"></span>Asia (including the subcontinent), Middle East, North Africa, Southern Europe
+                                            <span class="checkmark"></span>b. England
                                         </label><br>
                                         <label class="radiobuttons">
                                             <input type="radio" name="born" value="3">
-                                            <span class="checkmark"></span>Other
+                                            <span class="checkmark"></span>c. New Zealand
                                         </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="born" value="4">
+                                            <span class="checkmark"></span>d. India
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="born" value="5">
+                                            <span class="checkmark"></span>e. Philippines
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="born" value="6">
+                                            <span class="checkmark"></span>f. Vietnam
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="born" value="7">
+                                            <span class="checkmark"></span>g. Italy
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="born" value="8">
+                                            <span class="checkmark"></span>h. Other
+                                        </label><br>
+                                        <label><span>If other, please specify</span>
+                                            <input class="form-control" type="text" name="born_other">
+                                        </label>
+
                                     </fieldset>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="questiongroup">
-                                    <label><span>Are you of Aboriginal or Torres Strait Islander descent? </span></label>
-                                    <fieldset class="">
+                                    <label><span>8. Are you of Aboriginal or Torres Strait Islander descent?
+                                        </span></label>
+                                    <fieldset  class="pl-4">
                                         <label class="radiobuttons">
-                                            <input type="radio" name="atsi" value="0">
-                                            <span class="checkmark"></span>No</label>
+                                            <input type="radio" name="atsi" value="0" required >
+                                            <span class="checkmark"></span>No
+                                        </label>
                                         <label class="radiobuttons">
                                             <input type="radio" name="atsi" value="1">
-                                            <span class="checkmark"></span>Yes&nbsp;</label>
+                                            <span class="checkmark"></span>Yes, Aboriginal
+                                        </label>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="atsi" value="2">
+                                            <span class="checkmark"></span>Yes, Torres Strait Islander&nbsp;
+                                            </label>
                                     </fieldset>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <h4>Smoking Status</h4>
+                                <div class="questiongroup ">
+                                    <label><span>9. Have you been diagnosed with any medical condition which affects your sleep or
+                                        cognition? (e.g. chronic pain, cancer with chemotherapy) </span></label>
+                                    <fieldset  class="pl-4">
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="medical_condition" value="0" required>
+                                            <span class="checkmark"></span>No
+                                        </label><br>
+                                        <label class="radiobuttons">
+                                            <input type="radio" name="medical_condition" value="1">
+                                            <span class="checkmark"></span>Yes
+                                        </label><br>
+                                        <label style="width:100%"><span>If yes, please specify</span>
+                                            <textarea class="form-control" type="text" name="medical_condition_other"></textarea>
+                                        </label>
+
+                                    </fieldset>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <h4>10. Smoking Status</h4>
                                 <div class="questiongroup">
                                     <fieldset class="">
                                         <label class="radiobuttons">
-                                            <input type="radio" name="smoking_status" value="0">
+                                            <input type="radio" name="smoking_status" value="0" required>
                                             <span class="checkmark"></span>Never smoked
                                         </label><br>
                                         <label class="radiobuttons">
@@ -195,48 +302,26 @@
                             <div class="form-group">
                                 <div class="questiongroup ">
                                     <fieldset class="">
-                                        <label><span class="">Number of years of smoking:</span>
-                                            <input type=number class="form-control" name="years_smoking" placeholder="">
+                                        <label><span class="">11. About how many alcoholic drinks do you have each week? <i>one drink= a glass of wine,
+                                            middy of beer or nip of spirits (put ‘0’ if you do not drink, or have less than one drink
+                                            each week):</i></span>
+                                            <input type=number class="form-control" min="0" name="drink_week" placeholder="" required >
                                         </label><br>
-                                        <label><span class="">Time since quitting (if relevant):</span>
-                                            <input type=text class="form-control" name="time_quitting" placeholder="">
-                                        </label><br>
-                                        <label><span class="">Number of cigarettes on heaviest day:</span>
-                                            <input type=number class="form-control" name="number_cigarettes" placeholder="">
-                                        </label><br>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <h4>Alcohol Status</h4>
-                                <div class="questiongroup">
-                                    <fieldset class="">
-                                        <label><span>Do you currently drink alcohol? <br></span></label>
-
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="alcohol_status" value="0">
-                                            <span class="checkmark"></span>No
-                                        </label>
-                                        <label class="radiobuttons">
-                                            <input type="radio" name="alcohol_status" value="1">
-                                            <span class="checkmark"></span>Yes
-                                        </label>
                                     </fieldset>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="questiongroup ">
                                     <fieldset class="">
-                                        <label><span class="">Drinks per day:</span>
-                                            <input type=number class="form-control" name="drinks_day" placeholder="">
-                                        </label><br>
-                                        <label><span class="">or Drinks per week:</span>
-                                            <input type=number class="form-control" name="drinks_week" placeholder="">
+                                        <label><span class="">12. On how many days each week do you usually drink alcohol?</span>
+                                            <input type=number class="form-control" min="0" max="7" name="drink_days" placeholder="" required >
                                         </label><br>
                                     </fieldset>
                                 </div>
                             </div>
-                            <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            <div class="form-group">
+                                <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -255,13 +340,6 @@
                 if ( $('[type="date"]').prop('type') != 'date' ) {
                     $('[type="date"]').datepicker();
                 }
-                if($("input[name='mmse_done']:checked").val()=='0'){
-                    $('#mmse_total_score__ID').show();
-                }
-                else {
-                    $('#mmse_total_score__ID').hide();
-                }
-
             }
             //-------------------------------------
 

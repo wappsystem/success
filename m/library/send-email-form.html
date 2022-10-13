@@ -137,7 +137,7 @@
                         }
                     break;
                     case 'bl_email':
-                        q_url=$vm.module_list['oq-bl'].url+u+db+d+p;
+                        q_url=$vm.module_list['online-questionnaire-baseline'].url+u+db+d+p;
                         if(group=='Control'){
                             console.log('Send Control baseline: '+q_url)
                             url='https://prod-13.australiasoutheast.logic.azure.com:443/workflows/f3fc23b60ff84fcebfcc8f4a7942b838/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fcURZw2jGo6skPttMviEXtAm-2GuBzDQzSRRg3GUZBE'
@@ -150,7 +150,7 @@
                         }
                     break;
                     case 'bl_rem_1':
-                        q_url=$vm.module_list['oq-bl'].url+u+db+d+p;
+                        q_url=$vm.module_list['online-questionnaire-baseline'].url+u+db+d+p;
                         if(group=='Control'){
                             console.log('Send Control baseline reminder 1: '+q_url)
                             url='https://prod-08.australiasoutheast.logic.azure.com:443/workflows/4721d6d664a544ec93090b377e67e33e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FX_16AU2djxd8wdoxoNW3w7H9tsrITdjE3d79-Tlk8E'
@@ -175,7 +175,7 @@
                         }
                     break;
                     case 'w12_email':
-                        q_url=$vm.module_list['oq-w12'].url+u+db+d+p;
+                        q_url=$vm.module_list['online-questionnaire-week12'].url+u+db+d+p;
                         console.log('Send Week 12 questionnaires link: '+q_url)
                         if(group=='Control'){
                             url='https://prod-29.australiasoutheast.logic.azure.com:443/workflows/0cb2bf8667ae42dfba82d6641d4f2e3c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mulAZOtml58TsTjZcd9nTqu2EeF4EDQn01RPPFbp3AA';
@@ -187,7 +187,7 @@
                         }
                     break;
                     case 'w12_rem_1':
-                        q_url=$vm.module_list['oq-w12'].url+u+db+d+p;
+                        q_url=$vm.module_list['online-questionnaire-week12'].url+u+db+d+p;
                         console.log('Send Week 12 Reminder 1: '+q_url)
                         if(group=='Control'){
                             url='https://prod-09.australiasoutheast.logic.azure.com:443/workflows/be460cfa436f48c0a463206a72bb9f58/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=30lzVESNNn4w2E9hXr-8kFQ0SRBDtSz3EI8Krl5BoCU';
@@ -199,7 +199,7 @@
                         }
                     break;
                     case 'w12_rem_2':
-                        q_url=$vm.module_list['oq-w12'].url+u+db+d+p;
+                        q_url=$vm.module_list['online-questionnaire-week12'].url+u+db+d+p;
                         console.log('Send Week 12 Reminder 2: '+q_url)
                         if(group=='Control'){
                             //url='https://prod-00.australiasoutheast.logic.azure.com:443/workflows/abeead73577d4888b31b01bff22d9ab8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=6dDA99gq9udg7EBhU_g8fMBJ6Geciu2UOJfOWBEmu3Y';

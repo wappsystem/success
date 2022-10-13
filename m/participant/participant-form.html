@@ -87,7 +87,7 @@
 							if (res.result[0].I1 !== undefined) max_I1 = res.result[0].I1
 						}
 						max_I1++;
-						$('#F__ID input[name=Randomisation_Number').val(max_I1);
+						$('#F__ID input[name=Randomisation_Number').val('R'+max_I1.toString().padStart(3, "0"));
 						$('#F__ID input[name=Randomised_by').val($vm.user_name);
 					})
 				}
