@@ -67,6 +67,21 @@
                             td.html("")
                         }
                     break;
+                    case 's_email':
+                    var s=records[I].Data["s_email"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            html="<u style='cursor:pointer'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt1))+"</u>";
+                        }
+                        else {
+                            html="<u style='cursor:pointer'>Screening</u>"
+                        }
+                        td.html(html);
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('send-email','',{record:records[I],email:'s_email',title:'Screening'})
+                            })
+                    break;
                     case 'bl_email':
                         var s=records[I].Data["Start_Date"]
                         if(s!='' && s!=null && s!=undefined){

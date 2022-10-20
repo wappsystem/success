@@ -9,7 +9,7 @@
             //-------------------------------------
             $('#title__ID').text('Send email for Control group');            
             //-------------------------------------
-            var fields="_Participant_ID|Participant,Group|group,Access Code|access_code,Start_Date,bl_email,bl,bl_rem_1,w1_email,w3_email,w5_email,w12_email,w12,w12_rem_1,ac_email";
+            var fields="_Participant_ID|Participant,Group|group,Access Code|access_code,s_email,Start_Date,bl_email,bl,bl_rem_1,w1_email,w3_email,w5_email,w12_email,w12,w12_rem_1,ac_email";
             m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             var today;
@@ -68,6 +68,21 @@
                         else {
                             td.html("")
                         }
+                    break;
+                    case 's_email':
+                    var s=records[I].Data["s_email"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            html="<u style='cursor:pointer'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt1))+"</u>";
+                        }
+                        else {
+                            html="<u style='cursor:pointer'>Screening</u>"
+                        }
+                        td.html(html);
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('send-email','',{record:records[I],email:'s_email',title:'Screening'})
+                            })
                     break;
                     case 'ac_email':
                     var s=records[I].Data["ac_email"]

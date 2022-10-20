@@ -108,6 +108,12 @@
 				var url='';
 				var sms_url='';
 				switch(m.input.email){
+                    case 's_email':
+                        q_url=$vm.module_list['online-questionnaire-screening'].url+u+db+d+p;
+                        console.log('Send Screening: '+q_url)
+                        url='https://prod-13.australiasoutheast.logic.azure.com:443/workflows/f3fc23b60ff84fcebfcc8f4a7942b838/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=fcURZw2jGo6skPttMviEXtAm-2GuBzDQzSRRg3GUZBE'
+                        sms_url='https://prod-17.australiasoutheast.logic.azure.com:443/workflows/ea336655098c43478f76aafcb1d26a4d/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1q95cN4UPlN79yq2dtRcbFE75_qq1oZ9J0XVNcs2X8E'
+                    break;
                     case 'w1_email':
                         if(group=='Control'){
                             console.log('Send Sleep Health Education Module 1 Email')
