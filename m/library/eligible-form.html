@@ -357,7 +357,7 @@
             var load2=m.load;
             m.load=function(){
                 load2();
-                console.log(JSON.stringify(m.input.Data))
+                //console.log(JSON.stringify(m.input.Data))
                 if(m.input.Data!=undefined)
                     if(m.input.Data.eligible != undefined && m.input.Data.eligible=='1'){
                         $('#eligible_yes__ID').disabled=false;
@@ -373,21 +373,24 @@
             //-------------------------------------
             var before_submit = m.before_submit;
             m.before_submit = function (data, index) {
-                if($('#F__ID input[name=mci]:checked').val()=='1' &&
-                    $('#F__ID input[name=consent]:checked').val()=='1' &&
-                    $('#F__ID input[name=englishfluent]:checked').val()=='1' &&
-                    $('#F__ID input[name=isi]:checked').val()=='1' &&
-                    $('#F__ID input[name=smartphone]:checked').val()=='1' &&
-                    $('#F__ID input[name=dementia]:checked').val()=='0' &&
-                    $('#F__ID input[name=stroke]:checked').val()=='0' &&
-                    $('#F__ID input[name=neurological_disorder]:checked').val()=='0' &&
-                    $('#F__ID input[name=substance_use]:checked').val()=='0' &&
-                    $('#F__ID input[name=depression]:checked').val()=='0' &&
-                    $('#F__ID input[name=sleep_disorders]:checked').val()=='0' &&
-                    $('#F__ID input[name=cpap]:checked').val()=='0' &&
-                    $('#F__ID input[name=shift_worker]:checked').val()=='0' &&
-                    $('#F__ID input[name=medical_condition]:checked').val()=='0' &&
-                    $('#F__ID input[name=participating]:checked').val()=='0'){
+                console.log(JSON.stringify(data))
+                if(data.mci=='1' &&
+                    data.consent=='1' &&
+                    data.englishfluent=='1' &&
+                    data.age =='1' &&
+                    data.isi=='1' &&
+                    data.smartphone=='1'  &&
+                    data.dementia=='0' &&
+                    data.stroke=='0' &&
+                    data.neurological_disorder=='0' &&
+                    data.substance_use=='0' &&
+                    data.depression=='0' &&
+                    data.sleep_disorders=='0' &&
+                    data.cpap=='0' &&
+                    data.shift_worker=='0' &&
+                    data.contra_sdt == '0' &&
+                    data.participating=='0' &&
+                    data.sleep_medication == '0' ){
                         data.eligible='1';                        
                     }
                     else{
