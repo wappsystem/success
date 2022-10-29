@@ -115,6 +115,11 @@ m.after_insert= function(data,index){
         })
         jQuery.ajaxSetup({ async: true });
     }
+    else{
+        $vm.refresh=1;
+        m.change_status++;
+        window.history.go(-1);
+    }
 }
 //-------------------------------------
 var status_of_data=function(data){

@@ -190,6 +190,7 @@ m.new=function(){
     if(m.form_module!=undefined){
         //we are using child panel
         var participant_record=$vm.vm['__ID'].input.record;
+        console.log("New form with goback")
         $vm.load_module(m.form_module,'',{participant_record:participant_record,goback:1});
     }
 }
