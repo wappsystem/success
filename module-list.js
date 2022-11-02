@@ -44,7 +44,7 @@
         "succeed-adverse-event-form":                {url:"$H/m/library/adverse-event-form.html",Table:"succeed-adverse-event"},
 
         "succeed-s-consent-data":		            {url:"$H/m/library/consent-data.html",Table:"succeed-s-consent",form_module:"succeed-s-consent-form",task_name:"Screening - Consent Form"},
-        "succeed-s-consent-form":		            {url:"$H/m/library/consent-form.html",Table:"succeed-s-consent",task_name:"Screening - Consent Form"},
+        "succeed-s-consent-form":		            {url:"$H/m/library/consent-form.html",Table:"succeed-s-consent",task_name:"Screening - Consent Form",progress:"s-1"},
         "succeed-s-demographics-data":		            {url:"$H/m/library/demographics-long-data.html",Table:"succeed-s-demographics",form_module:"succeed-s-demographics-form",task_name:"Screening - Demographics"},
         "succeed-s-demographics-form":		            {url:"$H/m/library/demographics-long-form.html",Table:"succeed-s-demographics",task_name:"Screening - Demographics"},
         "succeed-s-consent-coo-data":		            {url:"$H/m/library/consent-coo-data.html",Table:"succeed-s-consent-coo",form_module:"succeed-s-consent-coo-form",task_name:"Screening - Consent Form"},
@@ -69,6 +69,8 @@
         "succeed-s-sdmt-form":		            {url:"$H/m/library/sdmt-form.html",Table:"succeed-s-sdmt",task_name:"Screening - Symbol Digit modalities Test"},
         "succeed-s-eligible-data":		            {url:"$H/m/library/eligible-data.html",Table:"succeed-s-eligible",form_module:"succeed-s-eligible-form",task_name:"Screening - Eligible"},
         "succeed-s-eligible-form":		            {url:"$H/m/library/eligible-form.html",Table:"succeed-s-eligible",task_name:"Screening - Eligible"},
+        "succeed-s-wtar-data":		        {url:"$H/m/library/wtar-data.html",Table:"succeed-s-wtar",form_module:"succeed-s-wtar-form",task_name:"Screening - WTAR"},
+        "succeed-s-wtar-form":		        {url:"$H/m/library/wtar-form.html",Table:"succeed-s-wtar",task_name:"Screening - WTAR"},
         
         "succeed-bl-ehealth-data":		            {url:"$H/m/library/ehealth-data.html",Table:"succeed-bl-ehealth",form_module:"succeed-bl-ehealth-form",task_name:"Baseline - eHEALS questionnaire"},
         "succeed-bl-ehealth-form":		            {url:"$H/m/library/ehealth-form.html",Table:"succeed-bl-ehealth",task_name:"Baseline - eHEALS questionnaire",progress:"bl-1"},
