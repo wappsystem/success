@@ -70,6 +70,7 @@
 			var load = m.load;
 			m.load = function () {
 				load();
+				rand_num='';
 				if (m.input.record == undefined) {
 					$('.row_participant__ID').hide()
 					$('#F__ID input[name=_Password]').val($vm.vm_password(8, false));
@@ -115,7 +116,7 @@
 								//console.log(JSON.stringify(res.result[0].Data.Group))
 								data.Group=res.result[0].Data.Group;
 								index.I3=res.result[0].Data.Group;
-								//if(index.I3=="Control") data.Start_Date=index.I2;
+								//if(index.I3=="Digital sleep health education") data.Start_Date=index.I2;
 							}
 						});
 						var tb = $vm.module_list["access-code-data"].Table;
@@ -187,11 +188,11 @@
 				window.history.go(-1);   
             }
 			m.after_insert = function(data,res){
-				//console.log('res: '+JSON.stringify(res.result.ops[0]));
+				//console.log('res: '+JSON.stringify(res.nr));
 				var tb = $vm.module_list["participant-data"].Table;
-				var pt_data=res.result.ops[0].Data
-				pt_data.Screening_Number="S"+res.result.ops[0].UID.toString().padStart(3, "0")
-				$vm.request({cmd:'update',id:res.result.ops[0]._id,table:tb,data:pt_data},function(res){
+				var pt_data=res.nr.Data
+				pt_data.Screening_Number="S"+res.nr.UID.toString().padStart(3, "0")
+				$vm.request({cmd:'update',id:res.nr._id,table:tb,data:pt_data},function(res){
                     //-----------------------------
                     if(res.status=="lk"){
                         $vm.alert("This record is locked.");
