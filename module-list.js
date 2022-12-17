@@ -17,6 +17,7 @@
                                             child_panel:"panel-child",
                                             questionnaire_setup:"online-questionnaire-setup-succeed",
                                             oq_s_questionnaire:"online-questionnaire-screening",
+                                            oq_hba_questionnaire:"online-questionnaire-hba",
                                             oq_bl_questionnaire:"online-questionnaire-baseline",
                                             oq_w12_questionnaire:"online-questionnaire-week12"
                                         },                                    
@@ -24,6 +25,7 @@
 
         "online-questionnaire-setup-succeed": 	{url:"$H/m/oq-setup.html",Table:"succeed-participant"},
         "online-questionnaire-screening":    {url:"$H/oq-s.html"},
+        "online-questionnaire-hba":    {url:"$H/oq-hba.html"},
         "online-questionnaire-baseline":    {url:"$H/oq-bl.html"},
         "online-questionnaire-week12":    {url:"$H/oq-w12.html"},
 
@@ -71,6 +73,8 @@
         "succeed-s-eligible-form":		            {url:"$H/m/library/eligible-form.html",Table:"succeed-s-eligible",task_name:"Screening - Eligible"},
         "succeed-s-wtar-data":		        {url:"$H/m/library/wtar-data.html",Table:"succeed-s-wtar",form_module:"succeed-s-wtar-form",task_name:"Screening - WTAR"},
         "succeed-s-wtar-form":		        {url:"$H/m/library/wtar-form.html",Table:"succeed-s-wtar",task_name:"Screening - WTAR"},
+        "succeed-s-hbafaq-data":		        {url:"$H/m/library/hbafaq-data.html",Table:"succeed-s-hbafaq",form_module:"succeed-s-hbafaq-form",task_name:"Screening - HBA Functional Assessment Questionnaire"},
+        "succeed-s-hbafaq-form":		        {url:"$H/m/library/hbafaq-form.html",Table:"succeed-s-hbafaq",task_name:"Screening - HBA Functional Assessment Questionnaire",progress:"hba-1"},
         
         "succeed-bl-ehealth-data":		            {url:"$H/m/library/ehealth-data.html",Table:"succeed-bl-ehealth",form_module:"succeed-bl-ehealth-form",task_name:"Baseline - eHEALS questionnaire"},
         "succeed-bl-ehealth-form":		            {url:"$H/m/library/ehealth-form.html",Table:"succeed-bl-ehealth",task_name:"Baseline - eHEALS questionnaire",progress:"bl-1"},
