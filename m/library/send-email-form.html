@@ -63,9 +63,10 @@
           var name=""
           var email=""
           var mobile=""
+          var cantab_link=""
           m.default_load = m.load;
             m.load = function () {
-                //console.log("send email: "+JSON.stringify(m.input.record))
+                console.log("send email: "+JSON.stringify(m.input.record))
 				$('#emaildate__ID').attr('name',m.input.email);
 				m.default_load();
 				m.input.goback = 1;
@@ -77,6 +78,8 @@
                 $('#F__ID input[name=Participant_uid]').val(m.input.record.Data.Participant)
                 group=m.input.record.Data.group;
                 access_code=m.input.record.Data.access_code;
+                cantab_link=m.input.record.Data.cantab_link;
+                console.log(cantab_link)
             }
             //-------------------------------------
 			var before_submit = m.before_submit;
@@ -231,7 +234,7 @@
 				param.push(q_url); //2
 				param.push(data.access_code); //3
 				param.push(mobile) //4
-				param.push("") //5
+				param.push(data.cantab_link) //5
 				param.push(url) //6
 				param.push(sms_url) //7
 				//console.log('Send Email Disabled Email:'+param[0]+' First Name:'+param[1]+' Access Code:'+param[3]+' Phone:'+param[4]+' SMS:'+param[5]); 
@@ -262,7 +265,7 @@
                         "emailaddress": "" + param[0] + "",
                         "first_name": "" + param[1] + "",
                         "link": "" + param[2] + "",
-                        "link2": "CANTAB LINK?",
+                        "link2": "" + param[5] + "",
                         "code": "" + param[3] + ""
                     }
                     console.log("EMAIL: "+JSON.stringify(data))
@@ -288,7 +291,7 @@
                         "emailaddress": "" + param[4].replace(/-/g,'') + "@e2s.directsms.com.au",
                         "first_name": "" + param[1] + "",
                         "link": "" + param[2] + "",
-                        "link2": "CANTAB LINK?",
+                        "link2": "" + param[5] + "",
                         "code": "" + param[3] + ""
                     }
                     console.log("SMS: "+JSON.stringify(sms_data))

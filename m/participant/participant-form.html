@@ -54,7 +54,12 @@
 									</label>
 								</div>
 							</div>
-							<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+							<div class="col-sm-12 row_participant__ID">
+								<label style="width:100%" class=''><span class=''>CANTAB link</span>
+									<input type=text class=form-control name=cantab_link >
+								</label>
+							</div>
+						<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
 						</div>
 					</form>
 				</div>
@@ -67,6 +72,7 @@
 			VmInclude: __COMPONENT__/f/form.01.js
 			//-------------------------------------
 			var rand_num='';
+			var cantab_link='';
 			var load = m.load;
 			m.load = function () {
 				load();
@@ -132,9 +138,9 @@
 			}
 			//-------------------------------------
             m.after_update = function (data,index) {
-                //console.log('Data: '+JSON.stringify(data));
+                console.log('Data: '+JSON.stringify(data));
                 //console.log(index.result.UID)
-				if(rand_num!=''){
+				if(rand_num!='' || data.cantab_link!=""){
 					var pid=(index.result.UID).toString();
 					var record={};
 					var record_index={};
@@ -161,11 +167,11 @@
 							$vm.request({cmd:'insert',table:tb,data:record.Data,index:record_index},function(res){
 							});
 						}
-						/*else{
+						else{
 							record=res.result[0]
-							record.Data.group=data.Group;
+							//record.Data.group=data.Group;
 							//record.Data.Start_date=index.result.I2;
-							record.Data.access_code=data.access_code;
+							record.Data.cantab_link=data.cantab_link;
 							console.log(JSON.stringify(record))
 							$vm.request({cmd:'update',id:record._id,table:tb,data:record.Data},function(res){
 								//-----------------------------
@@ -179,7 +185,7 @@
 									return;
 								}
 							})
-						}*/
+						}
 					})
 					jQuery.ajaxSetup({async:true});
 				}
