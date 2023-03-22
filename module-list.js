@@ -1,19 +1,19 @@
 (function(){
     var modules={
-        "panel-main":    			{url:"$H/m/panel-main.html",router:1},
+        "panel-main":    			{url:"$H/m/panel-main.html"},
         "panel-child":    			{url:"$H/m/panel-child.html"},
-        "panel-export-screening":   {url:"$H/m/panel-export-screening.html",router:1},
-        "panel-export-baseline":    {url:"$H/m/panel-export-baseline.html",router:1},
-        "panel-export-week2":    {url:"$H/m/panel-export-week2.html",router:1},
-        "panel-export-week4":    {url:"$H/m/panel-export-week4.html",router:1},
-        "panel-export-week6":    {url:"$H/m/panel-export-week6.html",router:1},
-        "panel-export-week8":    {url:"$H/m/panel-export-week8.html",router:1},
-        "panel-export-week10":    {url:"$H/m/panel-export-week10.html",router:1},
-        "panel-export-exit":    {url:"$H/m/panel-export-exit.html",router:1},
+        "panel-export-screening":   {url:"$H/m/panel-export-screening.html"},
+        "panel-export-baseline":    {url:"$H/m/panel-export-baseline.html"},
+        "panel-export-week2":    {url:"$H/m/panel-export-week2.html"},
+        "panel-export-week4":    {url:"$H/m/panel-export-week4.html"},
+        "panel-export-week6":    {url:"$H/m/panel-export-week6.html"},
+        "panel-export-week8":    {url:"$H/m/panel-export-week8.html"},
+        "panel-export-week10":    {url:"$H/m/panel-export-week10.html"},
+        "panel-export-exit":    {url:"$H/m/panel-export-exit.html"},
         "export-data-succeed": {url:"$H/m/export-data.html",Table:"succeed-export",form_module:"export-form-succeed"},
         "export-form-succeed": {url:"$H/m/export-form.html",Table:"succeed-export"},
         
-        "participant-data":   		{url:"$H/m/participant/participant-data.html",Table:"succeed-participant",form_module:"participant-form",router:1,
+        "participant-data":   		{url:"$H/m/participant/participant-data.html",Table:"succeed-participant",form_module:"participant-form",
                                             child_panel:"panel-child",
                                             questionnaire_setup:"online-questionnaire-setup-succeed",
                                             oq_s_questionnaire:"online-questionnaire-screening",
@@ -29,7 +29,7 @@
         "online-questionnaire-baseline":    {url:"$H/oq-bl.html"},
         "online-questionnaire-week12":    {url:"$H/oq-w12.html"},
 
-        "notes-data":  	                    {url:"$H/m/library/notes-data.html",Table:"succeed-notes",form_module:"notes-form",router:1},
+        "notes-data":  	                    {url:"$H/m/library/notes-data.html",Table:"succeed-notes",form_module:"notes-form"},
         "notes-form":  	                    {url:"$H/m/library/notes-form.html",Table:"succeed-notes"},
 
         "panel-main-recruitment":    			{url:"$H/m/library/recruitment-all-data.html",Table:"succeed-survey-record"},
