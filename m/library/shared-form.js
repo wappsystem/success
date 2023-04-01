@@ -73,7 +73,7 @@ m.before_submit=function(data){
 }
 //-------------------------------------
 m.after_insert= function(data,index){
-    //console.log("After Insert: ");
+    /*//console.log("After Insert: ");
     if($vm.online_questionnaire==1){
         var uid=data.Participant_uid;
         uid_string=uid;
@@ -119,7 +119,7 @@ m.after_insert= function(data,index){
         $vm.refresh=1;
         m.change_status++;
         window.history.go(-1);
-    }
+    }*/
 }
 //-------------------------------------
 var status_of_data=function(data){
