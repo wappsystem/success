@@ -9,7 +9,7 @@
             //-------------------------------------
             $('#title__ID').text('Participants');            
             //-------------------------------------
-            var fields="_Participant_ID,Screening_Number,Randomisation_Number,Group,Access Code - SleepIO|access_code,CANTAB link|cantab_link,_Data_Entry,_Screening_Questionnaire,_HBA_FA_Questionnaire,_Baseline_Questionnaire,_Week_12_Questionnaire,_Login_ID,_Password";
+            var fields="_Participant_ID,Screening_Number,Randomisation_Number,Group,Access Code - SleepIO|access_code,CANTAB link|cantab_link,_Data_Entry,_Informed_consent,_HBA_FA_Questionnaire,_Baseline_Questionnaire,_Week_12_Questionnaire,_Login_ID,_Password";
             m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
@@ -36,9 +36,9 @@
     						$vm.load_module(m.questionnaire_setup,'',{record:records[I]});
                         });
                         break;
-                    case '_Screening_Questionnaire':
+                    case '_Informed_consent':
                         //MongoDB
-                        td.html("<u style='cursor:pointer'>Screening</u>");
+                        td.html("<u style='cursor:pointer'>Informed consent</u>");
                         td.find('u').on('click',function(){
                             var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
                             var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";

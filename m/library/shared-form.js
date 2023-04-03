@@ -69,11 +69,15 @@ m.before_submit=function(data){
     }
     if($("#F__ID input[name=_status]:checked").val()=='' || $("#F__ID input[name=_status]:checked").val()==undefined)
         data.sysStatus=status_of_data(data);
-    else data.sysStatus=$("#F__ID input[name=_status]:checked").val()
+    else data.sysStatus=$("#F__ID input[name=_status]:checked").val();
+    //console.log("onlineq: "+$vm.online_questionnaire)
+    if($vm.online_questionnaire==1) {
+        data.sysStatus='#00FF00';
+    }
 }
 //-------------------------------------
-m.after_insert= function(data,index){
-    /*//console.log("After Insert: ");
+/*m.after_insert= function(data,index){
+    //console.log("After Insert: ");
     if($vm.online_questionnaire==1){
         var uid=data.Participant_uid;
         uid_string=uid;
@@ -119,8 +123,8 @@ m.after_insert= function(data,index){
         $vm.refresh=1;
         m.change_status++;
         window.history.go(-1);
-    }*/
-}
+    }
+}*/
 //-------------------------------------
 var status_of_data=function(data){
     var N1=0,N2=0;
