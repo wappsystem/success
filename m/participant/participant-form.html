@@ -197,7 +197,7 @@
 				//console.log('res: '+JSON.stringify(res.nr));
 				var tb = $vm.module_list["participant-data"].Table;
 				var pt_data=res.nr.Data
-				pt_data.Screening_Number="S"+res.nr.UID.toString().padStart(3, "0")
+				//pt_data.Screening_Number="S"+res.nr.UID.toString().padStart(3, "0")
 				$vm.request({cmd:'update',id:res.nr._id,table:tb,data:pt_data},function(res){
                     //-----------------------------
                     if(res.status=="lk"){
