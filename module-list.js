@@ -75,8 +75,8 @@
         "succeed-s-eligible-part2-form":		            {url:"$H/m/library/eligible-form-part2.html",Table:"succeed-s-eligible",task_name:"Screening - Eligible Part 2"},
         "succeed-s-wtar-data":		        {url:"$H/m/library/wtar-data.html",Table:"succeed-s-wtar",form_module:"succeed-s-wtar-form",task_name:"Screening - WTAR"},
         "succeed-s-wtar-form":		        {url:"$H/m/library/wtar-form.html",Table:"succeed-s-wtar",task_name:"Screening - WTAR"},
-        "succeed-s-hbafaq-data":		        {url:"$H/m/library/hbafaq-data.html",Table:"succeed-s-hbafaq",form_module:"succeed-s-hbafaq-form",task_name:"Screening - HBA Functional Assessment Questionnaire"},
-        "succeed-s-hbafaq-form":		        {url:"$H/m/library/hbafaq-form.html",Table:"succeed-s-hbafaq",task_name:"Screening - HBA Functional Assessment Questionnaire",progress:"hba-1"},
+        "succeed-s-hbafaq-data":		        {url:"$H/m/library/hbafaq-data.html",Table:"succeed-s-hbafaq",form_module:"succeed-s-hbafaq-form",task_name:"Baseline - HBA Functional Assessment Questionnaire"},
+        "succeed-s-hbafaq-form":		        {url:"$H/m/library/hbafaq-form.html",Table:"succeed-s-hbafaq",task_name:"Baseline - HBA Functional Assessment Questionnaire",progress:"hba-1"},
         
         "succeed-bl-ehealth-data":		            {url:"$H/m/library/ehealth-data.html",Table:"succeed-bl-ehealth",form_module:"succeed-bl-ehealth-form",task_name:"Baseline - eHEALS questionnaire"},
         "succeed-bl-ehealth-form":		            {url:"$H/m/library/ehealth-form.html",Table:"succeed-bl-ehealth",task_name:"Baseline - eHEALS questionnaire",progress:"bl-1"},
