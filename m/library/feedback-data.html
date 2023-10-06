@@ -1,0 +1,20 @@
+
+<section>
+    VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/shared-data.js
+        //-------------------------------------
+        $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name); //$('#title__ID').text('Anthropometry')
+        //-------------------------------------
+        var fields="complete_cantab,complete_cantab_no,difficulties_cantab,difficulties_cantab_yes,experience_cantab,experience_cantab_explain,experience_zoom_cog,experience_zoom_cog_explain,difficulties_zoom_cog,difficulties_zoom_cog_yes,additional_trial_exp,additional_trial_exp_yes";
+        m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+     }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

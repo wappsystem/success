@@ -19,7 +19,9 @@
                                             oq_s_questionnaire:"online-questionnaire-screening",
                                             oq_hba_questionnaire:"online-questionnaire-hba",
                                             oq_bl_questionnaire:"online-questionnaire-baseline",
-                                            oq_w12_questionnaire:"online-questionnaire-week12"
+                                            oq_w12_questionnaire:"online-questionnaire-week12",
+                                            oq_w12_consent:"online-consent-week12",
+                                            oq_w12_feedback:"online-feedback-week12",
                                         },                                    
         "participant-form":   		{url:"$H/m/participant/participant-form.html",Table:"succeed-participant"},
 
@@ -28,6 +30,8 @@
         "online-questionnaire-hba":    {url:"$H/oq-hba.html"},
         "online-questionnaire-baseline":    {url:"$H/oq-bl.html"},
         "online-questionnaire-week12":    {url:"$H/oq-w12.html"},
+        "online-consent-week12":    {url:"$H/oq-c-w12.html"},
+        "online-feedback-week12":    {url:"$H/oq-fb-w12.html"},
 
         "notes-data":  	                    {url:"$H/m/library/notes-data.html",Table:"succeed-notes",form_module:"notes-form"},
         "notes-form":  	                    {url:"$H/m/library/notes-form.html",Table:"succeed-notes"},
@@ -111,6 +115,25 @@
         "succeed-w12-cantab-form":		            {url:"$H/m/library/cantab-form.html",Table:"succeed-w12-cantab",task_name:"Week 12 - CANTAB"},
         "succeed-w12-uessf-data":		            {url:"$H/m/library/uessf-data.html",Table:"succeed-w12-uessf",form_module:"succeed-w12-uessf-form",task_name:"Week 12 - User Engagement Scale Short Form"},
         "succeed-w12-uessf-form":		            {url:"$H/m/library/uessf-form.html",Table:"succeed-w12-uessf",task_name:"Week 12 - User Engagement Scale Short Form",progress:"w12-17"},
+
+        "succeed-w12-consent-data":		            {url:"$H/m/library/consent-data.html",Table:"succeed-w12-consent",form_module:"succeed-w12-consent-form",task_name:"Week 12 - Consent Form"},
+        "succeed-w12-consent-form":		            {url:"$H/m/library/consent-form.html",Table:"succeed-w12-consent",task_name:"Week 12 - Consent Form",progress:"s-1"},
+        "succeed-w12-ravlt-data":		            {url:"$H/m/library/ravlt-data.html",Table:"succeed-w12-ravlt",form_module:"succeed-w12-ravlt-form",task_name:"Week 12 - Rey Auditory Verbal Learning Test (RAVLT)"},
+        "succeed-w12-ravlt-form":		            {url:"$H/m/library/ravlt-form.html",Table:"succeed-w12-ravlt",task_name:"Week 12 - Rey Auditory Verbal Learning Test (RAVLT)"},
+        "succeed-w12-wlms-data":		            {url:"$H/m/library/wlms-data.html",Table:"succeed-w12-wlms",form_module:"succeed-w12-wlms-form",task_name:"Week 12 - Wechsler Logical Memory subtest"},
+        "succeed-w12-wlms-form":		            {url:"$H/m/library/wlms-form.html",Table:"succeed-w12-wlms",task_name:"Week 12 - Wechsler Logical Memory subtest"},
+        "succeed-w12-cowat-data":		            {url:"$H/m/library/cowat-data.html",Table:"succeed-w12-cowat",form_module:"succeed-w12-cowat-form",task_name:"Week 12 - Controlled Oral Word Association Test (COWAT)"},
+        "succeed-w12-cowat-form":		            {url:"$H/m/library/cowat-form.html",Table:"succeed-w12-cowat",task_name:"Week 12 - Controlled Oral Word Association Test (COWAT)"},
+        "succeed-w12-wais3ds-data":		            {url:"$H/m/library/wais3ds-data.html",Table:"succeed-w12-wais3ds",form_module:"succeed-w12-wais3ds-form",task_name:"Week 12 - WAIS-III Digit Span"},
+        "succeed-w12-wais3ds-form":		            {url:"$H/m/library/wais3ds-form.html",Table:"succeed-w12-wais3ds",task_name:"Week 12 - WAIS-III Digit Span"},
+        "succeed-w12-otmt-data":		            {url:"$H/m/library/otmt-data.html",Table:"succeed-w12-otmt",form_module:"succeed-w12-otmt-form",task_name:"Week 12 - Oral Trail Making Test (OTMT)"},
+        "succeed-w12-otmt-form":		            {url:"$H/m/library/otmt-form.html",Table:"succeed-w12-otmt",task_name:"Week 12 - Oral Trail Making Test (OTMT)"},
+        "succeed-w12-sdmt-data":		            {url:"$H/m/library/sdmt-data.html",Table:"succeed-w12-sdmt",form_module:"succeed-w12-sdmt-form",task_name:"Week 12 - Symbol Digit modalities Test"},
+        "succeed-w12-sdmt-form":		            {url:"$H/m/library/sdmt-form.html",Table:"succeed-w12-sdmt",task_name:"Week 12 - Symbol Digit modalities Test"},
+        "succeed-w12-feedback-data":		        {url:"$H/m/library/feedback-data.html",Table:"succeed-w12-feedback",form_module:"succeed-w12-feedback-form",task_name:"Week 12 - Feedback"},
+        "succeed-w12-feedback-form":		        {url:"$H/m/library/feedback-form.html",Table:"succeed-w12-feedback",task_name:"Week 12 - Feedback"},
+
+
         "send-email-control-data":                  {url:"$H/m/library/send-email-control-data.html",   Table:"succeed-progress"},
         "send-email-treatment-data":               {url:"$H/m/library/send-email-treatment-data.html",   Table:"succeed-progress"},
         "send-email":                       {url:"$H/m/library/send-email-form.html",   Table:"succeed-progress", task_name:"Send Email"},

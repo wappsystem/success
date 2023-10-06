@@ -9,7 +9,7 @@
             //-------------------------------------
             $('#title__ID').text('Participants');            
             //-------------------------------------
-            var fields="_Participant_ID,Screening_Number,Randomisation_Number,Group,Access Code - SleepIO|access_code,CANTAB link|cantab_link,_Data_Entry,_Informed_consent,_Baseline_Questionnaire,_Week_12_Questionnaire,_Login_ID,_Password";
+            var fields="_Participant_ID,Screening_Number,Randomisation_Number,Group,Access Code - SleepIO|access_code,CANTAB link|cantab_link,_Data_Entry,_Informed_consent,_Baseline_Questionnaire,_Week_12_Questionnaire,_Consent_w12,_Feedback_w12,_Login_ID,_Password";
             m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
@@ -81,6 +81,30 @@
                             var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
                             var u="?username="+records[I].UID+"-"+records[I].Data.Screening_Number+"&password="+records[I].Data._Password;
                             var q_url=$vm.module_list[m.oq_w12_questionnaire].url+u+db+d+p;
+    						window.open(q_url);
+                        });
+                        break;
+                        case '_Consent_w12':
+                        //MongoDB
+                        td.html("<u style='cursor:pointer'>Consent w12</u>");
+                        td.find('u').on('click',function(){
+                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+                            var u="?username="+records[I].UID+"-"+records[I].Data.Screening_Number+"&password="+records[I].Data._Password;
+                            var q_url=$vm.module_list[m.oq_w12_consent].url+u+db+d+p;
+    						window.open(q_url);
+                        });
+                        break;
+                        case '_Feedback_w12':
+                        //MongoDB
+                        td.html("<u style='cursor:pointer'>Feedback w12</u>");
+                        td.find('u').on('click',function(){
+                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+                            var u="?username="+records[I].UID+"-"+records[I].Data.Screening_Number+"&password="+records[I].Data._Password;
+                            var q_url=$vm.module_list[m.oq_w12_feedback].url+u+db+d+p;
     						window.open(q_url);
                         });
                         break;

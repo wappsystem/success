@@ -216,6 +216,7 @@ m.export_records=function(){
     $vm.request(req,function(N,i,txt){
         console.log(i+"/"+N);
         $('#msg__ID').text((100*i/N).toFixed(0)+"%");
+        console.log(txt)
         if(i==-1){
             var len=txt.length;
             var n_txt="["+txt.substring(5,len-9)+"]";
