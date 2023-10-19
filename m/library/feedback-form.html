@@ -73,7 +73,7 @@
                                     <label><span class="">2. How would you rate your experience with CANTAB?</span></label>
                                     <fieldset class="pl-4">
                                         <label class="radiobuttons">Very poor
-                                            <input type="radio" name="experience_cantab" value="0" required>
+                                            <input type="radio" name="experience_cantab" value="0" >
                                             <span class="checkmark"></span>
                                         </label><br>
                                         <label class="radiobuttons">Poor
@@ -213,11 +213,27 @@
             var load2 = m.load;
             m.load = function () {
                 load2();
+                console.log("BBB: "+ $('#F__ID input[name=complete_cantab]:checked').val())
+                if( $('#F__ID input[name=complete_cantab]:checked').val()=='0' || $('#F__ID input[name=complete_cantab]:checked').val()==undefined ){
+                    $('#F__ID input[name=experience_cantab]').removeAttr('required');
+                }
+                else{
+                    $('#F__ID input[name=experience_cantab]').prop('required', 'true');
+                }
                 if ( $('[type="date"]').prop('type') != 'date' ) {
                     $('[type="date"]').datepicker();
                 }
             }
             //-------------------------------------
+            $("#F__ID input[name=complete_cantab]").on('change', function () {
+                console.log("AAA")
+                if( $('#F__ID input[name=complete_cantab]:checked').val()=='0'){
+                    $('#F__ID input[name=experience_cantab]').removeAttr('required');
+                }
+                else{
+                    $('#F__ID input[name=experience_cantab]').prop('required', 'true');
+                }
+            });
 
         }
     </script>
