@@ -5,12 +5,13 @@
 <script>
     function F__ID(){
         //-------------------------------------
-        VmInclude:__COMPONENT__/g/grid.01.js
-        VmInclude:__CURRENT_PATH__/shared-data.js
+        VmInclude:__HOST__/assets/js/grid.01.js       
+        VmInclude:__HOST__/assets/js/shared-data.js
         //-------------------------------------
         $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
         //-------------------------------------
         var fields="moca_total_score";
+        //var export_fields="moca_total_score,_Participant_ID,Participant,"+fields;
         m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
     }

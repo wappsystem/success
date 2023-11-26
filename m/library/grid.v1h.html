@@ -14,7 +14,13 @@
 	            <button id=n__ID type=button class="btn btn-secondary btn-sm" title="Next page"><i class="fa fa-arrow-right"></i></button>
 		</div>
 		<div id=import_export_section__ID class="col-sm _col-lg-3 form-inline">
-			<button id=export__ID type=button class="btn btn-secondary btn-sm" title=Export><i class="fa fa-download" ></i></button>
+            <div style="padding-right: 10px;">
+                <label class="checkboxes">Export including all screened participants
+                    <input type="checkbox" id="export_screened__ID">
+                    <span class="check_checkmark"></span>
+                </label>
+            </div>
+            <button id=export__ID type=button class="btn btn-secondary btn-sm" title=Export><i class="fa fa-download" ></i></button>
 			<button id=import__ID type=button class="btn btn-secondary btn-sm" title=Import><i class="fa fa-upload" ></i></button>
 			<input id=Import_f__ID type=file style='display:none' />
 	</div>
@@ -84,5 +90,21 @@
         overflow:auto;
     }
     VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    #D__ID .check_checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #be3737;
+    border-radius: 0%;
+}
+#D__ID .check_checkmark:after {
+    top: 0px;
+    left: 6px;
+    color:white;
+    content:"✔";
+}
+
 </style>
 VmInclude:__COMPONENT__/m/modal.01.html
