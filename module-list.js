@@ -36,6 +36,9 @@
         "notes-data":  	                    {url:"$H/m/library/notes-data.html",Table:"succeed-notes",form_module:"notes-form"},
         "notes-form":  	                    {url:"$H/m/library/notes-form.html",Table:"succeed-notes"},
 
+        "file-notes-data":{url:"$H/m/library/file-notes-data.html",Table:"succeed-file-notes",form_module:"file-notes-form",task_name:"Unscheduled - File Notes"},
+        "file-notes-form":{url:"$H/m/library/file-notes-form.html",Table:"succeed-file-notes",task_name:"Unscheduled - File Notes"},
+
         "panel-main-recruitment":    			{url:"$H/m/library/recruitment-all-data.html",Table:"succeed-survey-record"},
         "panel-main-recruitment-eligible":     {url:"$H/m/library/recruitment-eligible-data.html",Table:"succeed-survey-record"},
         "panel-main-recruitment-non-eligible": {url:"$H/m/library/recruitment-non-eligible-data.html",Table:"succeed-survey-record"},
@@ -94,8 +97,8 @@
         "succeed-bl-bc-cci-form":		            {url:"$H/m/library/bc-cci-form.html",Table:"succeed-bl-bc-cci",task_name:"Baseline - British Columbia Cognitive Complaints Inventory (BC-CCI)",progress:"bl-5"},
         "succeed-bl-eq-5d-data":		            {url:"$H/m/library/eq-5d-data.html",Table:"succeed-bl-eq-5d",form_module:"succeed-bl-eq-5d-form",task_name:"Baseline - Quality of life (EuroQol)"},
         "succeed-bl-eq-5d-form":		            {url:"$H/m/library/eq-5d-form.html",Table:"succeed-bl-eq-5d",task_name:"Baseline - Quality of life (EuroQol)",progress:"bl-6"},
-        "succeed-bl-cantab-data":		            {url:"$H/m/library/cantab-data.html",Table:"succeed-bl-cantab",form_module:"succeed-bl-cantab-form",task_name:"Baseline - CANTAB"},
-        "succeed-bl-cantab-form":		            {url:"$H/m/library/cantab-form.html",Table:"succeed-bl-cantab",task_name:"Baseline - CANTAB"},
+        "succeed-bl-cantab-data":		            {url:"$H/m/library/cantab-2-data.html",Table:"succeed-bl-cantab",form_module:"succeed-bl-cantab-form",task_name:"Baseline - CANTAB"},
+        "succeed-bl-cantab-form":		            {url:"$H/m/library/cantab-bl-form.html",Table:"succeed-bl-cantab",task_name:"Baseline - CANTAB"},
 
         "succeed-w12-isi-data":		            {url:"$H/m/library/isi-data.html",Table:"succeed-w12-isi",form_module:"succeed-w12-isi-form",task_name:"Week 12 - Insomnia Severity Index (ISI)"},
         "succeed-w12-isi-form":		            {url:"$H/m/library/isi-form.html",Table:"succeed-w12-isi",task_name:"Week 12 - Insomnia Severity Index (ISI)",progress:"w12-11"},
@@ -111,8 +114,8 @@
         "succeed-w12-psqi-form":		            {url:"$H/m/library/psqi-form.html",Table:"succeed-w12-psqi",task_name:"Week 12 - Pittsburgh Sleep Quality Index (PSQI)",progress:"w12-13"},
         "succeed-w12-aec-data":		            {url:"$H/m/library/aec-data.html",Table:"succeed-w12-aec",form_module:"succeed-w12-aec-form",task_name:"Week 12 - Adverse event checklist"},
         "succeed-w12-aec-form":		            {url:"$H/m/library/aec-form.html",Table:"succeed-w12-aec",task_name:"Week 12 - Adverse event checklist",progress:"w12-18"},
-        "succeed-w12-cantab-data":		            {url:"$H/m/library/cantab-data.html",Table:"succeed-w12-cantab",form_module:"succeed-w12-cantab-form",task_name:"Week 12 - CANTAB"},
-        "succeed-w12-cantab-form":		            {url:"$H/m/library/cantab-form.html",Table:"succeed-w12-cantab",task_name:"Week 12 - CANTAB"},
+        "succeed-w12-cantab-data":		            {url:"$H/m/library/cantab-2-data.html",Table:"succeed-w12-cantab",form_module:"succeed-w12-cantab-form",task_name:"Week 12 - CANTAB"},
+        "succeed-w12-cantab-form":		            {url:"$H/m/library/cantab-w12-form.html",Table:"succeed-w12-cantab",task_name:"Week 12 - CANTAB"},
         "succeed-w12-uessf-data":		            {url:"$H/m/library/uessf-data.html",Table:"succeed-w12-uessf",form_module:"succeed-w12-uessf-form",task_name:"Week 12 - User Engagement Scale Short Form"},
         "succeed-w12-uessf-form":		            {url:"$H/m/library/uessf-form.html",Table:"succeed-w12-uessf",task_name:"Week 12 - User Engagement Scale Short Form",progress:"w12-17"},
 

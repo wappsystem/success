@@ -1,0 +1,24 @@
+<section>
+    VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+    function F__ID() {
+        //-------------------------------------
+        VmInclude: __COMPONENT__/g/grid.01.js
+        VmInclude: __CURRENT_PATH__/shared-data.js
+        //-------------------------------------
+        $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+        //-------------------------------------
+        var dyn_fields = "cantab_number,PALTEA28,PALTA28,PALFAMS28,PALMETS28,PALNPR28,PALTEA2,PALTEA4,PALTEA6,PALTEA8,PALTEA12,PALTE28,PALTE2,PALTE4,PALTE6,PALTE8,PALTE12,PALTA2,PALTA4,PALTA6,PALTA8,PALTA12,RVPML,RVPMDL,RVPLSD,RVPA,RVPTH,RVPTFA,RVPPH,RVPPFA,RVPTM,IEDEPRE,IEDEEDS,IEDYERT,IEDYERTA,IEDECS,IEDES1,IEDES2,IEDES3,IEDES4,IEDES5,IEDES6,IEDES7,IEDES8,IEDES9,IEDYCOST,IEDTT,IEDTTA,IEDTTS1,IEDTTS2,IEDTTS3,IEDTTS4,IEDTTS5,IEDTTS6,IEDTTS7,IEDTTS8,IEDTTS9,IEDYSTCO,IEDTL,IEDTLS1,IEDTLS2,IEDTLS3,IEDTLS4,IEDTLS5,IEDTLS6,IEDTLS7,IEDTLS8,IEDTLS9";
+        m.fields = "_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant," + dyn_fields + ",Submit_date,Submitted_by,_Delete";
+        //m.fields_e = "Participant_uid,Visit,Timepoint,KDT_Test_No_EDF_File_Name,EO1_ScE_i,EC_ScE_i,EO2_ScE_i,All_ScE_i,Ave_EOs_ScE_i,EO1_Delta_i,EO1_Theta_i,EO1_Alpha_i,EO1_Sigma_i,EO1_Beta_i,EC_Delta_i,EC_Theta_i,EC_Alpha_i,EC_Sigma_i,EC_Beta_i,EO2_Delta_i,EO2_Theta_i,EO2_Alpha_i,EO2_Sigma_i,EO2_Beta_i,All_Delta_i,All_Theta_i,All_Alpha_i,All_Sigma_i,All_Beta_i,Ave_EOs_Delta_i,Ave_EOs_Theta_i,Ave_EOs_Alpha_i,Ave_EOs_Sigma_i,Ave_EOs_Beta_i";
+        //-------------------------------------
+        m.load=function(){
+        $vm.dyn_fields=dyn_fields;
+      }
+
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

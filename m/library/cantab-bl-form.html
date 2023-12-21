@@ -1,0 +1,195 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id=title__ID></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID" >
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+							<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+							<hr>
+                            <!-- Form Inputs-------------------------------------->
+                            <!-- Question and Answerset -->
+							<div class="row px-4">
+								<div class='col'>
+								   <span>File</span>
+								   <div class="form-control">
+									   <u style='cursor:pointer' id=link_File_Name__ID></u>
+									   <br>
+									   <input type="file" name=File_Name style="margin-top:6px" /> &nbsp&nbsp&nbsp <button type="button" id=x_File_Name__ID>Remove</button>
+								   </div>
+                                </div>
+                            </div>
+							<hr>
+                            <div  class="form-group"><label><span class="">Select participant</span><select id="rowSelector" class="form-control"></select></label></div>
+							<div id=dynamic_part__ID></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID() {
+            //-------------------------------------
+            VmInclude: '__COMPONENT__/f/form.01.js'
+            VmInclude: '__CURRENT_PATH__/shared-form.js'
+            //-------------------------------------
+            var load2=m.load;
+			m.load=function(){
+				load2();
+				$('#title__ID').html($vm.module_list[$vm.vm['__ID'].name].task_name);
+				
+				var fs=$vm.dyn_fields.split(',');
+				var txt="";
+				var ic=0;
+				for(ic=0;ic<fs.length;ic++){
+					if(ic%4==0){
+						txt+='<div class="row px-4">\r\n';
+						//txt+='<div class="questiongroup ">\r\n';
+						//txt+='<fieldset class="subquestions">\r\n';
+					}
+					txt+='<div class="col-sm-12 col-lg-3"><label> <span>'+fs[ic].replace(/_/g,' ')+'</span>\r\n';
+					txt+='<input class="form-control" type="text" name="'+fs[ic]+'" >\r\n';
+					txt+='</label></div>\r\n';
+					if(ic%4==3){
+						txt+='</div>\r\n';
+					}
+				}
+				if(ic%4!=3){
+					txt+='</div>\r\n';
+				}
+				$('#dynamic_part__ID').html(txt);
+//				if(m.input.record!=undefined){
+//					$('#record__ID').val(m.input.record.UID)
+//				}
+				if(m.input.readonly!=undefined) $('#submit__ID').hide();
+				//render_file_field_v2(m.input.record,'__ID',$('#File_Name__ID'));
+				m.set_file_link("File_Name");
+			}
+			//-------------------------------------
+            var varNames;
+            var varValues = Array();
+            //-------------------------------------
+            $('#F__ID input[name=File_Name]').on('change', function (evt) {
+                if (this.files.length == 1) {
+                    console.log("File Process")
+                    file_process(this.files[0])
+                }
+            });
+            $('#rowSelector').on('change', function (evt) {
+                var selectRow = $('#rowSelector').val() - 1;
+                console.log('row changed:' + selectRow)
+                //console.log(varValues);
+                // Store the value of each variable in the form-input field
+                for (var v = 0; v < varNames.length; v++) {                  
+                    $('#F__ID input[name="' + varNames[v] + '"]').val(varValues[selectRow][v]);
+                    //console.log("NAME: "+ varNames[v]+"VALUES: "+varValues[selectRow][v])
+                }
+            });
+
+            function parseVariableName(str) {
+                str = str.replace(/[^\w\s]/gi, ''); // String may not contain special characters
+                str = str.trim(); // Trim any <space> characters from start or end of string
+                str = str.replace(/^\d+\s*/, ''); // String cannot start with numbers
+                str = str.split(' ').join('_'); // Join any remaining bits of string with underscores
+                str = str.replace('bl_','');
+                console.log("String: "+str)
+                return str;
+            }
+
+            //-------------------------------------
+            // File reader function
+            var file_process = function (file) {
+                console.log('File function')
+                // Create a new file reader and on loading a file -> run
+                var reader = new FileReader();
+                reader.onload = (function (e) {
+
+                    ///////////////////////////////////////////////////////////////////////////////
+                    // MANUAL EDIT REQUIRED HERE 
+                    // Specify whether the variabels are listed as rows (false) or as columns (true)
+                    // Specify the delimiter
+                    var columnWise = true;
+                    var delimiter = ',';
+                    var startRow = 0;
+
+                    // Get contents
+                    var contents = e.target.result;
+                    //console.log("CONTENT: "+contents)
+                    // Split the contents into rows based on the new-line character '\n'
+                    var rows = contents.replace(/"/g, '').replace(/\r/, '\n').replace(/\n\n/, '\n').split('\n');
+                    var optionsHTML = "<option value='na'>Select a row...</option>";
+                    for (var r = startRow; r < rows.length - 1; r++) {
+                        var row = rows[r].split(delimiter);
+                        console.log("vvv: "+row[0])
+                        //varValues[r] = row[0];
+                        optionsHTML += "<option value='" + (r - startRow) + "'>" + row[0] +
+                            "</option>";
+                    }
+                    $('#rowSelector').html(optionsHTML);
+
+                    // Extract the data
+                    if (columnWise) { // Column-wise
+                        for (var r = startRow; r < rows.length; r++) {
+                            // The first row contains all variable names
+                            if (r == startRow) {
+                                varNames = rows[r].split(delimiter);
+                                //console.log("Variables: "+JSON.stringify(varNames))
+                                // Replace any <space> or other special character
+                                for (v = 0; v < varNames.length; v++) {
+                                    varNames[v] = parseVariableName(varNames[v]);
+                                }
+                            } else {
+                                // The subsequent rows contains the values
+                                varValues[r - 1 - startRow] = rows[r].split(delimiter);
+                                //console.log("Values: "+JSON.stringify( varValues[r - 1 - startRow]))
+                            }
+                        }
+                    } else { // Row-wise
+                        // Initialize the varNames and varValue arrays
+                        varNames = Array();
+                        varValues = Array();
+                        // For each row, extract the variable name and value, and store in the form-input field.
+                        for (var r = 0; r < rows.length; r++) {
+                            // Split the variable name and value pair based on the delimiter
+                            var row = rows[r].split(delimiter);
+                            varNames[r] = parseVariableName(varNames[r]);
+                            varValues[r] = row[1]
+                            // Store the value of each variable in the form-input field
+                            //console.log(r+' - '+varNames[r])
+                            $('#F__ID input[name="' + varNames[r] + '"]').val(varValues[r]);
+                        }
+                    }
+                    //console.log(varNames.join());
+                });
+                reader.readAsText(file);
+            }
+        }
+      //------------------------------------
+    </script>
+    <style>
+        #D__ID .mt-95 {
+            max-width: 800px;
+        }
+       VmInclude:__CURRENT_PATH__/wappsystem-form.css
+    </style>
+</div>
